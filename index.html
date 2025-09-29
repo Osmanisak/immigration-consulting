@@ -22,17 +22,19 @@
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e6f7f3,#d6ecff);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:#2563eb}
   .meta h1{font-size:18px;margin:0;line-height:1}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
+  .tagline{font-size:13px;font-weight:700;color:#10b981}
   nav a{margin-left:18px;font-weight:600}
   nav a:hover{color:#2563eb;text-decoration:underline}
 
-  /* HERO – starter med pæn gradient; JS sætter billedet */
+  /* HERO – direkte billede fra Unsplash (stabil & gratis) */
   .hero{
     position:relative;min-height:520px;
-    background:linear-gradient(135deg,#f6f8fb 0%, #eaf2ff 100%);
+    background:
+      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80')
+      center/cover no-repeat;
     display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
   }
-  .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)} /* læsbar tekst ovenpå foto */
   .slides{position:relative;z-index:2;max-width:820px;padding:20px}
   .slide{display:none;animation:fade .8s ease}
   .slide.active{display:block}
@@ -107,8 +109,7 @@
 
 <main>
   <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="overlay"></div>
+  <section class="hero">
     <div class="slides" id="slides">
       <div class="slide active">
         <h2>Arbejdstilladelser uden bøvl</h2>
@@ -120,7 +121,7 @@
       </div>
       <div class="slide">
         <h2>Gennemsigtige priser</h2>
-        <p>Faste pakker og tydelige leverancer. Ingen overraskelser – kun ro i maven.</p>
+        <p>Faste priser og tydelige leverancer. Ingen overraskelser – kun ro i maven.</p>
       </div>
     </div>
   </section>
@@ -139,7 +140,7 @@
       </div>
       <div class="point">
         <strong>Gennemsigtighed</strong>
-        <p>Faste pakker, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
+        <p>Faste priser, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
       </div>
     </div>
   </section>
@@ -154,7 +155,7 @@
           <ul class="checklist">
             <li><span class="tick">✔</span><div>Udfylder kontaktoplysninger (navn, e-mail, firma, telefon).</div></li>
             <li><span class="tick">✔</span><div>Vedhæfter kontrakt/løntilbud eller beskriver sagen kort.</div></li>
-            <li><span class="tick">✔</span><div>Godkender vores forslag til pakke og opstart.</div></li>
+            <li><span class="tick">✔</span><div>Godkender vores forslag til pris og opstart.</div></li>
           </ul>
         </div>
         <div class="card">
@@ -176,6 +177,7 @@
     </button>
 
     <div class="reveal" id="reveal">
+      <!-- Netlify Forms -->
       <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
@@ -204,27 +206,9 @@
 </footer>
 
 <script>
-  // Tekst-slider (billedet sættes separat)
+  // Tekst-slider (billedet står fast)
   const slides=document.querySelectorAll('.slide'); let i=0;
   setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
-
-  // HERO-billede loader – PRIO: to kvinder (Unsplash) → lokale alternativer → ingen grå baggrund
-  const hero = document.getElementById('hero');
-  const candidates = [
-    // Lys, læsbar scene m. to kvinder (Unsplash – offentlig og stabil)
-    'https://images.unsplash.com/photo-1529336953120-4b37d0f0b407?auto=format&fit=crop&w=1600&q=80',
-    // Lokale alternativer hvis du senere lægger egne filer i mappen
-    './women-hero.jpg',
-    './cafe-hero.jpg'
-  ];
-  (function tryLoad(i=0){
-    if(i>=candidates.length){ return; } // fallback er gradient + overlay
-    const src = candidates[i];
-    const img = new Image();
-    img.onload = ()=>{ hero.style.background = `url('${src}') center/cover no-repeat`; };
-    img.onerror = ()=> tryLoad(i+1);
-    img.src = src;
-  })();
 
   // Fold-ud formular
   const panel = document.getElementById('reveal');
