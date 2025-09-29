@@ -26,10 +26,10 @@
   nav a{margin-left:18px;font-weight:600}
   nav a:hover{color:#2563eb;text-decoration:underline}
 
-  /* HERO – brug dit nye billede */
+  /* HERO */
   .hero{
     position:relative;min-height:520px;
-    background:url('cafe-hero.jpg') center/cover no-repeat; /* <-- gem dit billede som cafe-hero.jpg */
+    background:url('./cafe-hero.jpg') center/cover no-repeat;
     display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
   }
   .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
@@ -107,8 +107,8 @@
 
 <main>
   <!-- HERO -->
-  <section class="hero">
-    <div class="overlay" aria-hidden="true"></div>
+  <section class="hero" id="hero">
+    <div class="overlay"></div>
     <div class="slides" id="slides">
       <div class="slide active">
         <h2>Arbejdstilladelser uden bøvl</h2>
@@ -144,7 +144,7 @@
     </div>
   </section>
 
-  <!-- Proces & ansvar – 3 + 3 -->
+  <!-- Proces & ansvar -->
   <section class="process">
     <div class="container">
       <h3>Proces & ansvar</h3>
@@ -176,7 +176,6 @@
     </button>
 
     <div class="reveal" id="reveal">
-      <!-- Netlify Forms -->
       <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
@@ -209,7 +208,7 @@
   const slides=document.querySelectorAll('.slide'); let i=0;
   setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
 
-  // Fold-ud formular (pil + glid)
+  // Fold-ud formular
   const panel = document.getElementById('reveal');
   const arrow = document.getElementById('arrow');
   function toggleForm(){
