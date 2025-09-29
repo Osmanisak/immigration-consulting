@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Immigration Consulting – Din genvej til arbejdstilladelse</title>
-<meta name="description" content="Arbejdstilladelser uden bøvl. Vi laver dokumenttjek, AR1/AR6 og dialogen med myndighederne. Start gratis tjek – udfyld formularen nederst på siden." />
+<meta name="description" content="Arbejdstilladelser uden bøvl. Vi laver dokumenttjek, AR1/AR6 og dialogen med myndighederne. Start gratis tjek – udfyld oplysningerne i den fold-ud formular nederst." />
 
 <style>
   :root{
@@ -40,13 +40,13 @@
   section{padding:56px 20px}
   h3{margin:0 0 14px}
 
-  /* Hvorfor-vælge-os (eksisterende bokse – røres ikke) */
+  /* Hvorfor-vælge-os (eksisterende bokse – urørte) */
   .why{text-align:center}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
   .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .point p{color:var(--muted);margin:6px 0 0}
 
-  /* NY: Trin-for-trin */
+  /* Trin-for-trin */
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
@@ -55,19 +55,27 @@
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:#10b981;display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
-  /* NY: Om os (nye bokse) */
+  /* Om os – mini bokse */
   .about .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .about .mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .about .mini strong{display:block;margin-bottom:6px}
 
-  /* Formular */
-  .cta{background:#fff}
-  .form{max-width:720px;margin:0 auto}
+  /* CTA + fold-ud formular */
+  .cta{text-align:center}
+  .reveal-btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:14px 22px;border-radius:12px;font-weight:800;
+    background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)
+  }
+  .reveal-btn .arrow{transition:transform .25s ease}
+  .reveal{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;max-height:0;transition:max-height .35s ease}
+  .reveal.open{max-height:1000px}
+  .form{padding:20px;background:#fff}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .form input,.form textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
   .form textarea{min-height:120px;resize:vertical}
-  .btn{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:var(--blue);color:#fff;border:none;cursor:pointer}
-  .muted{color:var(--muted);margin-top:8px;text-align:center}
+  .submit{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:var(--blue);color:#fff;border:none;cursor:pointer}
+  .muted{color:var(--muted);margin-top:8px}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
@@ -118,7 +126,7 @@
     </div>
   </section>
 
-  <!-- EKSISTERENDE: Hvorfor vælge os? (uændret) -->
+  <!-- Hvorfor vælge os? (uændret) -->
   <section class="why container">
     <h3>Hvorfor vælge os?</h3>
     <div class="points">
@@ -137,7 +145,7 @@
     </div>
   </section>
 
-  <!-- NY: Trin for trin – Det gør I / Det gør vi -->
+  <!-- Trin for trin – 3 skarpe hver -->
   <section class="process">
     <div class="container">
       <h3>Sådan foregår det – trin for trin</h3>
@@ -145,51 +153,58 @@
         <div class="card">
           <h4>Det gør I</h4>
           <ul class="checklist">
-            <li><span class="tick">✔</span><div>Udfylder formularen nederst med kontaktoplysninger.</div></li>
-            <li><span class="tick">✔</span><div>Uploader ansættelseskontrakt/løntilbud (hvis I har det klar).</div></li>
-            <li><span class="tick">✔</span><div>Udpeger en kontaktperson (telefon og e-mail).</div></li>
-            <li><span class="tick">✔</span><div>Godkender vores forslag til sag og pakke/pris.</div></li>
+            <li><span class="tick">✔</span><div>Udfylder kontaktoplysninger (navn, e-mail, firma, telefon).</div></li>
+            <li><span class="tick">✔</span><div>Vedhæfter kontrakt/løntilbud eller beskriver sagen kort.</div></li>
+            <li><span class="tick">✔</span><div>Godkender vores forslag til pakke og opstart.</div></li>
           </ul>
         </div>
         <div class="card">
           <h4>Det gør vi</h4>
           <ul class="checklist">
-            <li><span class="tick">✔</span><div>Tjekker kontrakt, lønkrav og bilag – sikrer korrekt dokumentation.</div></li>
-            <li><span class="tick">✔</span><div>Udfylder og indsender AR1/AR6 korrekt og rettidigt.</div></li>
-            <li><span class="tick">✔</span><div>Holder dialogen med myndighederne og følger op løbende.</div></li>
-            <li><span class="tick">✔</span><div>Sender status til jer og hjælper til afgørelse/arbejdstilladelse.</div></li>
+            <li><span class="tick">✔</span><div>Tjekker dokumenter og krav – sikrer korrekt grundlag.</div></li>
+            <li><span class="tick">✔</span><div>Udfylder og indsender AR1/AR6 samt følger op hos myndighederne.</div></li>
+            <li><span class="tick">✔</span><div>Giver status løbende frem til afgørelse/arbejdstilladelse.</div></li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- NY: Om os – korte tillidsbokse der leder mod formular -->
+  <!-- Om os – mini bokse -->
   <section class="about container">
     <h3>Om os</h3>
     <div class="grid-3">
       <div class="mini">
         <strong>+5 års erfaring</strong>
-        Erfaring med arbejdstilladelser og SIRI-processer – vi ved, hvad der virker.
+        Indgående kendskab til SIRI-processer og dokumentkrav.
       </div>
       <div class="mini">
-        <strong>Fokus på enkelhed</strong>
-        I giver os oplysningerne – vi klarer resten. Tidsbesparende for jeres team.
+        <strong>Enkelt for jer</strong>
+        I giver os info – vi klarer ansøgningen og dialogen.
       </div>
       <div class="mini">
-        <strong>Gennemsigtig pris</strong>
-        Faste pakker og klare leverancer. Ingen skjulte gebyrer.
+        <strong>Gennemsigtighed</strong>
+        Faste pakker og klare leverancer. Ingen overraskelser.
       </div>
     </div>
   </section>
 
-  <!-- NY: Kontaktformular – Start gratis tjek -->
-  <section class="cta">
-    <div class="container">
-      <h3>Start gratis tjek</h3>
-      <p class="muted" style="text-align:left;margin:6px 0 18px">Udfyld formularen – vi vender tilbage samme hverdag mellem 8–16.</p>
-      <form class="form" action="https://formspree.io/f/your-id" method="POST">
-        <!-- Byt action til jeres Formspree/Netlify Forms endpoint, eller brug mailto: hvis I vil -->
+  <!-- CTA → fold-ud formular -->
+  <section class="cta container" id="start">
+    <h3>Start gratis tjek</h3>
+    <p class="muted">Vi svarer typisk samme hverdag mellem 8–16.</p>
+    <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
+      <span class="arrow" id="arrow">▼</span> Åbn formular
+    </button>
+
+    <div class="reveal" id="reveal">
+      <!-- Netlify Forms (ændr evt. til egen backend) -->
+      <form name="gratis-tjek" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+        <input type="hidden" name="form-name" value="gratis-tjek" />
+        <p style="display:none">
+          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+        </p>
+
         <div class="row">
           <input type="text" name="navn" placeholder="Dit navn" required />
           <input type="email" name="email" placeholder="Din e-mail" required />
@@ -198,9 +213,10 @@
           <input type="text" name="firma" placeholder="Virksomhed" />
           <input type="tel" name="telefon" placeholder="Telefon" />
         </div>
-        <textarea name="besked" placeholder="Kort om sagen (stilling, startdato, nationalitet)"></textarea>
-        <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
-          <button class="btn" type="submit">Send og start gratis tjek</button>
+        <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ønsket startdato)"></textarea>
+
+        <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
+          <button class="submit" type="submit">Send og start gratis tjek</button>
           <span class="muted">Vi behandler dine oplysninger fortroligt.</span>
         </div>
       </form>
@@ -216,6 +232,19 @@
   // Tekst-slider (billedet står fast)
   const slides=document.querySelectorAll('.slide'); let i=0;
   setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
+
+  // Fold-ud formular (smidig åbne/lukke + pil rotation)
+  const panel = document.getElementById('reveal');
+  const arrow = document.getElementById('arrow');
+  function toggleForm(){
+    const isOpen = panel.classList.toggle('open');
+    arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+    // glidende auto-højde
+    panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
+    if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
+  }
+  // sikre korrekt højde ved resize
+  window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
 </script>
 </body>
 </html>
