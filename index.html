@@ -2,139 +2,200 @@
 <html lang="da">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Immigration Consulting</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Immigration Consulting – Arbejdstilladelser uden bøvl</title>
+  <meta name="description" content="Vi håndterer dokumenter, AR1/AR6 og dialogen med myndighederne — så I kan fokusere på driften. Faste priser og gennemsigtighed." />
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.6; }
-    header { background: #fff; padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    header h1 { margin: 0; font-size: 20px; color: #333; }
-    nav a { margin: 0 10px; text-decoration: none; color: #333; font-weight: bold; }
-
-    .hero {
-      background: url("cafe-hero.jpg") no-repeat center center/cover;
-      color: white;
-      height: 70vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
+    :root{
+      --ink:#0f172a; --muted:#64748b; --blue:#2563eb; --line:#e5e7eb; --soft:#f6f8fb;
     }
-    .hero h2 { font-size: 40px; margin-bottom: 10px; text-shadow: 1px 1px 4px rgba(0,0,0,0.6); }
-    .hero p { font-size: 20px; max-width: 600px; margin: auto; text-shadow: 1px 1px 3px rgba(0,0,0,0.6); }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.6}
 
-    section { padding: 40px 20px; text-align: center; }
-    h3 { margin-bottom: 20px; font-size: 24px; }
+    /* Header */
+    header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:10}
+    .nav{max-width:1060px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{font-weight:800}
+    nav a{margin-left:16px;text-decoration:none;color:var(--ink);font-weight:600}
+    nav a:hover{color:var(--blue);text-decoration:underline}
 
-    .boxes { display: flex; justify-content: center; flex-wrap: wrap; gap: 20px; }
-    .box {
-      background: #f9f9f9; border-radius: 10px; padding: 20px; width: 250px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    /* Hero – billedet + fallback-gradient */
+    .hero{
+      min-height:56vh;
+      display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;padding:40px 20px;
+      background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+        url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80')
+        center/cover no-repeat,
+        linear-gradient(135deg,#eaf2ff,#f6f8fb); /* Fallback hvis foto blokeres */
     }
-    .box h4 { margin-top: 0; }
+    .hero h1{font-size:40px;margin:0 0 10px}
+    .hero p{font-size:18px;margin:0}
 
-    .form-section {
-      background: #f4f4f4;
-      padding: 50px 20px;
-      text-align: center;
-    }
-    form { max-width: 400px; margin: auto; text-align: left; }
-    form p { margin-bottom: 15px; }
-    label { display: block; margin-bottom: 5px; font-weight: bold; }
-    input, textarea {
-      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px;
-    }
-    button {
-      background: #0077cc; color: white; padding: 12px 20px; border: none;
-      border-radius: 5px; cursor: pointer; font-size: 16px;
-    }
-    button:hover { background: #005fa3; }
+    /* Hvorfor os */
+    section{padding:56px 20px}
+    .wrap{max-width:1060px;margin:0 auto}
+    .why{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{border:1px solid var(--line);border-radius:12px;padding:18px;background:#fff;box-shadow:0 6px 18px rgba(2,6,23,.06)}
+    .card h3{margin:0 0 6px}
+    .muted{color:var(--muted)}
 
-    #success-message { display: none; color: green; margin-top: 20px; font-weight: bold; }
+    /* Proces & ansvar */
+    .process{background:var(--soft)}
+    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .tick{color:#10b981;margin-right:8px}
+    ul.check{list-style:none;margin:0;padding:0}
+    ul.check li{display:flex;align-items:flex-start;margin:10px 0}
 
-    footer { background: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+    /* CTA + formular */
+    .cta{text-align:center}
+    .btn{
+      appearance:none;border:none;border-radius:12px;padding:14px 22px;background:var(--blue);color:#fff;
+      font-weight:800;cursor:pointer;box-shadow:0 6px 16px rgba(37,99,235,.25)
+    }
+    .panel{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;overflow:hidden;max-height:0;transition:max-height .35s ease;background:#fff}
+    .panel.open{max-height:1000px}
+    form{padding:20px;text-align:left}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    input,textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+    textarea{min-height:120px;resize:vertical}
+    .success{display:none;color:#16a34a;font-weight:700;margin-top:12px}
+
+    footer{border-top:1px solid var(--line);text-align:center;padding:18px 20px;color:var(--muted)}
+    @media (max-width:900px){ .why,.grid2{grid-template-columns:1fr} .hero h1{font-size:32px}}
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Immigration Consulting</h1>
+<header>
+  <div class="nav">
+    <div class="brand">Immigration Consulting</div>
     <nav>
-      <a href="#services">Ydelser</a>
-      <a href="#pricing">Priser</a>
+      <a href="#ydelser">Ydelser</a>
+      <a href="#priser">Priser</a>
       <a href="#faq">FAQ</a>
-      <a href="#contact">Kontakt</a>
+      <a href="#kontakt">Kontakt</a>
     </nav>
-  </header>
+  </div>
+</header>
 
+<main>
+  <!-- HERO -->
   <section class="hero">
-    <div>
-      <h2>Arbejdstilladelser uden bøvl</h2>
+    <div class="wrap">
+      <h1>Arbejdstilladelser uden bøvl</h1>
       <p>Vi håndterer dokumenter, AR1/AR6 og dialogen med myndighederne — så I kan fokusere på driften.</p>
     </div>
   </section>
 
-  <section>
-    <h3>Hvorfor vælge os?</h3>
-    <div class="boxes">
-      <div class="box">
-        <h4>Korrekt første gang</h4>
-        <p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
+  <!-- Hvorfor vælge os -->
+  <section class="wrap" id="ydelser">
+    <h2 style="text-align:center;margin:0 0 14px">Hvorfor vælge os?</h2>
+    <div class="why">
+      <div class="card">
+        <h3>Korrekt første gang</h3>
+        <p class="muted">Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
       </div>
-      <div class="box">
-        <h4>Minimal indsats for jer</h4>
-        <p>Vi håndterer ansøgning og al kommunikation – jeres tid bruges på forretningen.</p>
+      <div class="card">
+        <h3>Minimal indsats for jer</h3>
+        <p class="muted">Vi håndterer ansøgning og al kommunikation – jeres tid bruges på forretningen.</p>
       </div>
-      <div class="box">
-        <h4>Gennemsigtighed</h4>
-        <p>Faste priser, klare leverancer og fuldt overblik – ingen skjulte gebyrer.</p>
+      <div class="card">
+        <h3>Gennemsigtighed</h3>
+        <p class="muted">Faste priser, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="form-section">
-    <h3>Bliv kontaktet</h3>
-    <p udfyld>Udfyld formularen, og vi vender tilbage hurtigst muligt.</p>
-    <form name="kontakt" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="kontakt" />
-      <p>
-        <label>Navn: <input type="text" name="name" required></label>
-      </p>
-      <p>
-        <label>Email: <input type="email" name="email" required></label>
-      </p>
-      <p>
-        <label>Besked: <textarea name="message" required></textarea></label>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
-    </form>
-    <div id="success-message">✅ Tak for din besked – vi vender tilbage indenfor 24 timer.</div>
+  <!-- Proces & ansvar -->
+  <section class="process">
+    <div class="wrap">
+      <h2 style="text-align:center;margin:0 0 14px">Proces & ansvar</h2>
+      <div class="grid2">
+        <div class="card">
+          <h3>Det gør I</h3>
+          <ul class="check">
+            <li><span class="tick">✔</span>Udfylder kontaktoplysninger (navn, e-mail, firma, telefon).</li>
+            <li><span class="tick">✔</span>Vedhæfter kontrakt/løntilbud eller beskriver sagen kort.</li>
+            <li><span class="tick">✔</span>Godkender vores forslag til pris og opstart.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Det gør vi</h3>
+          <ul class="check">
+            <li><span class="tick">✔</span>Tjekker dokumenter og krav – sikrer korrekt grundlag.</li>
+            <li><span class="tick">✔</span>Udfylder og indsender AR1/AR6 samt følger op hos myndighederne.</li>
+            <li><span class="tick">✔</span>Giver status løbende frem til afgørelse/arbejdstilladelse.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    © 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering
-  </footer>
+  <!-- CTA + Netlify form -->
+  <section class="wrap cta" id="kontakt">
+    <h2 style="margin:0 0 8px">Bliv kontaktet</h2>
+    <p class="muted" style="margin:0 0 8px">Udfyld formularen – vi svarer typisk samme hverdag 8–16.</p>
+    <button class="btn" onclick="togglePanel()">Åbn formular</button>
 
-  <script>
-    const form = document.querySelector("form[name=kontakt]");
-    form.addEventListener("submit", async function (e) {
-      e.preventDefault();
-      const formData = new FormData(form);
+    <div class="panel" id="panel">
+      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="netlifyForm">
+        <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
-      fetch("/", {
-        method: "POST",
-        body: new URLSearchParams(formData).toString(),
-        headers: { "Content-Type": "application/x-www-form-urlencoded" }
-      })
-      .then(() => {
-        form.style.display = "none";
-        document.getElementById("success-message").style.display = "block";
-      })
-      .catch((error) => alert("Noget gik galt, prøv igen: " + error));
-    });
-  </script>
+        <div class="row">
+          <div><label>Navn</label><input type="text" name="navn" required /></div>
+          <div><label>E-mail</label><input type="email" name="email" required /></div>
+        </div>
+        <div class="row">
+          <div><label>Virksomhed</label><input type="text" name="firma" /></div>
+          <div><label>Telefon</label><input type="tel" name="telefon" /></div>
+        </div>
+        <div style="margin-top:12px">
+          <label>Besked</label>
+          <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ønsket startdato)"></textarea>
+        </div>
 
+        <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+          <button class="btn" type="submit">Send</button>
+          <span class="muted">Vi behandler dine oplysninger fortroligt.</span>
+        </div>
+        <div class="success" id="successMsg">✅ Tak! Din henvendelse er modtaget. Vi vender tilbage hurtigst muligt.</div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering
+</footer>
+
+<script>
+  // Åbn/luk formular-panel
+  const panel = document.getElementById('panel');
+  function togglePanel(){
+    panel.classList.toggle('open');
+    if(panel.classList.contains('open')) panel.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  // Netlify submit uden redirect (ingen 404)
+  const form = document.getElementById('netlifyForm');
+  const success = document.getElementById('successMsg');
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(form);
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type':'application/x-www-form-urlencoded'},
+      body: new URLSearchParams(data).toString()
+    })
+    .then(() => {
+      success.style.display = 'block';
+      form.querySelector('button[type="submit"]').disabled = true;
+    })
+    .catch(err => alert('Noget gik galt – prøv igen: ' + err));
+  });
+</script>
 </body>
 </html>
