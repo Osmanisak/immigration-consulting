@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Immigration Consulting – Din genvej til arbejdstilladelse</title>
-<meta name="description" content="Arbejdstilladelser uden bøvl. Vi laver dokumenttjek, AR1/AR6 og dialogen med myndighederne. Udfyld formularen nederst – vi kontakter jer samme hverdag 8–16." />
+<meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer dokumenttjek, AR1/AR6 og dialogen med myndighederne. Udfyld formularen – vi kontakter jer samme hverdag 8–16." />
 
 <style>
   :root{
@@ -26,10 +26,10 @@
   nav a{margin-left:18px;font-weight:600}
   nav a:hover{color:#2563eb;text-decoration:underline}
 
-  /* HERO (fast læsbart billede, kun tekst-slides) */
+  /* HERO – brug dit nye billede */
   .hero{
     position:relative;min-height:520px;
-    background:url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    background:url('cafe-hero.jpg') center/cover no-repeat; /* <-- gem dit billede som cafe-hero.jpg */
     display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
   }
   .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
@@ -44,7 +44,7 @@
   section{padding:56px 20px}
   h3{margin:0 0 14px}
 
-  /* Hvorfor-vælge-os (uændret) */
+  /* Hvorfor vælge os? */
   .why{text-align:center}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
   .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
@@ -58,11 +58,6 @@
   .checklist{list-style:none;padding:0;margin:0}
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:#10b981;display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
-
-  /* Om os – mini bokse */
-  .about .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .about .mini{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .about .mini strong{display:block;margin-bottom:6px}
 
   /* CTA + fold-ud formular */
   .cta{text-align:center}
@@ -86,7 +81,7 @@
   /* Responsive */
   @media (max-width:900px){
     .slides h2{font-size:30px}
-    .points,.grid-2,.about .grid-3{grid-template-columns:1fr}
+    .points,.grid-2{grid-template-columns:1fr}
   }
 </style>
 </head>
@@ -130,7 +125,7 @@
     </div>
   </section>
 
-  <!-- Hvorfor vælge os? (uændret) -->
+  <!-- Hvorfor vælge os? -->
   <section class="why container">
     <h3>Hvorfor vælge os?</h3>
     <div class="points">
@@ -139,17 +134,17 @@
         <p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
       </div>
       <div class="point">
-        <strong>Tid tilbage til drift</strong>
-        <p>Vi tager ansøgning og kommunikation – I bruger tiden på jeres forretning.</p>
+        <strong>Minimal indsats for jer</strong>
+        <p>Vi håndterer ansøgning og al kommunikation – jeres tid bruges på forretningen.</p>
       </div>
       <div class="point">
-        <strong>Klar pris</strong>
-        <p>Faste pakker og gennemsigtighed. Ingen skjulte gebyrer.</p>
+        <strong>Gennemsigtighed</strong>
+        <p>Faste pakker, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
       </div>
     </div>
   </section>
 
-  <!-- Proces & ansvar – 3 skarpe hver -->
+  <!-- Proces & ansvar – 3 + 3 -->
   <section class="process">
     <div class="container">
       <h3>Proces & ansvar</h3>
@@ -174,31 +169,10 @@
     </div>
   </section>
 
-  <!-- Om os – mini bokse -->
-  <section class="about container">
-    <h3>Om os</h3>
-    <div class="grid-3">
-      <div class="mini">
-        <strong>+5 års erfaring</strong>
-        Indgående kendskab til SIRI-processer og dokumentkrav.
-      </div>
-      <div class="mini">
-        <strong>Enkelt for jer</strong>
-        I giver os info – vi klarer ansøgningen og dialogen.
-      </div>
-      <div class="mini">
-        <strong>Gennemsigtighed</strong>
-        Faste pakker og klare leverancer. Ingen overraskelser.
-      </div>
-    </div>
-  </section>
-
   <!-- CTA → fold-ud formular -->
   <section class="cta container" id="start">
-    <h3>Kontakt</h3>
-    <p class="muted">Vi svarer typisk samme hverdag mellem 8–16.</p>
     <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
-      <span class="arrow" id="arrow">▼</span> Bliv kontaktet – åbn formular
+      <span class="arrow" id="arrow">▼</span> Bliv kontaktet
     </button>
 
     <div class="reveal" id="reveal">
@@ -219,7 +193,7 @@
 
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
           <button class="submit" type="submit">Send</button>
-          <span class="muted">Vi behandler dine oplysninger fortroligt.</span>
+          <span class="muted">Vi svarer typisk samme hverdag 8–16.</span>
         </div>
       </form>
     </div>
