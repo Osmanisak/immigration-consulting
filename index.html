@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Immigration Consulting – Din genvej til arbejdstilladelse</title>
-<meta name="description" content="Arbejdstilladelser uden bøvl. Vi laver dokumenttjek, AR1/AR6 og dialogen med myndighederne. Start gratis tjek – udfyld oplysningerne i den fold-ud formular nederst." />
+<meta name="description" content="Arbejdstilladelser uden bøvl. Vi laver dokumenttjek, AR1/AR6 og dialogen med myndighederne. Udfyld formularen nederst – vi kontakter jer samme hverdag 8–16." />
 
 <style>
   :root{
@@ -24,11 +24,15 @@
   .meta h1{font-size:18px;margin:0;line-height:1}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
   nav a{margin-left:18px;font-weight:600}
-  nav a:hover{color:var(--blue);text-decoration:underline}
+  nav a:hover{color:#2563eb;text-decoration:underline}
 
-  /* HERO (fast billede, kun tekst-slides) */
-  .hero{position:relative;min-height:520px;background:url('work-permit-application-on-a-table-P83R7M.jpg') center/cover no-repeat;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff}
-  .overlay{position:absolute;inset:0;background:rgba(0,0,0,.5)}
+  /* HERO (fast læsbart billede, kun tekst-slides) */
+  .hero{
+    position:relative;min-height:520px;
+    background:url('https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
+  }
+  .overlay{position:absolute;inset:0;background:rgba(0,0,0,.45)}
   .slides{position:relative;z-index:2;max-width:820px;padding:20px}
   .slide{display:none;animation:fade .8s ease}
   .slide.active{display:block}
@@ -40,17 +44,17 @@
   section{padding:56px 20px}
   h3{margin:0 0 14px}
 
-  /* Hvorfor-vælge-os (eksisterende bokse – urørte) */
+  /* Hvorfor-vælge-os (uændret) */
   .why{text-align:center}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
   .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .point p{color:var(--muted);margin:6px 0 0}
 
-  /* Trin-for-trin */
+  /* Proces & ansvar (3 + 3) */
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
-  .card h4{margin:0 0 10px;color:var(--blue)}
+  .card h4{margin:0 0 10px;color:#2563eb}
   .checklist{list-style:none;padding:0;margin:0}
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:#10b981;display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
@@ -65,7 +69,7 @@
   .reveal-btn{
     display:inline-flex;align-items:center;gap:8px;
     padding:14px 22px;border-radius:12px;font-weight:800;
-    background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)
+    background:#2563eb;color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)
   }
   .reveal-btn .arrow{transition:transform .25s ease}
   .reveal{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;max-height:0;transition:max-height .35s ease}
@@ -74,7 +78,7 @@
   .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .form input,.form textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
   .form textarea{min-height:120px;resize:vertical}
-  .submit{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:var(--blue);color:#fff;border:none;cursor:pointer}
+  .submit{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:#2563eb;color:#fff;border:none;cursor:pointer}
   .muted{color:var(--muted);margin-top:8px}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
@@ -145,10 +149,10 @@
     </div>
   </section>
 
-  <!-- Trin for trin – 3 skarpe hver -->
+  <!-- Proces & ansvar – 3 skarpe hver -->
   <section class="process">
     <div class="container">
-      <h3>Sådan foregår det – trin for trin</h3>
+      <h3>Proces & ansvar</h3>
       <div class="grid-2">
         <div class="card">
           <h4>Det gør I</h4>
@@ -191,19 +195,17 @@
 
   <!-- CTA → fold-ud formular -->
   <section class="cta container" id="start">
-    <h3>Start gratis tjek</h3>
+    <h3>Kontakt</h3>
     <p class="muted">Vi svarer typisk samme hverdag mellem 8–16.</p>
     <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
-      <span class="arrow" id="arrow">▼</span> Åbn formular
+      <span class="arrow" id="arrow">▼</span> Bliv kontaktet – åbn formular
     </button>
 
     <div class="reveal" id="reveal">
-      <!-- Netlify Forms (ændr evt. til egen backend) -->
-      <form name="gratis-tjek" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
-        <input type="hidden" name="form-name" value="gratis-tjek" />
-        <p style="display:none">
-          <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-        </p>
+      <!-- Netlify Forms -->
+      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+        <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
         <div class="row">
           <input type="text" name="navn" placeholder="Dit navn" required />
@@ -216,7 +218,7 @@
         <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ønsket startdato)"></textarea>
 
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
-          <button class="submit" type="submit">Send og start gratis tjek</button>
+          <button class="submit" type="submit">Send</button>
           <span class="muted">Vi behandler dine oplysninger fortroligt.</span>
         </div>
       </form>
@@ -233,17 +235,15 @@
   const slides=document.querySelectorAll('.slide'); let i=0;
   setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
 
-  // Fold-ud formular (smidig åbne/lukke + pil rotation)
+  // Fold-ud formular (pil + glid)
   const panel = document.getElementById('reveal');
   const arrow = document.getElementById('arrow');
   function toggleForm(){
     const isOpen = panel.classList.toggle('open');
     arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    // glidende auto-højde
     panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
     if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
-  // sikre korrekt højde ved resize
   window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
 </script>
 </body>
