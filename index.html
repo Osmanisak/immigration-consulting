@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Immigration Consulting – Din genvej til arbejdstilladelse</title>
-<meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer dokumenttjek, AR1/AR6 og dialogen med myndighederne. Udfyld formularen – vi kontakter jer samme hverdag 8–16." />
+<meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer dokumenttjek, AR1/AR3/AR6/AR7 og dialogen med myndighederne. Udfyld formularen – vi kontakter jer samme hverdag 8–16." />
 
 <style>
   :root{
@@ -17,33 +17,16 @@
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
   /* Header */
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:50}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:20}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e6f7f3,#d6ecff);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:#2563eb}
   .meta h1{font-size:18px;margin:0;line-height:1}
   .tagline{font-size:13px;font-weight:700;color:#10b981}
+  nav a{margin-left:18px;font-weight:600}
+  nav a:hover{color:#2563eb;text-decoration:underline}
 
-  /* Desktop nav */
-  nav.primary{display:flex;gap:18px;font-weight:600}
-  nav.primary a:hover{color:#2563eb;text-decoration:underline}
-
-  /* Mobile menu */
-  .menu-btn{display:none;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
-  .menu-btn svg{width:22px;height:22px}
-  .mobile-drawer{
-    position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);
-    transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px
-  }
-  .mobile-drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
-  .backdrop{
-    position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55
-  }
-  .backdrop.show{opacity:1;pointer-events:auto}
-
-  /* HERO – direkte billede fra Unsplash (stabil & gratis) */
+  /* HERO */
   .hero{
     position:relative;min-height:520px;
     background:
@@ -65,11 +48,13 @@
 
   /* Hvorfor vælge os? */
   .why{text-align:center}
+  .why h3{font-size:30px;font-weight:800;margin-bottom:28px}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
-  .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .point p{color:var(--muted);margin:6px 0 0}
+  .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
+  .point strong{font-size:18px}
+  .point p{color:var(--muted);margin:6px 0 0;font-size:15px;line-height:1.5}
 
-  /* Proces & ansvar (3 + 3) */
+  /* Proces & ansvar */
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
@@ -78,12 +63,7 @@
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:#10b981;display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
-  /* Om os + målgrupper */
-  .about{background:#fff}
-  .pillbar{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
-  .pill{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#f8fafc;font-weight:700}
-
-  /* CTA + fold-ud formular */
+  /* CTA + form */
   .cta{text-align:center}
   .reveal-btn{
     display:inline-flex;align-items:center;gap:8px;
@@ -100,24 +80,11 @@
   .submit{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:#2563eb;color:#fff;border:none;cursor:pointer}
   .muted{color:var(--muted);margin-top:8px}
 
-  /* Succesbanner */
-  .success-wrap{display:none;margin-top:12px}
-  .success-banner{
-    background:#ecfdf5;border:1px solid #10b981;color:#065f46;
-    padding:16px;border-radius:12px;text-align:center;font-weight:800;
-    box-shadow:0 6px 16px rgba(16,185,129,.15)
-  }
-  .success-actions{display:flex;gap:10px;justify-content:center;margin-top:10px}
-  .success-actions .btn{background:#065f46;color:#fff;border:none;border-radius:10px;padding:10px 14px;cursor:pointer}
-
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
-  /* Responsive */
   @media (max-width:900px){
     .slides h2{font-size:30px}
     .points,.grid-2{grid-template-columns:1fr}
-    nav.primary{display:none}
-    .menu-btn{display:block}
   }
 </style>
 </head>
@@ -132,34 +99,14 @@
         <div class="tagline">Din genvej til arbejdstilladelse</div>
       </div>
     </a>
-    <nav class="primary" aria-label="Primær navigation">
-      <a href="#ydelser">Ydelser</a>
-      <a href="#priser">Priser</a>
-      <a href="#faq">FAQ</a>
-      <a href="#om-os">Om os</a>
-      <a href="#start">Kontakt</a>
+    <nav>
+      <a href="ydelser.html">Ydelser</a>
+      <a href="priser.html">Priser</a>
+      <a href="faq.html">FAQ</a>
+      <a href="kontakt.html">Kontakt</a>
     </nav>
-    <button class="menu-btn" id="menuBtn" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
   </div>
 </header>
-
-<!-- Mobile drawer -->
-<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
-  <div class="drawer-head">
-    <strong>Menu</strong>
-    <button class="menu-btn" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
-  </div>
-  <nav class="drawer-links">
-    <a href="#ydelser" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="#priser" onclick="toggleDrawer(false)">Priser</a>
-    <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
-    <a href="#om-os" onclick="toggleDrawer(false)">Om os</a>
-    <a href="#start" onclick="toggleDrawer(false)">Kontakt</a>
-  </nav>
-</aside>
 
 <main>
   <!-- HERO -->
@@ -167,7 +114,7 @@
     <div class="slides" id="slides">
       <div class="slide active">
         <h2>Arbejdstilladelser uden bøvl</h2>
-        <p>Vi håndterer dokumenter, AR1/AR6 og dialogen med myndighederne — så I kan fokusere på driften.</p>
+        <p>Vi håndterer dokumenter, AR1/AR3/AR6/AR7 og dialogen med myndighederne — så I kan fokusere på driften.</p>
       </div>
       <div class="slide">
         <h2>Hurtigere ansættelser</h2>
@@ -181,7 +128,7 @@
   </section>
 
   <!-- Hvorfor vælge os? -->
-  <section class="why container" id="ydelser">
+  <section class="why container">
     <h3>Hvorfor vælge os?</h3>
     <div class="points">
       <div class="point">
@@ -190,7 +137,7 @@
       </div>
       <div class="point">
         <strong>Minimal indsats for jer</strong>
-        <p>Vi håndterer ansøgning og al kommunikation – jeres tid bruges på forretningen.</p>
+        <p>Vi håndterer ansøgning, genansøgninger (AR3/AR7) og al kommunikation – jeres tid bruges på forretningen.</p>
       </div>
       <div class="point">
         <strong>Gennemsigtighed</strong>
@@ -216,7 +163,7 @@
           <h4>Det gør vi</h4>
           <ul class="checklist">
             <li><span class="tick">✔</span><div>Tjekker dokumenter og krav – sikrer korrekt grundlag.</div></li>
-            <li><span class="tick">✔</span><div>Udfylder og indsender AR1/AR6 samt følger op hos myndighederne.</div></li>
+            <li><span class="tick">✔</span><div>Udfylder og indsender AR1/AR3/AR6/AR7 samt følger op hos myndighederne.</div></li>
             <li><span class="tick">✔</span><div>Giver status løbende frem til afgørelse/arbejdstilladelse.</div></li>
           </ul>
         </div>
@@ -224,40 +171,14 @@
     </div>
   </section>
 
-  <!-- Om os / målgrupper -->
-  <section class="about">
-    <div class="container">
-      <h3 id="om-os">Om os</h3>
-      <div class="grid-2">
-        <div class="card">
-          <p>
-            Immigration Consulting er et lille, specialiseret team med +5 års myndighedsnær erfaring.
-            Vi hjælper virksomheder med korrekt og effektiv sagsbehandling af arbejdstilladelser – især under Beløbsordningerne.
-          </p>
-          <p class="muted">Vi er rådgivere (ikke advokater). Vi håndterer dokumenter, AR1/AR6 og kommunikationen med myndighederne.</p>
-        </div>
-        <div class="card">
-          <strong>Vi hjælper især:</strong>
-          <div class="pillbar" style="margin-top:8px">
-            <span class="pill">Restauranter & hoteller</span>
-            <span class="pill">Bygge & anlæg</span>
-            <span class="pill">SMB’er</span>
-          </div>
-          <p class="muted" style="margin-top:10px">Har I andre behov? Skriv – så vurderer vi sagen og anbefaler vejen frem.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA → fold-ud formular -->
+  <!-- CTA -->
   <section class="cta container" id="start">
     <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
       <span class="arrow" id="arrow">▼</span> Bliv kontaktet
     </button>
 
     <div class="reveal" id="reveal">
-      <!-- Netlify Forms -->
-      <form id="contactForm" name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -276,14 +197,6 @@
           <span class="muted">Vi svarer typisk samme hverdag 8–16.</span>
         </div>
       </form>
-
-      <!-- Bekræftelse -->
-      <div id="successWrap" class="success-wrap" aria-live="polite" tabindex="-1">
-        <div class="success-banner">✅ Tak! Din henvendelse er modtaget. Vi vender tilbage hurtigst muligt.</div>
-        <div class="success-actions">
-          <button class="btn" type="button" onclick="newRequest()">Send en ny henvendelse</button>
-        </div>
-      </div>
     </div>
   </section>
 </main>
@@ -293,11 +206,9 @@
 </footer>
 
 <script>
-  // Tekst-slider (billedet står fast)
   const slides=document.querySelectorAll('.slide'); let i=0;
   setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
 
-  // Fold-ud formular
   const panel = document.getElementById('reveal');
   const arrow = document.getElementById('arrow');
   function toggleForm(){
@@ -307,68 +218,6 @@
     if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
   window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
-
-  // ✅ Netlify submit uden redirect + tydelig bekræftelse
-  const form = document.getElementById('contactForm');
-  const successWrap = document.getElementById('successWrap');
-  const revealPanel = document.getElementById('reveal');
-
-  function adjustPanelHeight(){
-    if(revealPanel.classList.contains('open')){
-      revealPanel.style.maxHeight = revealPanel.scrollHeight + 'px';
-    }
-  }
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    const data = new FormData(form);
-
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = true; btn.textContent = 'Sender...';
-
-    fetch('/', {
-      method: 'POST',
-      headers: {'Content-Type':'application/x-www-form-urlencoded'},
-      body: new URLSearchParams(data).toString()
-    })
-    .then(() => {
-      form.reset();
-      form.style.display = 'none';
-      successWrap.style.display = 'block';
-      adjustPanelHeight();
-      successWrap.focus({preventScroll:true});
-      successWrap.scrollIntoView({behavior:'smooth', block:'center'});
-    })
-    .catch(err => {
-      alert('Noget gik galt – prøv igen: ' + err);
-      btn.disabled = false; btn.textContent = 'Send';
-    });
-  });
-
-  function newRequest(){
-    successWrap.style.display = 'none';
-    form.style.display = 'block';
-    const btn = form.querySelector('button[type="submit"]');
-    btn.disabled = false; btn.textContent = 'Send';
-    adjustPanelHeight();
-    form.scrollIntoView({behavior:'smooth', block:'start'});
-  }
-
-  // Mobilmenu
-  const drawer = document.getElementById('drawer');
-  const backdrop = document.getElementById('backdrop');
-  const menuBtn = document.getElementById('menuBtn');
-
-  function toggleDrawer(state){
-    const open = typeof state === 'boolean' ? state : !drawer.classList.contains('open');
-    drawer.classList.toggle('open', open);
-    backdrop.classList.toggle('show', open);
-    menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
-  }
-  menuBtn.addEventListener('click', ()=>toggleDrawer());
 </script>
 </body>
 </html>
-
-
