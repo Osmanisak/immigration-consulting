@@ -17,14 +17,41 @@
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
   /* Header */
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:20}
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e6f7f3,#d6ecff);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:#2563eb}
   .meta h1{font-size:18px;margin:0;line-height:1}
   .tagline{font-size:13px;font-weight:700;color:#10b981}
-  nav a{margin-left:18px;font-weight:600}
-  nav a:hover{color:#2563eb;text-decoration:underline}
+
+  /* Desktop menu button + dropdown */
+  .desktop-menu{position:relative;display:none}       /* skjult som udgangspunkt – vises på ≥900px */
+  .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
+  .menu-btn:hover{box-shadow:var(--shadow)}
+  .chev{transition:transform .2s ease}
+  .dropdown{
+    position:absolute;right:0;top:48px;width:260px;background:#fff;border:1px solid var(--line);border-radius:12px;
+    box-shadow:var(--shadow);padding:10px;display:none
+  }
+  .dropdown.open{display:block}
+  .drop-links{display:flex;flex-direction:column;gap:8px}
+  .drop-links a{padding:10px 12px;border-radius:8px;font-weight:600}
+  .drop-links a:hover{background:var(--soft);color:#2563eb}
+
+  /* Mobile burger + drawer */
+  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
+  .menu-burger svg{width:22px;height:22px}
+  @media(min-width:900px){ .menu-burger{display:none} .desktop-menu{display:block} }
+
+  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
+  .backdrop.show{opacity:1;pointer-events:auto}
+  .mobile-drawer{
+    position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);
+    transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px
+  }
+  .mobile-drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
   /* HERO */
   .hero{
@@ -46,13 +73,22 @@
   section{padding:56px 20px}
   h3{margin:0 0 14px}
 
-  /* Hvorfor vælge os? */
+  /* Hvorfor vælge os? – større & tydeligere */
   .why{text-align:center}
   .why h3{font-size:30px;font-weight:800;margin-bottom:28px}
-  .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
-  .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .point strong{font-size:18px}
-  .point p{color:var(--muted);margin:6px 0 0;font-size:15px;line-height:1.5}
+  .points{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto
+  }
+  .point{
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;
+    box-shadow:var(--shadow);text-align:left
+  }
+  .point .icon{
+    width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
+    background:#eef2ff;color:#2563eb;font-weight:900;margin-bottom:10px
+  }
+  .point strong{font-size:20px;display:block}
+  .point p{color:var(--muted);margin:8px 0 0;font-size:16px;line-height:1.6}
 
   /* Proces & ansvar */
   .process{background:var(--soft)}
@@ -99,14 +135,45 @@
         <div class="tagline">Din genvej til arbejdstilladelse</div>
       </div>
     </a>
-    <nav>
-      <a href="ydelser.html">Ydelser</a>
-      <a href="priser.html">Priser</a>
-      <a href="faq.html">FAQ</a>
-      <a href="kontakt.html">Kontakt</a>
-    </nav>
+
+    <!-- Desktop menu (knap + dropdown) -->
+    <div class="desktop-menu" id="desktopMenu">
+      <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
+        Menu <span class="chev" id="chev">▾</span>
+      </button>
+      <div class="dropdown" id="dropdown">
+        <nav class="drop-links" aria-label="Hovedmenu">
+          <a href="#ydelser">Ydelser</a>
+          <a href="#priser">Priser</a>
+          <a href="#faq">FAQ</a>
+          <a href="#om-os">Om os</a>
+          <a href="#start">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobil burger -->
+    <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </div>
 </header>
+
+<!-- Mobile drawer -->
+<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <strong>Menu</strong>
+    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
+  </div>
+  <nav class="drawer-links">
+    <a href="#ydelser" onclick="toggleDrawer(false)">Ydelser</a>
+    <a href="#priser" onclick="toggleDrawer(false)">Priser</a>
+    <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
+    <a href="#om-os" onclick="toggleDrawer(false)">Om os</a>
+    <a href="#start" onclick="toggleDrawer(false)">Kontakt</a>
+  </nav>
+</aside>
 
 <main>
   <!-- HERO -->
@@ -128,18 +195,21 @@
   </section>
 
   <!-- Hvorfor vælge os? -->
-  <section class="why container">
+  <section class="why container" id="ydelser">
     <h3>Hvorfor vælge os?</h3>
     <div class="points">
       <div class="point">
+        <div class="icon">✓</div>
         <strong>Korrekt første gang</strong>
         <p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
       </div>
       <div class="point">
+        <div class="icon">↺</div>
         <strong>Minimal indsats for jer</strong>
         <p>Vi håndterer ansøgning, genansøgninger (AR3/AR7) og al kommunikation – jeres tid bruges på forretningen.</p>
       </div>
       <div class="point">
+        <div class="icon">¤</div>
         <strong>Gennemsigtighed</strong>
         <p>Faste priser, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
       </div>
@@ -178,7 +248,7 @@
     </button>
 
     <div class="reveal" id="reveal">
-      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+      <form id="contactForm" name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -206,9 +276,11 @@
 </footer>
 
 <script>
+  /* Hero tekstslider */
   const slides=document.querySelectorAll('.slide'); let i=0;
   setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
 
+  /* Fold-ud formular */
   const panel = document.getElementById('reveal');
   const arrow = document.getElementById('arrow');
   function toggleForm(){
@@ -218,6 +290,37 @@
     if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
   window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
+
+  /* Desktop menu dropdown */
+  const menuBtnDesktop = document.getElementById('menuBtnDesktop');
+  const dropdown = document.getElementById('dropdown');
+  const chev = document.getElementById('chev');
+  function toggleDropdown(force){
+    const open = typeof force==='boolean' ? force : !dropdown.classList.contains('open');
+    dropdown.classList.toggle('open', open);
+    menuBtnDesktop.setAttribute('aria-expanded', open ? 'true':'false');
+    chev.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  }
+  menuBtnDesktop.addEventListener('click', ()=>toggleDropdown());
+  document.addEventListener('click', (e)=>{
+    if(!dropdown.contains(e.target) && !menuBtnDesktop.contains(e.target)) toggleDropdown(false);
+  });
+
+  /* Mobile drawer */
+  const drawer = document.getElementById('drawer');
+  const backdrop = document.getElementById('backdrop');
+  const menuBurger = document.getElementById('menuBurger');
+
+  function toggleDrawer(state){
+    const open = typeof state === 'boolean' ? state : !drawer.classList.contains('open');
+    drawer.classList.toggle('open', open);
+    backdrop.classList.toggle('show', open);
+    menuBurger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
+  }
+  menuBurger.addEventListener('click', ()=>toggleDrawer());
 </script>
 </body>
 </html>
+
+
