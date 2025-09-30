@@ -16,39 +16,32 @@
   a{text-decoration:none;color:inherit}
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
-  /* Header */
+  /* Header (uændret) */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e6f7f3,#d6ecff);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:#2563eb}
+  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e6f7f3,#d6ecff);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1}
-  .tagline{font-size:13px;font-weight:700;color:#10b981}
+  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
-  /* Desktop menu button + dropdown */
+  /* Desktop menu */
   .desktop-menu{position:relative;display:none}
   .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
   .menu-btn:hover{box-shadow:var(--shadow)}
   .chev{transition:transform .2s ease}
-  .dropdown{
-    position:absolute;right:0;top:48px;width:260px;background:#fff;border:1px solid var(--line);border-radius:12px;
-    box-shadow:var(--shadow);padding:10px;display:none
-  }
+  .dropdown{position:absolute;right:0;top:48px;width:260px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
   .dropdown.open{display:block}
   .drop-links{display:flex;flex-direction:column;gap:8px}
   .drop-links a{padding:10px 12px;border-radius:8px;font-weight:600}
-  .drop-links a:hover{background:var(--soft);color:#2563eb}
+  .drop-links a:hover{background:var(--soft);color:var(--blue)}
 
   /* Mobile burger + drawer */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
   @media(min-width:900px){ .menu-burger{display:none} .desktop-menu{display:block} }
-
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{
-    position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);
-    transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px
-  }
+  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
   .mobile-drawer.open{transform:translateX(0)}
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
@@ -72,50 +65,40 @@
   /* Sektioner */
   section{padding:56px 20px}
 
-  /* Hvorfor vælge os? – ny eye-catcher */
-  .why{ text-align:center }
+  /* HVORFOR OS – tydelig, uden understregning, med pil */
+  .why{text-align:center}
   .why .badge{
     display:inline-block;
-    background:linear-gradient(90deg, rgba(16,185,129,.15), rgba(37,99,235,.15));
-    color:#2563eb; font-weight:800; padding:8px 14px; border-radius:999px; letter-spacing:.2px;
+    background:linear-gradient(90deg, rgba(16,185,129,.14), rgba(37,99,235,.14));
+    color:var(--blue); font-weight:800; padding:8px 14px; border-radius:999px; letter-spacing:.2px;
     border:1px solid rgba(37,99,235,.15);
   }
   .why .title{
-    margin:12px auto 28px; font-size:32px; font-weight:900; line-height:1.15;
-    color:var(--ink);
-    position:relative; display:inline-block; padding:0 8px;
+    margin:12px auto 6px; font-size:34px; font-weight:900; line-height:1.18; color:var(--ink);
   }
-  .why .title::after{
-    content:""; position:absolute; left:0; right:0; bottom:-6px; height:6px;
-    background:linear-gradient(90deg, #10b981 0%, #2563eb 100%); border-radius:6px; opacity:.25;
+  .why .down{
+    width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:10px solid var(--blue);
+    margin:10px auto 26px; opacity:.9;
   }
 
-  .points{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto
-  }
-  .point{
-    background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:var(--shadow);
-    text-align:left
-  }
-  .point strong{font-size:20px;display:block;margin-bottom:6px}
+  .points{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto}
+  .point{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:var(--shadow);text-align:left}
+  .point h4{margin:0 0 8px;font-size:20px;color:var(--blue)}
   .point p{color:var(--muted);margin:0;font-size:16px;line-height:1.6}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .chip{border:1px solid var(--line);padding:6px 10px;border-radius:999px;font-size:12.5px;font-weight:700;background:#f8fafc}
 
-  /* Proces & ansvar */
+  /* Proces & ansvar, CTA, footer (uændret) */
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
-  .card h4{margin:0 0 10px;color:#2563eb}
+  .card h4{margin:0 0 10px;color:var(--blue)}
   .checklist{list-style:none;padding:0;margin:0}
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
-  .tick{width:22px;height:22px;border-radius:50%;background:#10b981;display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
+  .tick{width:22px;height:22px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
-  /* CTA + form */
   .cta{text-align:center}
-  .reveal-btn{
-    display:inline-flex;align-items:center;gap:8px;
-    padding:14px 22px;border-radius:12px;font-weight:800;
-    background:#2563eb;color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)
-  }
+  .reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)}
   .reveal-btn .arrow{transition:transform .25s ease}
   .reveal{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;max-height:0;transition:max-height .35s ease}
   .reveal.open{max-height:1000px}
@@ -123,7 +106,7 @@
   .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .form input,.form textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
   .form textarea{min-height:120px;resize:vertical}
-  .submit{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:#2563eb;color:#fff;border:none;cursor:pointer}
+  .submit{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:var(--blue);color:#fff;border:none;cursor:pointer}
   .muted{color:var(--muted);margin-top:8px}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
@@ -204,21 +187,29 @@
     </div>
   </section>
 
-  <!-- Hvorfor vælge os? -->
+  <!-- HVORFOR OS -->
   <section class="why container" id="ydelser">
-    <div class="badge">Derfor vælge os</div>
+    <div class="badge">Hvorfor os</div>
     <h2 class="title">Arbejdstilladelser gjort simpelt</h2>
+    <div class="down" aria-hidden="true"></div>
+
     <div class="points">
       <div class="point">
-        <strong>Korrekt første gang</strong>
+        <h4>Korrekt første gang</h4>
         <p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
       </div>
+
       <div class="point">
-        <strong>Minimal indsats for jer</strong>
-        <p>Vi håndterer ansøgning og forlængelser (AR3/AR7) samt al kommunikation – jeres tid bruges på forretningen.</p>
+        <h4>Minimal indsats for jer</h4>
+        <p>Vi håndterer ansøgning og forlængelser – inklusive korrekt opsætning af sag og dialog med SIRI.</p>
+        <div class="chips" aria-label="Ansøgningstyper">
+          <span class="chip">Ny ansøgning: <strong>AR1/AR6</strong></span>
+          <span class="chip">Forlængelse: <strong>AR3/AR7</strong></span>
+        </div>
       </div>
+
       <div class="point">
-        <strong>Gennemsigtighed</strong>
+        <h4>Gennemsigtighed</h4>
         <p>Faste priser, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
       </div>
     </div>
