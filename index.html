@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Immigration Consulting – Din genvej til arbejdstilladelse</title>
-<meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer dokumenttjek, AR1/AR3/AR6/AR7 og dialogen med myndighederne. Udfyld formularen – vi kontakter jer samme hverdag 8–16." />
+<meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer dokumenttjek, AR1/AR3/AR6/AR7 (forlængelser) og dialogen med myndighederne. Udfyld formularen – vi kontakter jer samme hverdag 8–16." />
 
 <style>
   :root{
@@ -25,7 +25,7 @@
   .tagline{font-size:13px;font-weight:700;color:#10b981}
 
   /* Desktop menu button + dropdown */
-  .desktop-menu{position:relative;display:none}       /* skjult som udgangspunkt – vises på ≥900px */
+  .desktop-menu{position:relative;display:none}
   .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
   .menu-btn:hover{box-shadow:var(--shadow)}
   .chev{transition:transform .2s ease}
@@ -71,24 +71,34 @@
 
   /* Sektioner */
   section{padding:56px 20px}
-  h3{margin:0 0 14px}
 
-  /* Hvorfor vælge os? – større & tydeligere */
-  .why{text-align:center}
-  .why h3{font-size:30px;font-weight:800;margin-bottom:28px}
+  /* Hvorfor vælge os? – ny eye-catcher */
+  .why{ text-align:center }
+  .why .badge{
+    display:inline-block;
+    background:linear-gradient(90deg, rgba(16,185,129,.15), rgba(37,99,235,.15));
+    color:#2563eb; font-weight:800; padding:8px 14px; border-radius:999px; letter-spacing:.2px;
+    border:1px solid rgba(37,99,235,.15);
+  }
+  .why .title{
+    margin:12px auto 28px; font-size:32px; font-weight:900; line-height:1.15;
+    color:var(--ink);
+    position:relative; display:inline-block; padding:0 8px;
+  }
+  .why .title::after{
+    content:""; position:absolute; left:0; right:0; bottom:-6px; height:6px;
+    background:linear-gradient(90deg, #10b981 0%, #2563eb 100%); border-radius:6px; opacity:.25;
+  }
+
   .points{
     display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto
   }
   .point{
-    background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;
-    box-shadow:var(--shadow);text-align:left
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:var(--shadow);
+    text-align:left
   }
-  .point .icon{
-    width:36px;height:36px;border-radius:10px;display:grid;place-items:center;
-    background:#eef2ff;color:#2563eb;font-weight:900;margin-bottom:10px
-  }
-  .point strong{font-size:20px;display:block}
-  .point p{color:var(--muted);margin:8px 0 0;font-size:16px;line-height:1.6}
+  .point strong{font-size:20px;display:block;margin-bottom:6px}
+  .point p{color:var(--muted);margin:0;font-size:16px;line-height:1.6}
 
   /* Proces & ansvar */
   .process{background:var(--soft)}
@@ -181,7 +191,7 @@
     <div class="slides" id="slides">
       <div class="slide active">
         <h2>Arbejdstilladelser uden bøvl</h2>
-        <p>Vi håndterer dokumenter, AR1/AR3/AR6/AR7 og dialogen med myndighederne — så I kan fokusere på driften.</p>
+        <p>Vi håndterer dokumenter, AR1/AR3/AR6/AR7 (forlængelser) og dialogen med myndighederne — så I kan fokusere på driften.</p>
       </div>
       <div class="slide">
         <h2>Hurtigere ansættelser</h2>
@@ -196,20 +206,18 @@
 
   <!-- Hvorfor vælge os? -->
   <section class="why container" id="ydelser">
-    <h3>Hvorfor vælge os?</h3>
+    <div class="badge">Derfor vælge os</div>
+    <h2 class="title">Arbejdstilladelser gjort simpelt</h2>
     <div class="points">
       <div class="point">
-        <div class="icon">✓</div>
         <strong>Korrekt første gang</strong>
         <p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
       </div>
       <div class="point">
-        <div class="icon">↺</div>
         <strong>Minimal indsats for jer</strong>
-        <p>Vi håndterer ansøgning, genansøgninger (AR3/AR7) og al kommunikation – jeres tid bruges på forretningen.</p>
+        <p>Vi håndterer ansøgning og forlængelser (AR3/AR7) samt al kommunikation – jeres tid bruges på forretningen.</p>
       </div>
       <div class="point">
-        <div class="icon">¤</div>
         <strong>Gennemsigtighed</strong>
         <p>Faste priser, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
       </div>
@@ -233,7 +241,7 @@
           <h4>Det gør vi</h4>
           <ul class="checklist">
             <li><span class="tick">✔</span><div>Tjekker dokumenter og krav – sikrer korrekt grundlag.</div></li>
-            <li><span class="tick">✔</span><div>Udfylder og indsender AR1/AR3/AR6/AR7 samt følger op hos myndighederne.</div></li>
+            <li><span class="tick">✔</span><div>Udfylder og indsender AR1/AR3/AR6/AR7 (forlængelser) samt følger op hos myndighederne.</div></li>
             <li><span class="tick">✔</span><div>Giver status løbende frem til afgørelse/arbejdstilladelse.</div></li>
           </ul>
         </div>
@@ -322,5 +330,3 @@
 </script>
 </body>
 </html>
-
-
