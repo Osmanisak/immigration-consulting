@@ -4,26 +4,33 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Immigration Consulting – Din genvej til arbejdstilladelse</title>
-<meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer dokumenttjek, nye ansøgninger og forlængelser samt dialogen med myndighederne. Udfyld formularen – vi kontakter jer samme hverdag 8–16." />
+<meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer nye ansøgninger og forlængelser – fra dokumenttjek til dialog med SIRI. Udfyld formularen og bliv kontaktet.">
 
 <style>
+  /* Rolig, moderne blå-palet */
   :root{
-    --ink:#0f172a; --muted:#64748b; --blue:#2563eb; --mint:#10b981;
-    --line:#e5e7eb; --soft:#f6f8fb; --shadow:0 8px 24px rgba(2,6,23,.10);
+    --ink:#0f172a;
+    --muted:#64748b;
+    --blue:#1f3a8a;          /* mørk, blød blå */
+    --blue-soft:#dfe6ff;     /* lys badge-blå */
+    --mint:#10b981;
+    --line:#e5e7eb;
+    --soft:#f6f8fb;
+    --shadow:0 8px 24px rgba(2,6,23,.10);
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
   a{text-decoration:none;color:inherit}
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
+  /* Header / Navigation */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e6f7f3,#d6ecff);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
-  .meta h1{font-size:18px;margin:0;line-height:1}
+  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
+  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
-  /* Desktop menu */
   .desktop-menu{position:relative;display:none}
   .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
   .menu-btn:hover{box-shadow:var(--shadow)}
@@ -34,10 +41,13 @@
   .drop-links a{padding:10px 12px;border-radius:8px;font-weight:600}
   .drop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Mobile drawer */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
-  @media(min-width:900px){ .menu-burger{display:none} .desktop-menu{display:block} }
+
+  @media(min-width:900px){
+    .menu-burger{display:none}
+    .desktop-menu{display:block}
+  }
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -47,34 +57,27 @@
 
   /* HERO */
   .hero{
-    position:relative;min-height:520px;
+    position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
     background:
       linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80')
-      center/cover no-repeat;
-    display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   }
-  .slides{position:relative;z-index:2;max-width:820px;padding:20px}
-  .slide{display:none;animation:fade .8s ease}
-  .slide.active{display:block}
-  @keyframes fade{from{opacity:.4} to{opacity:1}}
-  .slides h2{font-size:38px;margin:0 0 14px}
-  .slides p{font-size:18px;margin:0}
+  .hero-inner{max-width:820px;padding:20px}
+  .hero h2{font-size:38px;margin:0 0 12px}
+  .hero p{font-size:18px;margin:0 0 18px}
+  .hero .cta{display:inline-block;padding:12px 18px;border-radius:10px;background:#ffffff;color:#111;font-weight:800;border:none}
+  .hero .cta.secondary{background:transparent;color:#fff;border:2px solid #fff;margin-left:10px}
 
-  /* Sektioner */
+  /* Section wrappers */
   section{padding:56px 20px}
+  h3{margin:0 0 14px}
 
-  /* HVORFOR OS – badge + pil */
+  /* Hvorfor os */
   .why{text-align:center}
-  .why .badge{
-    display:inline-block;background:linear-gradient(90deg, rgba(16,185,129,.14), rgba(37,99,235,.14));
-    color:var(--blue); font-weight:800; padding:8px 14px; border-radius:999px; border:1px solid rgba(37,99,235,.15);
-  }
-  .why .down{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:10px solid var(--blue);margin:14px auto 26px;opacity:.9;}
-  .points{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto}
-  .point{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:var(--shadow);text-align:left}
-  .point h4{margin:0 0 8px;font-size:20px;color:var(--blue)}
-  .point p{color:var(--muted);margin:0;font-size:16px;line-height:1.6}
+  .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
+  .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .point h4{margin:0 0 8px;color:var(--blue)}
+  .point p{color:var(--muted);margin:0}
 
   /* Proces & ansvar */
   .process{background:var(--soft)}
@@ -85,21 +88,29 @@
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
-  /* CTA + form */
-  .cta{text-align:center}
+  /* CTA + formular */
+  .cta-wrap{text-align:center;margin-top:6px}
   .reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)}
   .reveal-btn .arrow{transition:transform .25s ease}
+
   .reveal{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;max-height:0;transition:max-height .35s ease}
   .reveal.open{max-height:1000px}
   .form{padding:20px;background:#fff}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   .form input,.form textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
   .form textarea{min-height:120px;resize:vertical}
-  .submit{display:inline-block;padding:14px 22px;border-radius:12px;font-weight:800;box-shadow:var(--shadow);background:var(--blue);color:#fff;border:none;cursor:pointer}
+  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
   .muted{color:var(--muted);margin-top:8px}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-  @media (max-width:900px){ .slides h2{font-size:30px} .points,.grid-2{grid-template-columns:1fr} }
+
+  /* Responsive */
+  @media(max-width:900px){
+    .hero h2{font-size:30px}
+    .points,.grid-2{grid-template-columns:1fr}
+    .hero .cta.secondary{margin-top:10px;margin-left:0}
+  }
+  html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -114,22 +125,23 @@
       </div>
     </a>
 
-    <!-- Desktop menu -->
+    <!-- Desktop dropdown -->
     <div class="desktop-menu" id="desktopMenu">
       <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
         Menu <span class="chev" id="chev">▾</span>
       </button>
       <div class="dropdown" id="dropdown">
-        <nav class="drop-links" aria-label="Hovedmenu">
+        <nav class="drop-links">
+          <a href="/">Forside</a>
           <a href="/ydelser.html">Ydelser</a>
-          <a href="/#faq">FAQ</a>
-          <a href="/#om-os">Om os</a>
-          <a href="/#start">Kontakt</a>
+          <a href="#faq">FAQ</a>
+          <a href="#om-os">Om os</a>
+          <a href="#start">Kontakt</a>
         </nav>
       </div>
     </div>
 
-    <!-- Mobil burger -->
+    <!-- Mobile burger -->
     <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
@@ -140,61 +152,50 @@
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true">
   <div class="drawer-head">
-    <strong>Menu</strong>
+    <span>Menu</span>
     <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
   </div>
   <nav class="drawer-links">
+    <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="/#faq" onclick="toggleDrawer(false)">FAQ</a>
-    <a href="/#om-os" onclick="toggleDrawer(false)">Om os</a>
-    <a href="/#start" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
+    <a href="#om-os" onclick="toggleDrawer(false)">Om os</a>
+    <a href="#start" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
 <main>
   <!-- HERO -->
   <section class="hero">
-    <div class="slides" id="slides">
-      <div class="slide active">
-        <h2>Arbejdstilladelser uden bøvl</h2>
-        <p>Vi håndterer dokumenter, <strong>nye ansøgninger og forlængelser</strong> samt dialogen med myndighederne — så I kan fokusere på driften.</p>
-      </div>
-      <div class="slide">
-        <h2>Hurtigere ansættelser</h2>
-        <p>Proaktiv opfølgning og færre fejl. Vi holder processen i gang – fra jobtilbud til arbejdstilladelse.</p>
-      </div>
-      <div class="slide">
-        <h2>Gennemsigtige priser</h2>
-        <p>Faste priser og tydelige leverancer. Ingen overraskelser – kun ro i maven.</p>
-      </div>
+    <div class="hero-inner">
+      <h2>Arbejdstilladelser uden bøvl</h2>
+      <p>Vi håndterer nye ansøgninger og forlængelser – fra dokumenttjek til dialog med SIRI.</p>
+      <a class="cta" href="#start">Bliv kontaktet</a>
+      <a class="cta secondary" href="/ydelser.html">Se ydelser</a>
     </div>
   </section>
 
-  <!-- HVORFOR OS -->
-  <section class="why container" id="ydelser">
-    <div class="badge">Hvorfor os</div>
-    <div class="down" aria-hidden="true"></div>
-
+  <!-- Hvorfor os -->
+  <section class="why container" id="hvorfor-os">
+    <h3>Hvorfor os</h3>
     <div class="points">
       <div class="point">
         <h4>Korrekt første gang</h4>
         <p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
       </div>
-
       <div class="point">
         <h4>Minimal indsats for jer</h4>
-        <p>Vi håndterer ansøgning og forlængelser – inklusiv korrekt opsætning af sag og dialog med SIRI.</p>
+        <p>Vi håndterer ansøgning og al kommunikation – jeres tid bruges på forretningen.</p>
       </div>
-
       <div class="point">
         <h4>Gennemsigtighed</h4>
-        <p>Faste priser, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
+        <p>Faste rammer, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
       </div>
     </div>
   </section>
 
   <!-- Proces & ansvar -->
-  <section class="process" id="om-os">
+  <section class="process" id="proces">
     <div class="container">
       <h3>Proces & ansvar</h3>
       <div class="grid-2">
@@ -203,14 +204,14 @@
           <ul class="checklist">
             <li><span class="tick">✔</span><div>Udfylder kontaktoplysninger (navn, e-mail, firma, telefon).</div></li>
             <li><span class="tick">✔</span><div>Vedhæfter kontrakt/løntilbud eller beskriver sagen kort.</div></li>
-            <li><span class="tick">✔</span><div>Godkender vores forslag til pris og opstart.</div></li>
+            <li><span class="tick">✔</span><div>Godkender vores forslag til opstart.</div></li>
           </ul>
         </div>
         <div class="card">
           <h4>Det gør vi</h4>
           <ul class="checklist">
             <li><span class="tick">✔</span><div>Tjekker dokumenter og krav – sikrer korrekt grundlag.</div></li>
-            <li><span class="tick">✔</span><div>Udfylder og indsender <strong>nye ansøgninger og forlængelser</strong> samt følger op hos myndighederne.</div></li>
+            <li><span class="tick">✔</span><div>Udfylder og indsender ansøgning samt følger op hos SIRI.</div></li>
             <li><span class="tick">✔</span><div>Giver status løbende frem til afgørelse/arbejdstilladelse.</div></li>
           </ul>
         </div>
@@ -218,14 +219,14 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta container" id="start">
+  <!-- CTA → fold-ud formular -->
+  <section class="container cta-wrap" id="cta">
     <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
       <span class="arrow" id="arrow">▼</span> Bliv kontaktet
     </button>
-
     <div class="reveal" id="reveal">
-      <form id="contactForm" name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+      <!-- Netlify Forms -->
+      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -237,14 +238,29 @@
           <input type="text" name="firma" placeholder="Virksomhed" />
           <input type="tel" name="telefon" placeholder="Telefon" />
         </div>
-        <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ønsket startdato)"></textarea>
+        <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato)"></textarea>
 
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
           <button class="submit" type="submit">Send</button>
-          <span class="muted">Vi svarer typisk samme hverdag 8–16.</span>
+          <span class="muted">Vi svarer typisk samme hverdag 8–16. * Planlagt møde: 987 kr. eks. moms pr. time.</span>
         </div>
       </form>
     </div>
+  </section>
+
+  <!-- FAQ (anker til menu) -->
+  <section class="container" id="faq">
+    <h3>Ofte stillede spørgsmål</h3>
+    <p class="muted">Har I andre spørgsmål, så skriv – vi vurderer sagen og anbefaler vejen frem.</p>
+  </section>
+
+  <!-- Om os (anker til menu — den kan udfyldes senere) -->
+  <section class="container" id="om-os">
+    <h3>Om os</h3>
+    <p class="muted">
+      Immigration Consulting er et specialiseret team, der hjælper virksomheder med korrekt og effektiv sagsbehandling
+      af arbejdstilladelser – fra første ansøgning til forlængelser.
+    </p>
   </section>
 </main>
 
@@ -253,11 +269,35 @@
 </footer>
 
 <script>
-  /* Hero tekstslider */
-  const slides=document.querySelectorAll('.slide'); let i=0;
-  setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
+  // Desktop dropdown
+  const menuBtnDesktop=document.getElementById('menuBtnDesktop');
+  const dropdown=document.getElementById('dropdown');
+  const chev=document.getElementById('chev');
+  function toggleDropdown(force){
+    const open=typeof force==='boolean'?force:!dropdown.classList.contains('open');
+    dropdown.classList.toggle('open',open);
+    if(menuBtnDesktop){menuBtnDesktop.setAttribute('aria-expanded',open?'true':'false');}
+    if(chev){chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';}
+  }
+  if(menuBtnDesktop){
+    menuBtnDesktop.addEventListener('click',()=>toggleDropdown());
+    document.addEventListener('click',(e)=>{ if(!dropdown.contains(e.target)&&!menuBtnDesktop.contains(e.target)) toggleDropdown(false); });
+  }
 
-  /* Fold-ud formular */
+  // Mobile drawer
+  const drawer=document.getElementById('drawer');
+  const backdrop=document.getElementById('backdrop');
+  const menuBurger=document.getElementById('menuBurger');
+  function toggleDrawer(state){
+    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
+    drawer.classList.toggle('open',open);
+    backdrop.classList.toggle('show',open);
+    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
+    drawer.setAttribute('aria-hidden',open?'false':'true');
+  }
+  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
+
+  // Fold-ud formular
   const panel = document.getElementById('reveal');
   const arrow = document.getElementById('arrow');
   function toggleForm(){
@@ -267,34 +307,6 @@
     if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
   window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
-
-  /* Desktop menu dropdown */
-  const menuBtnDesktop = document.getElementById('menuBtnDesktop');
-  const dropdown = document.getElementById('dropdown');
-  const chev = document.getElementById('chev');
-  function toggleDropdown(force){
-    const open = typeof force==='boolean' ? force : !dropdown.classList.contains('open');
-    dropdown.classList.toggle('open', open);
-    menuBtnDesktop.setAttribute('aria-expanded', open ? 'true':'false');
-    chev.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
-  }
-  menuBtnDesktop.addEventListener('click', ()=>toggleDropdown());
-  document.addEventListener('click', (e)=>{
-    if(!dropdown.contains(e.target) && !menuBtnDesktop.contains(e.target)) toggleDropdown(false);
-  });
-
-  /* Mobile drawer */
-  const drawer = document.getElementById('drawer');
-  const backdrop = document.getElementById('backdrop');
-  const menuBurger = document.getElementById('menuBurger');
-  function toggleDrawer(state){
-    const open = typeof state === 'boolean' ? state : !drawer.classList.contains('open');
-    drawer.classList.toggle('open', open);
-    backdrop.classList.toggle('show', open);
-    menuBurger.setAttribute('aria-expanded', open ? 'true' : 'false');
-    drawer.setAttribute('aria-hidden', open ? 'false' : 'true');
-  }
-  menuBurger.addEventListener('click', ()=>toggleDrawer());
 </script>
 </body>
 </html>
