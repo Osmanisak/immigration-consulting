@@ -61,7 +61,7 @@
   textarea{min-height:120px;resize:vertical}
   .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
 
-  /* Steps, chips, trust */
+  /* Steps & chips */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .step strong{display:block;margin-bottom:6px;color:var(--blue)}
@@ -71,13 +71,10 @@
   .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
   .chip b{color:var(--blue)}
 
-  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-  .trust .t{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;color:var(--muted)}
-
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
   @media(max-width:900px){
-    .grid,.steps,.trust{grid-template-columns:1fr}
+    .grid,.steps{grid-template-columns:1fr}
     .row{grid-template-columns:1fr}
   }
   html{scroll-behavior:smooth}
@@ -189,22 +186,18 @@
   <!-- Sectors -->
   <section class="container">
     <h3>Vi hjælper især</h3>
-    <div class="chips">
-      <div class="chip"><b>Restauranter & hoteller</b> (kokke, køkken, servers)</div>
-      <div class="chip"><b>Bygge & anlæg</b> (faglærte/ufaglærte)</div>
-      <div class="chip"><b>SMB’er</b> med udenlandske medarbejdere</div>
-      <div class="chip">Andre brancher? – skriv til os</div>
+    <div class="chips" style="margin-bottom:10px">
+      <div class="chip"><b>Restauranter & hoteller</b></div>
+      <div class="chip"><b>Bygge & anlæg</b></div>
+      <div class="chip"><b>Produktion & logistik</b></div>
+      <div class="chip"><b>IT & tekniske fag</b></div>
+      <div class="chip"><b>Rengøring & facility</b></div>
+      <div class="chip"><b>Landbrug & fødevarer</b></div>
     </div>
-  </section>
-
-  <!-- Trust -->
-  <section class="container">
-    <div class="trust">
-      <div class="t"><b>Svartid 8–16</b><br>typisk samme hverdag</div>
-      <div class="t"><b>GDPR</b><br>sikker datahåndtering</div>
-      <div class="t"><b>Gennemsigtighed</b><br>klare leverancer & status</div>
-      <div class="t"><b>Rådgivere</b><br>ikke advokater</div>
-    </div>
+    <p class="muted">
+      Vores rådgivning bygger på <strong>myndighedsnær indsigt</strong> og praktisk erfaring med sagsforløb hos SIRI.  
+      Det betyder færre fejl, bedre dokumentation – og en mere forudsigelig proces for både virksomheden og medarbejderen.
+    </p>
   </section>
 
   <!-- Kontaktformular (samme som forsiden) -->
