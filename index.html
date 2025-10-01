@@ -7,12 +7,11 @@
 <meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer nye ansøgninger og forlængelser – fra dokumenttjek til dialog med SIRI. Udfyld formularen og bliv kontaktet.">
 
 <style>
-  /* Rolig, moderne blå-palet */
   :root{
     --ink:#0f172a;
     --muted:#64748b;
-    --blue:#1f3a8a;          /* mørk, blød blå */
-    --blue-soft:#dfe6ff;     /* lys badge-blå */
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
     --mint:#10b981;
     --line:#e5e7eb;
     --soft:#f6f8fb;
@@ -55,7 +54,7 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  /* HERO med tekst-slides */
+  /* HERO med slides */
   .hero{
     position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
     background:
@@ -69,7 +68,6 @@
   @keyframes fade{from{opacity:.4} to{opacity:1}}
   .hero h2{font-size:38px;margin:0 0 12px}
   .hero p{font-size:18px;margin:0 0 18px}
-  /* Kun én knap: Se ydelser (hvid stil som den tidligere “bliv kontaktet”) */
   .cta-white{display:inline-block;padding:12px 18px;border-radius:10px;background:#ffffff;color:#111;font-weight:800;border:none}
 
   /* Section wrappers */
@@ -108,7 +106,6 @@
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
-  /* Responsive */
   @media(max-width:900px){
     .hero h2{font-size:30px}
     .points,.grid-2{grid-template-columns:1fr}
@@ -137,8 +134,8 @@
         <nav class="drop-links">
           <a href="/">Forside</a>
           <a href="/ydelser.html">Ydelser</a>
-          <a href="#faq">FAQ</a>
-          <a href="#om-os">Om os</a>
+          <a href="/om-os.html#faq">FAQ</a>
+          <a href="/om-os.html">Om os</a>
           <a href="#start">Kontakt</a>
         </nav>
       </div>
@@ -161,14 +158,14 @@
   <nav class="drawer-links">
     <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
-    <a href="#om-os" onclick="toggleDrawer(false)">Om os</a>
+    <a href="/om-os.html#faq" onclick="toggleDrawer(false)">FAQ</a>
+    <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
     <a href="#start" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
 <main>
-  <!-- HERO med TEKST-SLIDES og kun én hvid "Se ydelser"-knap -->
+  <!-- HERO med slides og kun “Se ydelser” -->
   <section class="hero">
     <div class="hero-inner">
       <div class="slides" id="slides">
@@ -186,7 +183,6 @@
         </div>
       </div>
 
-      <!-- Kun denne knap i heroen -->
       <a class="cta-white" href="/ydelser.html">Se ydelser</a>
     </div>
   </section>
@@ -236,12 +232,11 @@
   </section>
 
   <!-- CTA → fold-ud formular -->
-  <section class="container cta-wrap" id="cta">
+  <section class="container cta-wrap" id="start">
     <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
       <span class="arrow" id="arrow">▼</span> Bliv kontaktet
     </button>
     <div class="reveal" id="reveal">
-      <!-- Netlify Forms -->
       <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
@@ -262,21 +257,6 @@
         </div>
       </form>
     </div>
-  </section>
-
-  <!-- FAQ (anker til menu) -->
-  <section class="container" id="faq">
-    <h3>Ofte stillede spørgsmål</h3>
-    <p class="muted">Har I andre spørgsmål, så skriv – vi vurderer sagen og anbefaler vejen frem.</p>
-  </section>
-
-  <!-- Om os (anker til menu — kan udfyldes senere) -->
-  <section class="container" id="om-os">
-    <h3>Om os</h3>
-    <p class="muted">
-      Immigration Consulting er et specialiseret team, der hjælper virksomheder med korrekt og effektiv sagsbehandling
-      af arbejdstilladelser – fra første ansøgning til forlængelser.
-    </p>
   </section>
 </main>
 
@@ -313,13 +293,10 @@
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 
-  // HERO tekst-slides
+  // Hero slides
   const slides=document.querySelectorAll('.slide');
   let i=0;
-  setInterval(()=>{
-    i=(i+1)%slides.length;
-    slides.forEach((s,k)=>s.classList.toggle('active',k===i));
-  }, 5000);
+  setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
 
   // Fold-ud formular
   const panel = document.getElementById('reveal');
