@@ -11,7 +11,7 @@
   a{text-decoration:none;color:inherit}
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
-  /* Header (samme stil som forsiden) */
+  /* Header */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
@@ -42,7 +42,7 @@
   .page-hero h2{margin:0 0 8px;font-size:34px}
   .muted{color:var(--muted)}
 
-  /* Cards & grids */
+  /* Sektioner */
   section{padding:36px 20px}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
@@ -50,36 +50,37 @@
   .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
   .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#ecf2ff;color:#2746d6;font-weight:700;font-size:12px;margin-left:8px}
 
-  /* CTA blokke */
+  /* CTA & formular */
   .cta-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);text-align:center}
   .cta-btn{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none}
   .cta-sub{font-size:13px;color:var(--muted);margin-top:8px}
 
-  /* Steps */
+  .form-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  input,textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+  textarea{min-height:120px;resize:vertical}
+  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
+
+  /* Steps, chips, trust */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .step strong{display:block;margin-bottom:6px;color:var(--blue)}
   .tick{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--mint);color:#fff;font-weight:900;margin-right:8px}
 
-  /* Sectors chips */
   .chips{display:flex;flex-wrap:wrap;gap:10px}
   .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
   .chip b{color:var(--blue)}
 
-  /* Mini trust row */
   .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
   .trust .t{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;color:var(--muted)}
-
-  /* FAQ */
-  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
-  details+details{margin-top:10px}
-  summary{font-weight:700;color:var(--blue);cursor:pointer}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
   @media(max-width:900px){
     .grid,.steps,.trust{grid-template-columns:1fr}
+    .row{grid-template-columns:1fr}
   }
+  html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -165,12 +166,12 @@
     </div>
   </section>
 
-  <!-- CTA – Gratis vejledning -->
+  <!-- CTA – Gratis vejledning (scroller til formular på denne side) -->
   <section class="container">
     <div class="cta-wrap">
       <h3>Få gratis vejledning fra en rådgiver</h3>
       <p class="muted">Send jeres kontaktoplysninger – vi svarer typisk samme hverdag 8–16.</p>
-      <a class="cta-btn" href="/#start">Bliv kontaktet gratis</a>
+      <a class="cta-btn" href="#start">Bliv kontaktet gratis</a>
       <div class="cta-sub">* Ønsker I et planlagt møde (telefon/online) med dybdegående rådgivning, er taksten <strong>999 kr./time</strong>.</div>
     </div>
   </section>
@@ -206,21 +207,33 @@
     </div>
   </section>
 
-  <!-- Mini FAQ -->
-  <section class="container" id="faq">
-    <h3>Ofte stillede spørgsmål</h3>
-    <details>
-      <summary>Hvor hurtigt kan I starte?</summary>
-      <p>Typisk samme hverdag, når vi har jeres kontaktoplysninger og grunddata på sagen.</p>
-    </details>
-    <details>
-      <summary>Hvad skal vi sende til jer?</summary>
-      <p>Jobtilbud/kontrakt, kontaktdata på virksomhed og medarbejder, samt relevante dokumenter (pas m.m.). Vi sender tjekliste.</p>
-    </details>
-    <details>
-      <summary>Håndterer I biometri eller myndighedsgebyrer?</summary>
-      <p>Nej. Vi rådgiver og håndterer ansøgningen/dokumentation – biometri, gebyrer og fremmøde varetages af ansøger/virksomhed.</p>
-    </details>
+  <!-- Kontaktformular (samme som forsiden) -->
+  <section class="container" id="start">
+    <div class="form-wrap">
+      <h3>Bliv kontaktet</h3>
+      <p class="muted">Udfyld felterne – vi vender tilbage samme hverdag 8–16.</p>
+
+      <!-- Netlify Forms -->
+      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+
+        <div class="row">
+          <input type="text" name="navn" placeholder="Dit navn" required />
+          <input type="email" name="email" placeholder="Din e-mail" required />
+        </div>
+        <div class="row">
+          <input type="text" name="firma" placeholder="Virksomhed" />
+          <input type="tel" name="telefon" placeholder="Telefon" />
+        </div>
+        <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato)"></textarea>
+
+        <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
+          <button class="submit" type="submit">Send</button>
+          <span class="muted">* Planlagt møde med rådgiver: 999 kr./time.</span>
+        </div>
+      </form>
+    </div>
   </section>
 </main>
 
@@ -229,16 +242,32 @@
 </footer>
 
 <script>
-  // dropdown + drawer (samme som forsiden)
+  // Dropdown (desktop)
   const menuBtnDesktop=document.getElementById('menuBtnDesktop');
   const dropdown=document.getElementById('dropdown');
   const chev=document.getElementById('chev');
-  function toggleDropdown(force){const open=typeof force==='boolean'?force:!dropdown.classList.contains('open');dropdown.classList.toggle('open',open);menuBtnDesktop.setAttribute('aria-expanded',open?'true':'false');chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';}
-  if(menuBtnDesktop){menuBtnDesktop.addEventListener('click',()=>toggleDropdown());document.addEventListener('click',(e)=>{if(!dropdown.contains(e.target)&&!menuBtnDesktop.contains(e.target))toggleDropdown(false);});}
+  function toggleDropdown(force){
+    const open=typeof force==='boolean'?force:!dropdown.classList.contains('open');
+    dropdown.classList.toggle('open',open);
+    if(menuBtnDesktop){menuBtnDesktop.setAttribute('aria-expanded',open?'true':'false');}
+    if(chev){chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';}
+  }
+  if(menuBtnDesktop){
+    menuBtnDesktop.addEventListener('click',()=>toggleDropdown());
+    document.addEventListener('click',(e)=>{ if(!dropdown.contains(e.target)&&!menuBtnDesktop.contains(e.target)) toggleDropdown(false); });
+  }
+
+  // Mobile drawer
   const drawer=document.getElementById('drawer');
   const backdrop=document.getElementById('backdrop');
   const menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){const open=typeof state==='boolean'?state:!drawer.classList.contains('open');drawer.classList.toggle('open',open);backdrop.classList.toggle('show',open);menuBurger.setAttribute('aria-expanded',open?'true':'false');drawer.setAttribute('aria-hidden',open?'false':'true');}
+  function toggleDrawer(state){
+    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
+    drawer.classList.toggle('open',open);
+    backdrop.classList.toggle('show',open);
+    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
+    drawer.setAttribute('aria-hidden',open?'false':'true');
+  }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 </script>
 </body>
