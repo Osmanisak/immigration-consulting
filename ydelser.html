@@ -3,12 +3,15 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Ydelser & priser – Immigration Consulting</title>
-<meta name="description" content="Ydelser og priser for arbejdstilladelser. Én fast sagspris og ét Pro-abonnement. Nye ansøgninger og forlængelser håndteres fra A til Z." />
+<title>Ydelser – Immigration Consulting</title>
+<meta name="description" content="Vi håndterer nye ansøgninger og forlængelser for arbejdstilladelser. Få gratis vejledning – vi svarer samme hverdag 8–16.">
 <style>
   :root{--ink:#0f172a;--muted:#64748b;--blue:#2563eb;--mint:#10b981;--line:#e5e7eb;--soft:#f6f8fb;--shadow:0 8px 24px rgba(2,6,23,.10)}
   *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink)}
-  a{text-decoration:none;color:inherit} .container{max-width:1060px;margin:0 auto;padding:0 20px}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1060px;margin:0 auto;padding:0 20px}
+
+  /* Header (samme stil som forsiden) */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
@@ -34,29 +37,49 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  /* Page hero */
+  /* Hero */
   .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f8fbff,#ffffff)}
   .page-hero h2{margin:0 0 8px;font-size:34px}
   .muted{color:var(--muted)}
 
-  /* Services grid */
+  /* Cards & grids */
   section{padding:36px 20px}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
   .card h3{margin:0 0 8px;color:var(--blue)}
   .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-
-  /* Pricing */
-  .pricing{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .price{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
-  .price h3{margin:0 0 8px}
-  .amount{font-size:32px;font-weight:900;color:var(--ink);margin:6px 0}
-  .hint{color:var(--muted);margin:0 0 10px}
-  .cta{display:inline-block;margin-top:8px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none}
   .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#ecf2ff;color:#2746d6;font-weight:700;font-size:12px;margin-left:8px}
 
+  /* CTA blokke */
+  .cta-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);text-align:center}
+  .cta-btn{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none}
+  .cta-sub{font-size:13px;color:var(--muted);margin-top:8px}
+
+  /* Steps */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .step strong{display:block;margin-bottom:6px;color:var(--blue)}
+  .tick{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--mint);color:#fff;font-weight:900;margin-right:8px}
+
+  /* Sectors chips */
+  .chips{display:flex;flex-wrap:wrap;gap:10px}
+  .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
+  .chip b{color:var(--blue)}
+
+  /* Mini trust row */
+  .trust{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .trust .t{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;color:var(--muted)}
+
+  /* FAQ */
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;box-shadow:var(--shadow)}
+  details+details{margin-top:10px}
+  summary{font-weight:700;color:var(--blue);cursor:pointer}
+
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-  @media(max-width:900px){ .grid,.pricing{grid-template-columns:1fr} }
+
+  @media(max-width:900px){
+    .grid,.steps,.trust{grid-template-columns:1fr}
+  }
 </style>
 </head>
 <body>
@@ -106,17 +129,19 @@
 </aside>
 
 <main>
+  <!-- HERO -->
   <section class="page-hero">
     <div class="container">
-      <h2>Ydelser & priser</h2>
+      <h2>Ydelser</h2>
       <p class="muted">Vi håndterer både <strong>nye ansøgninger</strong> og <strong>forlængelser</strong> – fra dokumenttjek til indsendelse og dialog med SIRI.</p>
     </div>
   </section>
 
+  <!-- Services -->
   <section class="container">
     <div class="grid">
       <div class="card">
-        <h3>Nye ansøgninger</h3>
+        <h3>Nye ansøgninger <span class="pill">AR1/AR6</span></h3>
         <p class="muted">Vi sætter sagen korrekt op fra start, så I undgår fejl og forsinkelser.</p>
         <ul class="list">
           <li>Kontrakt- og lønkravstjek</li>
@@ -127,7 +152,7 @@
         </ul>
       </div>
       <div class="card">
-        <h3>Forlængelser</h3>
+        <h3>Forlængelser <span class="pill">AR3/AR7</span></h3>
         <p class="muted">Tryg forlængelse af eksisterende opholds- og arbejdstilladelser.</p>
         <ul class="list">
           <li>Tjek af vilkår, ansættelsesændringer og frister</li>
@@ -140,34 +165,62 @@
     </div>
   </section>
 
+  <!-- CTA – Gratis vejledning -->
   <section class="container">
-    <h3>Priser</h3>
-    <div class="pricing">
-      <div class="price">
-        <h3>Sagspris</h3>
-        <div class="amount">5.900 kr.</div>
-        <p class="hint">Pr. sag – nye ansøgninger eller forlængelser. Inkl. dokumenttjek, ansøgningspakke og opfølgning.</p>
-        <ul class="list">
-          <li>Dokumenttjek og løn-/kontraktscreening</li>
-          <li>Udfyldelse og indsendelse (AR1/AR6 eller AR3/AR7)</li>
-          <li>Dialog med SIRI og status undervejs</li>
-        </ul>
-        <a class="cta" href="/#start">Start en sag</a>
-      </div>
-
-      <div class="price">
-        <h3>Pro abonnement <span class="pill">Anbefalet</span></h3>
-        <div class="amount">2.400 kr./md.</div>
-        <p class="hint">Til virksomheder med løbende behov.</p>
-        <ul class="list">
-          <li>20% rabat pr. sag</li>
-          <li>Fast kontaktperson & prioriteret svartid</li>
-          <li>Skabeloner, tjeklister og forudtjek af kontrakter</li>
-          <li>Månedlig status og pipeline-oversigt</li>
-        </ul>
-        <a class="cta" href="/#start">Hør om Pro</a>
-      </div>
+    <div class="cta-wrap">
+      <h3>Få gratis vejledning fra en rådgiver</h3>
+      <p class="muted">Send jeres kontaktoplysninger – vi svarer typisk samme hverdag 8–16.</p>
+      <a class="cta-btn" href="/#start">Bliv kontaktet gratis</a>
+      <div class="cta-sub">* Ønsker I et planlagt møde (telefon/online) med dybdegående rådgivning, er taksten <strong>999 kr./time</strong>.</div>
     </div>
+  </section>
+
+  <!-- Steps -->
+  <section class="container">
+    <h3>Sådan arbejder vi</h3>
+    <div class="steps">
+      <div class="step"><strong>1. Foranalyse</strong><p><span class="tick">✔</span>Kontrakttjek, lønkrav, ordning og tidslinje.</p></div>
+      <div class="step"><strong>2. Ansøgning</strong><p><span class="tick">✔</span>Indsamling af dokumenter, AR1/AR6 eller AR3/AR7 indsendes.</p></div>
+      <div class="step"><strong>3. Opfølgning</strong><p><span class="tick">✔</span>Dialog med SIRI og løbende status til jer til afgørelse.</p></div>
+    </div>
+  </section>
+
+  <!-- Sectors -->
+  <section class="container">
+    <h3>Vi hjælper især</h3>
+    <div class="chips">
+      <div class="chip"><b>Restauranter & hoteller</b> (kokke, køkken, servers)</div>
+      <div class="chip"><b>Bygge & anlæg</b> (faglærte/ufaglærte)</div>
+      <div class="chip"><b>SMB’er</b> med udenlandske medarbejdere</div>
+      <div class="chip">Andre brancher? – skriv til os</div>
+    </div>
+  </section>
+
+  <!-- Trust -->
+  <section class="container">
+    <div class="trust">
+      <div class="t"><b>Svartid 8–16</b><br>typisk samme hverdag</div>
+      <div class="t"><b>GDPR</b><br>sikker datahåndtering</div>
+      <div class="t"><b>Gennemsigtighed</b><br>klare leverancer & status</div>
+      <div class="t"><b>Rådgivere</b><br>ikke advokater</div>
+    </div>
+  </section>
+
+  <!-- Mini FAQ -->
+  <section class="container" id="faq">
+    <h3>Ofte stillede spørgsmål</h3>
+    <details>
+      <summary>Hvor hurtigt kan I starte?</summary>
+      <p>Typisk samme hverdag, når vi har jeres kontaktoplysninger og grunddata på sagen.</p>
+    </details>
+    <details>
+      <summary>Hvad skal vi sende til jer?</summary>
+      <p>Jobtilbud/kontrakt, kontaktdata på virksomhed og medarbejder, samt relevante dokumenter (pas m.m.). Vi sender tjekliste.</p>
+    </details>
+    <details>
+      <summary>Håndterer I biometri eller myndighedsgebyrer?</summary>
+      <p>Nej. Vi rådgiver og håndterer ansøgningen/dokumentation – biometri, gebyrer og fremmøde varetages af ansøger/virksomhed.</p>
+    </details>
   </section>
 </main>
 
@@ -176,13 +229,15 @@
 </footer>
 
 <script>
-  // dropdown + drawer
+  // dropdown + drawer (samme som forsiden)
   const menuBtnDesktop=document.getElementById('menuBtnDesktop');
   const dropdown=document.getElementById('dropdown');
   const chev=document.getElementById('chev');
   function toggleDropdown(force){const open=typeof force==='boolean'?force:!dropdown.classList.contains('open');dropdown.classList.toggle('open',open);menuBtnDesktop.setAttribute('aria-expanded',open?'true':'false');chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';}
   if(menuBtnDesktop){menuBtnDesktop.addEventListener('click',()=>toggleDropdown());document.addEventListener('click',(e)=>{if(!dropdown.contains(e.target)&&!menuBtnDesktop.contains(e.target))toggleDropdown(false);});}
-  const drawer=document.getElementById('drawer');const backdrop=document.getElementById('backdrop');const menuBurger=document.getElementById('menuBurger');
+  const drawer=document.getElementById('drawer');
+  const backdrop=document.getElementById('backdrop');
+  const menuBurger=document.getElementById('menuBurger');
   function toggleDrawer(state){const open=typeof state==='boolean'?state:!drawer.classList.contains('open');drawer.classList.toggle('open',open);backdrop.classList.toggle('show',open);menuBurger.setAttribute('aria-expanded',open?'true':'false');drawer.setAttribute('aria-hidden',open?'false':'true');}
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 </script>
