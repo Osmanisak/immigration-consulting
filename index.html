@@ -16,7 +16,6 @@
   a{text-decoration:none;color:inherit}
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
-  /* Header */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
@@ -35,7 +34,7 @@
   .drop-links a{padding:10px 12px;border-radius:8px;font-weight:600}
   .drop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Mobile burger + drawer */
+  /* Mobile drawer */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
   @media(min-width:900px){ .menu-burger{display:none} .desktop-menu{display:block} }
@@ -68,16 +67,10 @@
   /* HVORFOR OS – badge + pil */
   .why{text-align:center}
   .why .badge{
-    display:inline-block;
-    background:linear-gradient(90deg, rgba(16,185,129,.14), rgba(37,99,235,.14));
-    color:var(--blue); font-weight:800; padding:8px 14px; border-radius:999px; letter-spacing:.2px;
-    border:1px solid rgba(37,99,235,.15);
+    display:inline-block;background:linear-gradient(90deg, rgba(16,185,129,.14), rgba(37,99,235,.14));
+    color:var(--blue); font-weight:800; padding:8px 14px; border-radius:999px; border:1px solid rgba(37,99,235,.15);
   }
-  .why .down{
-    width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:10px solid var(--blue);
-    margin:14px auto 26px; opacity:.9;
-  }
-
+  .why .down{width:0;height:0;border-left:9px solid transparent;border-right:9px solid transparent;border-top:10px solid var(--blue);margin:14px auto 26px;opacity:.9;}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:980px;margin:0 auto}
   .point{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 22px;box-shadow:var(--shadow);text-align:left}
   .point h4{margin:0 0 8px;font-size:20px;color:var(--blue)}
@@ -106,18 +99,14 @@
   .muted{color:var(--muted);margin-top:8px}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-
-  @media (max-width:900px){
-    .slides h2{font-size:30px}
-    .points,.grid-2{grid-template-columns:1fr}
-  }
+  @media (max-width:900px){ .slides h2{font-size:30px} .points,.grid-2{grid-template-columns:1fr} }
 </style>
 </head>
 <body>
 
 <header>
   <div class="nav container">
-    <a class="brand" href="index.html" aria-label="Forside">
+    <a class="brand" href="/" aria-label="Forside">
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
@@ -125,18 +114,17 @@
       </div>
     </a>
 
-    <!-- Desktop menu (knap + dropdown) -->
+    <!-- Desktop menu -->
     <div class="desktop-menu" id="desktopMenu">
       <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
         Menu <span class="chev" id="chev">▾</span>
       </button>
       <div class="dropdown" id="dropdown">
         <nav class="drop-links" aria-label="Hovedmenu">
-          <a href="#ydelser">Ydelser</a>
-          <a href="#priser">Priser</a>
-          <a href="#faq">FAQ</a>
-          <a href="#om-os">Om os</a>
-          <a href="#start">Kontakt</a>
+          <a href="/ydelser.html">Ydelser</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#om-os">Om os</a>
+          <a href="/#start">Kontakt</a>
         </nav>
       </div>
     </div>
@@ -156,11 +144,10 @@
     <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
   </div>
   <nav class="drawer-links">
-    <a href="#ydelser" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="#priser" onclick="toggleDrawer(false)">Priser</a>
-    <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
-    <a href="#om-os" onclick="toggleDrawer(false)">Om os</a>
-    <a href="#start" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
+    <a href="/#faq" onclick="toggleDrawer(false)">FAQ</a>
+    <a href="/#om-os" onclick="toggleDrawer(false)">Om os</a>
+    <a href="/#start" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
@@ -207,7 +194,7 @@
   </section>
 
   <!-- Proces & ansvar -->
-  <section class="process">
+  <section class="process" id="om-os">
     <div class="container">
       <h3>Proces & ansvar</h3>
       <div class="grid-2">
@@ -300,7 +287,6 @@
   const drawer = document.getElementById('drawer');
   const backdrop = document.getElementById('backdrop');
   const menuBurger = document.getElementById('menuBurger');
-
   function toggleDrawer(state){
     const open = typeof state === 'boolean' ? state : !drawer.classList.contains('open');
     drawer.classList.toggle('open', open);
