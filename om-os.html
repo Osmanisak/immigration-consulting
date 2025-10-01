@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Om os – Immigration Consulting</title>
+<meta name="description" content="Vi er en lille, fokuseret virksomhed med specialiserede rådgivere og konsulenter – med års erfaring fra bl.a. SIRI.">
+
+<style>
+  :root{
+    --ink:#0f172a;
+    --muted:#64748b;
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
+    --mint:#10b981;
+    --line:#e5e7eb;
+    --soft:#f6f8fb;
+    --shadow:0 8px 24px rgba(2,6,23,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1060px;margin:0 auto;padding:0 20px}
+
+  /* Header / Navigation */
+  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
+  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
+  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
+
+  .desktop-menu{position:relative;display:none}
+  .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
+  .menu-btn:hover{box-shadow:var(--shadow)}
+  .chev{transition:transform .2s ease}
+  .dropdown{position:absolute;right:0;top:48px;width:260px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
+  .dropdown.open{display:block}
+  .drop-links{display:flex;flex-direction:column;gap:8px}
+  .drop-links a{padding:10px 12px;border-radius:8px;font-weight:600}
+  .drop-links a:hover{background:var(--soft);color:var(--blue)}
+
+  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
+  .menu-burger svg{width:22px;height:22px}
+
+  @media(min-width:900px){
+    .menu-burger{display:none}
+    .desktop-menu{display:block}
+  }
+  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
+  .backdrop.show{opacity:1;pointer-events:auto}
+  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
+  .mobile-drawer.open{transform:translateX(0)}
+  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
+
+  /* Hero */
+  .hero{
+    position:relative;min-height:360px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
+    background:
+      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  }
+  .hero-inner{max-width:900px;padding:20px}
+  .hero h2{font-size:36px;margin:0 0 10px}
+  .hero p{font-size:18px;margin:0}
+
+  /* Sections */
+  section{padding:56px 20px}
+  h3{margin:0 0 16px}
+  .lead{font-size:18px;color:var(--muted);margin-top:8px}
+
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
+  .pill{display:inline-block;background:var(--blue-soft);color:var(--blue);font-weight:800;border-radius:999px;padding:6px 12px;margin-bottom:10px}
+  .muted{color:var(--muted)}
+  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .value{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .value h4{margin:0 0 8px;color:var(--blue)}
+
+  /* FAQ */
+  .faq{background:var(--soft)}
+  details{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:0;margin:10px 0}
+  summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;}
+  details p{padding:0 18px 16px 18px;color:var(--muted);margin:0}
+  summary::-webkit-details-marker{display:none}
+
+  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
+
+  @media(max-width:900px){
+    .values,.grid-2{grid-template-columns:1fr}
+    .hero h2{font-size:28px}
+  }
+  html{scroll-behavior:smooth}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav container">
+    <a class="brand" href="/" aria-label="Forside">
+      <div class="logo">IC</div>
+      <div class="meta">
+        <h1>Immigration Consulting</h1>
+        <div class="tagline">Din genvej til arbejdstilladelse</div>
+      </div>
+    </a>
+
+    <!-- Desktop dropdown -->
+    <div class="desktop-menu" id="desktopMenu">
+      <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
+        Menu <span class="chev" id="chev">▾</span>
+      </button>
+      <div class="dropdown" id="dropdown">
+        <nav class="drop-links">
+          <a href="/">Forside</a>
+          <a href="/ydelser.html">Ydelser</a>
+          <a href="#faq">FAQ</a>
+          <a href="/om-os.html">Om os</a>
+          <a href="/index.html#start">Kontakt</a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Mobile burger -->
+    <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile drawer -->
+<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true">
+  <div class="drawer-head">
+    <span>Menu</span>
+    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
+  </div>
+  <nav class="drawer-links">
+    <a href="/" onclick="toggleDrawer(false)">Forside</a>
+    <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
+    <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
+    <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
+    <a href="/index.html#start" onclick="toggleDrawer(false)">Kontakt</a>
+  </nav>
+</aside>
+
+<main>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h2>Om os</h2>
+      <p>En lille, målrettet virksomhed – med stor erfaring fra den anden side af skranken.</p>
+    </div>
+  </section>
+
+  <!-- Vores historie -->
+  <section class="container">
+    <span class="pill">Vores historie</span>
+    <h3>Små på størrelse. Store på fokus.</h3>
+    <p class="lead">
+      Immigration Consulting er skabt med én enkel idé: Når vi fokuserer på færre, veldefinerede opgaver, kan vi levere bedre,
+      hurtigere og mere trygge forløb. Vi er en lille, specialiseret enhed – og det er et bevidst valg.
+    </p>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="card">
+        <h4>Hvorfor lille og målrettet?</h4>
+        <p class="muted">
+          Vi siger hellere nej til en opgave, end at slække på kvaliteten. Ved at være selektive kan vi fordybe os, kende detaljerne
+          i netop jeres sag – og stå på mål for et forløb, der føles gennemtænkt fra start til slut.
+        </p>
+      </div>
+      <div class="card">
+        <h4>Erfaring fra den anden side</h4>
+        <p class="muted">
+          Vores rådgivere og konsulenter har mange års myndighedsnær erfaring – bl.a. fra SIRI. Vi kender processerne,
+          dokumentkravene og faldgruberne til punkt og prikke, fordi vi har siddet med sagerne på den anden side.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kompetencer / værdier -->
+  <section class="container">
+    <span class="pill">Vores principper</span>
+    <h3>Det vi lover – hver gang</h3>
+    <div class="values">
+      <div class="value">
+        <h4>Korrekt grundlag</h4>
+        <p class="muted">Alt starter med dokumenttjek og klare forudsætninger. Det reducerer risiko og sparer tid.</p>
+      </div>
+      <div class="value">
+        <h4>Rollefordeling & ro</h4>
+        <p class="muted">I bruger tiden på driften – vi tager ansøgning, opfølgning og dialogen med myndighederne.</p>
+      </div>
+      <div class="value">
+        <h4>Gennemsigtighed</h4>
+        <p class="muted">Faste rammer og tydelige leverancer. Status undervejs. Ingen skjulte gebyrer.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sådan arbejder vi -->
+  <section class="container">
+    <span class="pill">Sådan arbejder vi</span>
+    <h3>En enkel proces, der giver tryghed</h3>
+    <div class="grid-2" style="margin-top:16px">
+      <div class="card">
+        <h4>1) Opstart & forventningsafstemning</h4>
+        <p class="muted">Kort intro, jeres behov og tidsplan. Vi bekræfter, om det er ny ansøgning eller forlængelse – og hvad der mangler.</p>
+      </div>
+      <div class="card">
+        <h4>2) Ansøgning & opfølgning</h4>
+        <p class="muted">Vi forbereder sagen, indsender den og følger proaktivt op hos SIRI – så processen ikke går i stå.</p>
+      </div>
+      <div class="card">
+        <h4>3) Status & dokumentation</h4>
+        <p class="muted">I får klar information om næste skridt, og hvornår I kan forvente svar.</p>
+      </div>
+      <div class="card">
+        <h4>4) Afslutning & læring</h4>
+        <p class="muted">Når sagen er afsluttet, samler vi erfaringer og anbefalinger til næste sag.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <span class="pill">FAQ</span>
+      <h3>Ofte stillede spørgsmål</h3>
+
+      <details>
+        <summary>Hvor hurtigt kan vi starte?</summary>
+        <p>Typisk samme hverdag, når vi har jeres kontaktoplysninger og grunddata på sagen.</p>
+      </details>
+
+      <details>
+        <summary>Hvad skal vi sende til jer?</summary>
+        <p>Jobtilbud/kontrakt, kontaktdata på virksomhed og medarbejder, samt relevante dokumenter (pas m.m.). Vi sender tjekliste.</p>
+      </details>
+
+      <details>
+        <summary>Håndterer I biometri eller myndighedsgebyrer?</summary>
+        <p>Nej – som rådgivere håndterer vi ansøgning, dokumentation og opfølgning. Biometri og gebyrer ligger hos myndighederne.</p>
+      </details>
+
+      <details>
+        <summary>Kan vi få et møde?</summary>
+        <p>Ja. Planlagt rådgivning koster 987 kr. eks. moms pr. time. Mange kommer godt i gang via en gratis indledende afklaring pr. formular.</p>
+      </details>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering
+</footer>
+
+<script>
+  // Desktop dropdown
+  const menuBtnDesktop=document.getElementById('menuBtnDesktop');
+  const dropdown=document.getElementById('dropdown');
+  const chev=document.getElementById('chev');
+  function toggleDropdown(force){
+    const open=typeof force==='boolean'?force:!dropdown.classList.contains('open');
+    dropdown.classList.toggle('open',open);
+    if(menuBtnDesktop){menuBtnDesktop.setAttribute('aria-expanded',open?'true':'false');}
+    if(chev){chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';}
+  }
+  if(menuBtnDesktop){
+    menuBtnDesktop.addEventListener('click',()=>toggleDropdown());
+    document.addEventListener('click',(e)=>{ if(!dropdown.contains(e.target)&&!menuBtnDesktop.contains(e.target)) toggleDropdown(false); });
+  }
+
+  // Mobile drawer
+  const drawer=document.getElementById('drawer');
+  const backdrop=document.getElementById('backdrop');
+  const menuBurger=document.getElementById('menuBurger');
+  function toggleDrawer(state){
+    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
+    drawer.classList.toggle('open',open);
+    backdrop.classList.toggle('show',open);
+    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
+    drawer.setAttribute('aria-hidden',open?'false':'true');
+  }
+  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
+</script>
+</body>
+</html>
