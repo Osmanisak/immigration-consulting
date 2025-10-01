@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Om os – Immigration Consulting</title>
-<meta name="description" content="Vi er en lille, fokuseret virksomhed med specialiserede rådgivere og konsulenter – med års erfaring fra bl.a. SIRI.">
+<meta name="description" content="Vi er en lille, fokuseret virksomhed med specialiserede rådgivere og konsulenter med års erfaring fra bl.a. SIRI.">
 
 <style>
   :root{
@@ -28,7 +28,7 @@
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
+  .tagline{font-size:13px;font-weight:700;color:#10b981}
 
   .desktop-menu{position:relative;display:none}
   .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
@@ -78,8 +78,15 @@
   .value{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .value h4{margin:0 0 8px;color:var(--blue)}
 
+  /* Retningslinjer */
+  .guidelines{background:var(--soft)}
+  .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .rule{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
+  .rule h4{margin:0 0 8px;color:var(--blue)}
+  .rule ul{margin:8px 0 0 18px;color:var(--muted)}
+
   /* FAQ */
-  .faq{background:var(--soft)}
+  .faq{background:#fff}
   details{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:0;margin:10px 0}
   summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;}
   details p{padding:0 18px 16px 18px;color:var(--muted);margin:0}
@@ -88,7 +95,7 @@
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
   @media(max-width:900px){
-    .values,.grid-2{grid-template-columns:1fr}
+    .values,.grid-2,.rules{grid-template-columns:1fr}
     .hero h2{font-size:28px}
   }
   html{scroll-behavior:smooth}
@@ -106,7 +113,6 @@
       </div>
     </a>
 
-    <!-- Desktop dropdown -->
     <div class="desktop-menu" id="desktopMenu">
       <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
         Menu <span class="chev" id="chev">▾</span>
@@ -122,14 +128,12 @@
       </div>
     </div>
 
-    <!-- Mobile burger -->
     <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
 </header>
 
-<!-- Mobile drawer -->
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true">
   <div class="drawer-head">
@@ -200,27 +204,74 @@
     </div>
   </section>
 
-  <!-- Sådan arbejder vi -->
-  <section class="container">
-    <span class="pill">Sådan arbejder vi</span>
-    <h3>En enkel proces, der giver tryghed</h3>
-    <div class="grid-2" style="margin-top:16px">
-      <div class="card">
-        <h4>1) Opstart & forventningsafstemning</h4>
-        <p class="muted">Kort intro, jeres behov og tidsplan. Vi bekræfter, om det er ny ansøgning eller forlængelse – og hvad der mangler.</p>
+  <!-- Retningslinjer -->
+  <section class="guidelines">
+    <div class="container">
+      <span class="pill">Retningslinjer</span>
+      <h3>Sådan sikrer vi en tryg og korrekt proces</h3>
+      <div class="rules">
+        <div class="rule">
+          <h4>1) Rådgivningens omfang</h4>
+          <ul>
+            <li>Vi er rådgivere/konsulenter. Vi træffer ikke afgørelser og er ikke en myndighed.</li>
+            <li>Vi udfylder og indsender ansøgninger (fx AR1/AR6 og AR3/AR7) og koordinerer dialogen – selve biometrien og personligt fremmøde håndteres hos SIRI.</li>
+            <li>Vi kan indsende på fuldmagt, hvor det er relevant (arbejdsgiver/tredjepart). </li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>2) Myndighedskrav & biometrik</h4>
+          <ul>
+            <li>Ikke-EU/EØS-ansøgere skal have optaget biometriske data i forbindelse med ansøgning/forlængelse; tid bestilles hos SIRI.</li>
+            <li>Eventuelle gebyrer til myndigheder betales af ansøger/arbejdsgiver direkte til SIRI – ikke til os.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>3) Nye ansøgninger (AR1/AR6)</h4>
+          <ul>
+            <li>Vi kvalitetssikrer kontrakt, løn- og ansættelsesvilkår op mod gældende ordning(er) og indsender korrekt materiale fra start.</li>
+            <li>Ved fuldmagt kan arbejdsgiver eller tredjepart (fx relocation) indsende på vegne af ansøgeren.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>4) Forlængelser (AR3/AR7)</h4>
+          <ul>
+            <li>Forlængelse forudsætter, at betingelserne fortsat er opfyldt (typisk samme arbejdsgiver/stilling og korrekt lønudbetaling).</li>
+            <li>Vi anbefaler at ansøge i god tid før udløb, så ophold/arbejde ikke afbrydes.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>5) Dokumentation & sandhedspligt</h4>
+          <ul>
+            <li>Kunden indestår for rigtigheden af alle oplysninger og bilag. Falsk eller ufuldstændig information kan medføre afslag.</li>
+            <li>Vi oplyser altid, hvis vi vurderer, at yderligere dokumentation eller oversættelse er nødvendig.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>6) Databeskyttelse (GDPR)</h4>
+          <ul>
+            <li>Vi behandler kun nødvendige oplysninger med lovligt grundlag (typisk aftaleopfyldelse/retlig forpligtelse eller samtykke).</li>
+            <li>Vi praktiserer dataminimering, adgangsstyring og sletter/arkiverer efter klare frister. Vi anvender databehandlere med aftaler og passende sikkerhed.</li>
+            <li>Overførsler uden for EU/EØS foretages kun med gyldigt overførselsgrundlag (fx SCC’er) og proportionalitet.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>7) Priser, gennemsigtighed & ansvar</h4>
+          <ul>
+            <li>Vores priser kommunikeres klart før opstart. Myndighedsgebyrer er separate og opkræves af SIRI.</li>
+            <li>Vi kan ikke garantere udfald eller sagsbehandlingstider, da afgørelser træffes af SIRI.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>8) Etik & interessekonflikter</h4>
+          <ul>
+            <li>Vi påtager os ikke sager med åbenbare interessekonflikter og henviser ved behov til uafhængig rådgivning.</li>
+            <li>Vi arbejder fair og respektfuldt over for ansøgere, virksomheder og myndigheder.</li>
+          </ul>
+        </div>
       </div>
-      <div class="card">
-        <h4>2) Ansøgning & opfølgning</h4>
-        <p class="muted">Vi forbereder sagen, indsender den og følger proaktivt op hos SIRI – så processen ikke går i stå.</p>
-      </div>
-      <div class="card">
-        <h4>3) Status & dokumentation</h4>
-        <p class="muted">I får klar information om næste skridt, og hvornår I kan forvente svar.</p>
-      </div>
-      <div class="card">
-        <h4>4) Afslutning & læring</h4>
-        <p class="muted">Når sagen er afsluttet, samler vi erfaringer og anbefalinger til næste sag.</p>
-      </div>
+      <p class="muted" style="margin-top:14px">
+        Bemærk: Regler og praksis opdateres løbende. Vi rådgiver altid efter de til enhver tid gældende retningslinjer hos nyidanmark.dk/SIRI.
+      </p>
     </div>
   </section>
 
@@ -237,12 +288,12 @@
 
       <details>
         <summary>Hvad skal vi sende til jer?</summary>
-        <p>Jobtilbud/kontrakt, kontaktdata på virksomhed og medarbejder, samt relevante dokumenter (pas m.m.). Vi sender tjekliste.</p>
+        <p>Jobtilbud/kontrakt, kontaktdata på virksomhed og medarbejder samt relevante dokumenter (pas m.m.). Vi sender tjekliste.</p>
       </details>
 
       <details>
         <summary>Håndterer I biometri eller myndighedsgebyrer?</summary>
-        <p>Nej – som rådgivere håndterer vi ansøgning, dokumentation og opfølgning. Biometri og gebyrer ligger hos myndighederne.</p>
+        <p>Nej – som rådgivere håndterer vi ansøgning, dokumentation og opfølgning. Biometri/afgifter håndteres hos SIRI.</p>
       </details>
 
       <details>
