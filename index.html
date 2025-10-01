@@ -16,6 +16,13 @@
     --line:#e5e7eb;
     --soft:#f6f8fb;
     --shadow:0 8px 24px rgba(2,6,23,.10);
+
+    /* HERO-billede (lavt perspektiv med lampe i fokus) */
+    --hero-img: url('https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?auto=format&fit=crop&w=1600&q=80');
+    /* Alternativer (skift selv hvis du vil):
+       --hero-img: url('https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80');
+       --hero-img: url('https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?auto=format&fit=crop&w=1600&q=80');
+    */
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
@@ -28,7 +35,7 @@
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
+  .tagline{font-size:13px;font-weight:700;color:#10b981}
 
   .desktop-menu{position:relative;display:none}
   .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
@@ -54,19 +61,14 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  /* HERO med frøperspektiv (lampe i fokus) */
+  /* HERO – lavt perspektiv (set lidt nedefra), lampe i fokus */
   .hero{
     position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
     background:
       linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.45)),
-      /* Lav-vinkel/“frøperspektiv” af loft/lamper */
-      url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')
-      center 20% / cover no-repeat;
+      var(--hero-img)
+      center 6% / cover no-repeat;  /* trukket en smule op, så lampen er synlig, ingen rotation */
   }
-  /* Tip: Hvis du vil teste alternativer, kan du prøve disse:
-     - Moderne loftslampe, lav vinkel: https://images.unsplash.com/photo-1486572788966-cfd3df1f5b42?auto=format&fit=crop&w=1600&q=80
-     - Loft/pendant i kontor, lav vinkel: https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1600&q=80
-  */
   .hero-inner{max-width:920px;padding:20px}
   .slides{position:relative;z-index:2;max-width:820px;margin:0 auto}
   .slide{display:none;animation:fade .8s ease}
@@ -94,7 +96,7 @@
   .card h4{margin:0 0 10px;color:var(--blue)}
   .checklist{list-style:none;padding:0;margin:0}
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
-  .tick{width:22px;height:22px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
+  .tick{width:22px;height:22px;border-radius:50%;background:#10b981;display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
   /* CTA + formular */
   .cta-wrap{text-align:center;margin-top:6px}
@@ -131,7 +133,7 @@
       </div>
     </a>
 
-    <!-- Desktop dropdown (FAQ fjernet) -->
+    <!-- Desktop dropdown -->
     <div class="desktop-menu" id="desktopMenu">
       <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
         Menu <span class="chev" id="chev">▾</span>
@@ -153,7 +155,7 @@
   </div>
 </header>
 
-<!-- Mobile drawer (FAQ fjernet) -->
+<!-- Mobile drawer -->
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true">
   <div class="drawer-head">
@@ -169,7 +171,7 @@
 </aside>
 
 <main>
-  <!-- HERO med TEKST-SLIDES og kun “Se ydelser” -->
+  <!-- HERO med TEKST-SLIDES og “Se ydelser” -->
   <section class="hero">
     <div class="hero-inner">
       <div class="slides" id="slides">
