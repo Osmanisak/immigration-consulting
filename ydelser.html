@@ -6,8 +6,20 @@
 <title>Ydelser – Immigration Consulting</title>
 <meta name="description" content="Vi håndterer nye ansøgninger og forlængelser for arbejdstilladelser. Få gratis vejledning – vi svarer samme hverdag 8–16.">
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--blue:#2563eb;--mint:#10b981;--line:#e5e7eb;--soft:#f6f8fb;--shadow:0 8px 24px rgba(2,6,23,.10)}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink)}
+  /* Moderne, rolig blå-palet */
+  :root{
+    --ink:#0f172a;
+    --muted:#64748b;
+    --blue:#1f3a8a;          /* mørkere, blød blå */
+    --blue-soft:#dfe6ff;     /* lys baggrundsblå til badges */
+    --mint:#10b981;
+    --line:#e5e7eb;
+    --soft:#f6f8fb;
+    --shadow:0 8px 24px rgba(2,6,23,.10);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
   a{text-decoration:none;color:inherit}
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
@@ -15,8 +27,8 @@
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#e6f7f3,#d6ecff);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
-  .meta h1{font-size:18px;margin:0;line-height:1}
+  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
+  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
   .desktop-menu{position:relative;display:none}
   .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
@@ -38,17 +50,17 @@
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
   /* Hero */
-  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f8fbff,#ffffff)}
-  .page-hero h2{margin:0 0 8px;font-size:34px}
+  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
+  .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
   .muted{color:var(--muted)}
 
   /* Sektioner */
   section{padding:36px 20px}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .card h3{margin:0 0 8px;color:var(--blue)}
+  .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
   .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#ecf2ff;color:#2746d6;font-weight:700;font-size:12px;margin-left:8px}
+  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px;margin-left:8px}
 
   /* CTA & formular */
   .cta-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);text-align:center}
@@ -61,15 +73,14 @@
   textarea{min-height:120px;resize:vertical}
   .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
 
-  /* Steps & chips */
+  /* Steps & chips (uden bold) */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .step strong{display:block;margin-bottom:6px;color:var(--blue)}
+  .step-title{display:block;margin-bottom:6px;color:var(--blue)}
   .tick{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--mint);color:#fff;font-weight:900;margin-right:8px}
 
   .chips{display:flex;flex-wrap:wrap;gap:10px}
-  .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff}
-  .chip b{color:var(--blue)}
+  .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
@@ -98,6 +109,7 @@
       </button>
       <div class="dropdown" id="dropdown">
         <nav class="drop-links">
+          <a href="/">Forside</a>
           <a href="/ydelser.html">Ydelser</a>
           <a href="/#faq">FAQ</a>
           <a href="/#om-os">Om os</a>
@@ -115,10 +127,11 @@
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true">
   <div class="drawer-head">
-    <strong>Menu</strong>
+    <span>Menu</span>
     <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
   </div>
   <nav class="drawer-links">
+    <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
     <a href="/#faq" onclick="toggleDrawer(false)">FAQ</a>
     <a href="/#om-os" onclick="toggleDrawer(false)">Om os</a>
@@ -131,7 +144,7 @@
   <section class="page-hero">
     <div class="container">
       <h2>Ydelser</h2>
-      <p class="muted">Vi håndterer både <strong>nye ansøgninger</strong> og <strong>forlængelser</strong> – fra dokumenttjek til indsendelse og dialog med SIRI.</p>
+      <p class="muted">Vi håndterer både nye ansøgninger og forlængelser – fra dokumenttjek til indsendelse og dialog med SIRI.</p>
     </div>
   </section>
 
@@ -169,7 +182,7 @@
       <h3>Få gratis vejledning fra en rådgiver</h3>
       <p class="muted">Send jeres kontaktoplysninger – vi svarer typisk samme hverdag 8–16.</p>
       <a class="cta-btn" href="#start">Bliv kontaktet gratis</a>
-      <div class="cta-sub">* Ønsker I et planlagt møde (telefon/online) med dybdegående rådgivning, er taksten <strong>999 kr./time</strong>.</div>
+      <div class="cta-sub">* Ønsker I et planlagt møde (telefon/online) med dybdegående rådgivning, er taksten 987 kr. eks. moms pr. time.</div>
     </div>
   </section>
 
@@ -177,9 +190,9 @@
   <section class="container">
     <h3>Sådan arbejder vi</h3>
     <div class="steps">
-      <div class="step"><strong>1. Foranalyse</strong><p><span class="tick">✔</span>Kontrakttjek, lønkrav, ordning og tidslinje.</p></div>
-      <div class="step"><strong>2. Ansøgning</strong><p><span class="tick">✔</span>Indsamling af dokumenter, AR1/AR6 eller AR3/AR7 indsendes.</p></div>
-      <div class="step"><strong>3. Opfølgning</strong><p><span class="tick">✔</span>Dialog med SIRI og løbende status til jer til afgørelse.</p></div>
+      <div class="step"><span class="step-title">1. Foranalyse</span><p><span class="tick">✔</span>Kontrakttjek, lønkrav, ordning og tidslinje.</p></div>
+      <div class="step"><span class="step-title">2. Ansøgning</span><p><span class="tick">✔</span>Indsamling af dokumenter, AR1/AR6 eller AR3/AR7 indsendes.</p></div>
+      <div class="step"><span class="step-title">3. Opfølgning</span><p><span class="tick">✔</span>Dialog med SIRI og løbende status til jer til afgørelse.</p></div>
     </div>
   </section>
 
@@ -187,20 +200,19 @@
   <section class="container">
     <h3>Vi hjælper især</h3>
     <div class="chips" style="margin-bottom:10px">
-      <div class="chip"><b>Restauranter & hoteller</b></div>
-      <div class="chip"><b>Bygge & anlæg</b></div>
-      <div class="chip"><b>Produktion & logistik</b></div>
-      <div class="chip"><b>IT & tekniske fag</b></div>
-      <div class="chip"><b>Rengøring & facility</b></div>
-      <div class="chip"><b>Landbrug & fødevarer</b></div>
+      <div class="chip">Restauranter & hoteller</div>
+      <div class="chip">Bygge & anlæg</div>
+      <div class="chip">Produktion & logistik</div>
+      <div class="chip">IT & tekniske fag</div>
+      <div class="chip">Rengøring & facility</div>
     </div>
     <p class="muted">
-      Vores rådgivning bygger på <strong>myndighedsnær indsigt</strong> og praktisk erfaring med sagsforløb hos SIRI.  
-      Det betyder færre fejl, bedre dokumentation – og en mere forudsigelig proces for både virksomheden og medarbejderen.
+      Vores rådgivning bygger på myndighedsnær indsigt og praktisk erfaring med sagsforløb hos SIRI.
+      Det giver færre fejl, bedre dokumentation og en mere forudsigelig proces for både virksomheden og medarbejderen.
     </p>
   </section>
 
-  <!-- Kontaktformular (samme som forsiden) -->
+  <!-- Kontaktformular -->
   <section class="container" id="start">
     <div class="form-wrap">
       <h3>Bliv kontaktet</h3>
@@ -223,7 +235,7 @@
 
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
           <button class="submit" type="submit">Send</button>
-          <span class="muted">* Planlagt møde med rådgiver: 999 kr./time.</span>
+          <span class="muted">* Planlagt møde med rådgiver: 987 kr. eks. moms pr. time.</span>
         </div>
       </form>
     </div>
