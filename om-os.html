@@ -4,13 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Om os – Immigration Consulting</title>
-<meta name="description" content="Vi er en lille, fokuseret virksomhed med specialiserede rådgivere og konsulenter med års erfaring fra bl.a. SIRI.">
+<meta name="description" content="En lille, målrettet virksomhed med specialiserede rådgivere og konsulenter – med års erfaring fra bl.a. SIRI.">
 
 <style>
   :root{
     --ink:#0f172a;
     --muted:#64748b;
-    --blue:#1f3a8a;
+    --blue:#1f3a8a;        /* rolig, mørk blå (samme som forsiden) */
     --blue-soft:#dfe6ff;
     --mint:#10b981;
     --line:#e5e7eb;
@@ -28,7 +28,7 @@
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:#10b981}
+  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
   .desktop-menu{position:relative;display:none}
   .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
@@ -54,12 +54,13 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  /* Hero */
+  /* Hero – nyt roligt billede med samme mørke overlay */
   .hero{
     position:relative;min-height:360px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
     background:
       linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')
+      center/cover no-repeat;
   }
   .hero-inner{max-width:900px;padding:20px}
   .hero h2{font-size:36px;margin:0 0 10px}
@@ -113,6 +114,7 @@
       </div>
     </a>
 
+    <!-- Desktop menu (FAQ fjernet) -->
     <div class="desktop-menu" id="desktopMenu">
       <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
         Menu <span class="chev" id="chev">▾</span>
@@ -121,13 +123,13 @@
         <nav class="drop-links">
           <a href="/">Forside</a>
           <a href="/ydelser.html">Ydelser</a>
-          <a href="#faq">FAQ</a>
           <a href="/om-os.html">Om os</a>
           <a href="/index.html#start">Kontakt</a>
         </nav>
       </div>
     </div>
 
+    <!-- Mobilmenu (FAQ fjernet) -->
     <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
@@ -143,7 +145,6 @@
   <nav class="drawer-links">
     <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="#faq" onclick="toggleDrawer(false)">FAQ</a>
     <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
     <a href="/index.html#start" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
@@ -184,7 +185,7 @@
     </div>
   </section>
 
-  <!-- Kompetencer / værdier -->
+  <!-- Værdier -->
   <section class="container">
     <span class="pill">Vores principper</span>
     <h3>Det vi lover – hver gang</h3>
@@ -204,7 +205,7 @@
     </div>
   </section>
 
-  <!-- Retningslinjer -->
+  <!-- Retningslinjer (før FAQ) -->
   <section class="guidelines">
     <div class="container">
       <span class="pill">Retningslinjer</span>
@@ -214,51 +215,50 @@
           <h4>1) Rådgivningens omfang</h4>
           <ul>
             <li>Vi er rådgivere/konsulenter. Vi træffer ikke afgørelser og er ikke en myndighed.</li>
-            <li>Vi udfylder og indsender ansøgninger (fx AR1/AR6 og AR3/AR7) og koordinerer dialogen – selve biometrien og personligt fremmøde håndteres hos SIRI.</li>
-            <li>Vi kan indsende på fuldmagt, hvor det er relevant (arbejdsgiver/tredjepart). </li>
+            <li>Vi udfylder og indsender ansøgninger (fx AR1/AR6 og AR3/AR7) og koordinerer dialogen – biometri og personligt fremmøde håndteres hos SIRI.</li>
+            <li>Vi kan indsende på fuldmagt, hvor det er relevant.</li>
           </ul>
         </div>
         <div class="rule">
           <h4>2) Myndighedskrav & biometrik</h4>
           <ul>
-            <li>Ikke-EU/EØS-ansøgere skal have optaget biometriske data i forbindelse med ansøgning/forlængelse; tid bestilles hos SIRI.</li>
-            <li>Eventuelle gebyrer til myndigheder betales af ansøger/arbejdsgiver direkte til SIRI – ikke til os.</li>
+            <li>Ikke-EU/EØS-ansøgere skal have optaget biometriske data ved ansøgning/forlængelse; tid bestilles hos SIRI.</li>
+            <li>Myndighedsgebyrer betales direkte til SIRI af ansøger/arbejdsgiver.</li>
           </ul>
         </div>
         <div class="rule">
           <h4>3) Nye ansøgninger (AR1/AR6)</h4>
           <ul>
-            <li>Vi kvalitetssikrer kontrakt, løn- og ansættelsesvilkår op mod gældende ordning(er) og indsender korrekt materiale fra start.</li>
-            <li>Ved fuldmagt kan arbejdsgiver eller tredjepart (fx relocation) indsende på vegne af ansøgeren.</li>
+            <li>Vi kvalitetssikrer kontrakt, løn og vilkår op mod den relevante ordning og indsender korrekt materiale fra start.</li>
+            <li>Ved fuldmagt kan arbejdsgiver/tredjepart indsende på vegne af ansøger.</li>
           </ul>
         </div>
         <div class="rule">
           <h4>4) Forlængelser (AR3/AR7)</h4>
           <ul>
-            <li>Forlængelse forudsætter, at betingelserne fortsat er opfyldt (typisk samme arbejdsgiver/stilling og korrekt lønudbetaling).</li>
-            <li>Vi anbefaler at ansøge i god tid før udløb, så ophold/arbejde ikke afbrydes.</li>
+            <li>Betingelserne skal fortsat være opfyldt (fx samme arbejdsgiver/stilling, korrekt løn).</li>
+            <li>Vi anbefaler at starte i god tid før udløb for at undgå afbrydelse.</li>
           </ul>
         </div>
         <div class="rule">
           <h4>5) Dokumentation & sandhedspligt</h4>
           <ul>
-            <li>Kunden indestår for rigtigheden af alle oplysninger og bilag. Falsk eller ufuldstændig information kan medføre afslag.</li>
-            <li>Vi oplyser altid, hvis vi vurderer, at yderligere dokumentation eller oversættelse er nødvendig.</li>
+            <li>Kunden indestår for rigtigheden af alle oplysninger og bilag.</li>
+            <li>Vi oplyser, hvis yderligere dokumentation/oversættelse er nødvendig.</li>
           </ul>
         </div>
         <div class="rule">
           <h4>6) Databeskyttelse (GDPR)</h4>
           <ul>
-            <li>Vi behandler kun nødvendige oplysninger med lovligt grundlag (typisk aftaleopfyldelse/retlig forpligtelse eller samtykke).</li>
-            <li>Vi praktiserer dataminimering, adgangsstyring og sletter/arkiverer efter klare frister. Vi anvender databehandlere med aftaler og passende sikkerhed.</li>
-            <li>Overførsler uden for EU/EØS foretages kun med gyldigt overførselsgrundlag (fx SCC’er) og proportionalitet.</li>
+            <li>Vi behandler kun nødvendige oplysninger med lovligt grundlag og praktiserer dataminimering og adgangsstyring.</li>
+            <li>Sletning/arkivering efter klare frister. Aftaler med databehandlere og passende sikkerhedsniveau.</li>
           </ul>
         </div>
         <div class="rule">
-          <h4>7) Priser, gennemsigtighed & ansvar</h4>
+          <h4>7) Priser & ansvar</h4>
           <ul>
-            <li>Vores priser kommunikeres klart før opstart. Myndighedsgebyrer er separate og opkræves af SIRI.</li>
-            <li>Vi kan ikke garantere udfald eller sagsbehandlingstider, da afgørelser træffes af SIRI.</li>
+            <li>Priser kommunikeres klart før opstart. Myndighedsgebyrer er separate.</li>
+            <li>Vi kan ikke garantere udfald eller sagsbehandlingstider (afgørelser træffes af SIRI).</li>
           </ul>
         </div>
         <div class="rule">
@@ -275,7 +275,7 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ (ligger stadig nederst, men ikke i menuen) -->
   <section class="faq" id="faq">
     <div class="container">
       <span class="pill">FAQ</span>
