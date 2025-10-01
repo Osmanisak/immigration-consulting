@@ -63,7 +63,7 @@
 
 <header>
   <div class="nav container">
-    <a class="brand" href="index.html" aria-label="Forside">
+    <a class="brand" href="/" aria-label="Forside">
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
@@ -77,10 +77,10 @@
       </button>
       <div class="dropdown" id="dropdown">
         <nav class="drop-links">
-          <a href="ydelser.html">Ydelser</a>
-          <a href="index.html#faq">FAQ</a>
-          <a href="index.html#om-os">Om os</a>
-          <a href="index.html#start">Kontakt</a>
+          <a href="/ydelser.html">Ydelser</a>
+          <a href="/#faq">FAQ</a>
+          <a href="/#om-os">Om os</a>
+          <a href="/#start">Kontakt</a>
         </nav>
       </div>
     </div>
@@ -98,10 +98,10 @@
     <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
   </div>
   <nav class="drawer-links">
-    <a href="ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="index.html#faq" onclick="toggleDrawer(false)">FAQ</a>
-    <a href="index.html#om-os" onclick="toggleDrawer(false)">Om os</a>
-    <a href="index.html#start" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
+    <a href="/#faq" onclick="toggleDrawer(false)">FAQ</a>
+    <a href="/#om-os" onclick="toggleDrawer(false)">Om os</a>
+    <a href="/#start" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
@@ -143,7 +143,6 @@
   <section class="container">
     <h3>Priser</h3>
     <div class="pricing">
-      <!-- Én sagspris – gennemsnit mellem basis (3.900) og premium (7.900) ≈ 5.900 -->
       <div class="price">
         <h3>Sagspris</h3>
         <div class="amount">5.900 kr.</div>
@@ -153,7 +152,7 @@
           <li>Udfyldelse og indsendelse (AR1/AR6 eller AR3/AR7)</li>
           <li>Dialog med SIRI og status undervejs</li>
         </ul>
-        <a class="cta" href="index.html#start">Start en sag</a>
+        <a class="cta" href="/#start">Start en sag</a>
       </div>
 
       <div class="price">
@@ -166,7 +165,7 @@
           <li>Skabeloner, tjeklister og forudtjek af kontrakter</li>
           <li>Månedlig status og pipeline-oversigt</li>
         </ul>
-        <a class="cta" href="index.html#start">Hør om Pro</a>
+        <a class="cta" href="/#start">Hør om Pro</a>
       </div>
     </div>
   </section>
@@ -177,7 +176,7 @@
 </footer>
 
 <script>
-  // dropdown + drawer (samme som forsiden)
+  // dropdown + drawer
   const menuBtnDesktop=document.getElementById('menuBtnDesktop');
   const dropdown=document.getElementById('dropdown');
   const chev=document.getElementById('chev');
