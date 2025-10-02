@@ -69,19 +69,29 @@
   .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
   .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px}
 
-  .cta-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);text-align:center}
-  .cta-btn{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none}
-
   /* Kontaktkort-lister */
   .kv{display:grid;grid-template-columns:140px 1fr;gap:10px;margin:10px 0}
   .kv span{color:var(--muted)}
   .mono{font-variant-numeric:tabular-nums}
+
+  /* Formular-bjælke */
+  .form-bar{
+    background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);
+    padding:18px;
+  }
+  .form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+  .form-bar input,.form-bar textarea{
+    width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit;
+  }
+  .form-bar textarea{min-height:100px;resize:vertical}
+  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
   @media(max-width:900px){
     .grid-2{grid-template-columns:1fr}
     .kv{grid-template-columns:120px 1fr}
+    .form-grid{grid-template-columns:1fr 1fr}
   }
   @media(min-width:900px){
     .menu-burger{display:none;}
@@ -109,7 +119,7 @@
       <a href="/">Forside</a>
       <a href="/ydelser.html">Ydelser</a>
       <a href="/om-os.html">Om os</a>
-      <a href="/index.html#start">Kontakt</a>
+      <a href="/kontakt.html">Kontakt</a>
     </nav>
 
     <!-- Mobil: burger -->
@@ -129,7 +139,7 @@
     <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
     <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
-    <a href="/index.html#start" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="/kontakt.html" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
@@ -153,40 +163,50 @@
         <div class="kv"><span>E-mail</span><div><a href="mailto:kontakt@immigrationconsulting.dk">kontakt@immigrationconsulting.dk*</a></div></div>
         <div class="kv"><span>Telefon</span><div><a href="tel:+45XXXXXXXX">+45 ** ** ** **</a>*</div></div>
         <div class="kv"><span>Åbningstid</span><div>Hverdage 08:00–16:00</div></div>
-        <div class="kv"><span>Respons</span><div>Vi bestræber os på at svare samme hverdag.</div></div>
       </div>
 
       <div class="card">
         <h3>Fakturering & betaling</h3>
-        <div class="kv"><span>Fakturering</span><div>Elektronisk (PDF/PEPPOL/ean)</div></div>
+        <div class="kv"><span>Fakturering</span><div>Elektronisk (PDF/PEPPOL/EAN)</div></div>
         <div class="kv"><span>EAN</span><div class="mono">**************</div></div>
         <div class="kv"><span>Reg./Konto</span><div class="mono">** ** ** / ****************</div></div>
         <div class="kv"><span>IBAN</span><div class="mono">DK** ******************</div></div>
         <div class="kv"><span>BIC/SWIFT</span><div class="mono">********</div></div>
         <div class="kv"><span>Betalingsbeting.</span><div>Netto 8 dage* (medmindre andet er aftalt)</div></div>
-        <div class="kv"><span>Rådgiverhonorar</span><div>Planlagt rådgivning: 987 kr. ekskl. moms/time*</div></div>
       </div>
     </div>
   </section>
 
-  <!-- Lille venlig intro + CTA -->
-  <section class="container">
-    <div class="cta-wrap">
-      <h3>Skriv til os</h3>
-      <p class="muted">
-        Fortæl kort om jeres behov (stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato).
-        Vi vender tilbage samme hverdag 8–16.
-      </p>
-      <a class="cta-btn" href="/index.html#start">Åbn kontaktformular</a>
+  <!-- Skriv til os (bjælke med formular) -->
+  <section class="container" id="skriv-til-os">
+    <div class="form-bar">
+      <h3 style="margin:0 0 10px;color:var(--blue)">Skriv til os</h3>
+      <!-- Netlify Forms -->
+      <form name="kontakt-hurtig" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="kontakt-hurtig" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+
+        <div class="form-grid">
+          <input type="text"   name="navn"      placeholder="Dit navn" required />
+          <input type="tel"    name="telefon"   placeholder="Telefon" />
+          <input type="text"   name="firma"     placeholder="Virksomhed" />
+          <input type="email"  name="email"     placeholder="Din e-mail" required />
+        </div>
+        <textarea name="besked" placeholder="Skriv dine spørgsmål eller en kort beskrivelse (stilling, nationalitet, ny ansøgning/forlængelse, ønsket startdato)"></textarea>
+
+        <div style="margin-top:12px">
+          <button class="submit" type="submit">Send</button>
+        </div>
+      </form>
     </div>
   </section>
 
-  <!-- (Valgfrit) kort tekst om databeskyttelse -->
+  <!-- Databeskyttelse -->
   <section class="container">
     <div class="card">
       <h3>Databeskyttelse (GDPR)</h3>
       <p class="muted">
-        Vi behandler kun nødvendige oplysninger med lovligt grundlag og efter princippet om dataminimering. 
+        Vi behandler kun nødvendige oplysninger med lovligt grundlag og efter princippet om dataminimering.
         Følsomme bilag bør kun deles via aftalt, sikker kanal. Kontakt os, hvis du er i tvivl.
       </p>
     </div>
