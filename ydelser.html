@@ -80,7 +80,7 @@
   .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   input,textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
   textarea{min-height:120px;resize:vertical}
-  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
+  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:#1f3a8a;color:#fff;font-weight:800;border:none;cursor:pointer}
 
   /* Steps & chips */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
@@ -102,6 +102,18 @@
     .desktop-links{display:flex;}
     .mobile-drawer,.backdrop{display:none !important;}
   }
+
+  /* Inline succes-besked */
+  .form-success{
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    background:#fff;
+    padding:16px;
+    margin-top:12px;
+  }
+  .form-success h4{ margin:0 0 6px; color:var(--blue); }
+  .form-success p{ margin:0; color:var(--muted); }
 
   html{scroll-behavior:smooth}
 </style>
@@ -227,7 +239,11 @@
       <p class="muted">Udfyld felterne – vi vender tilbage samme hverdag 8–16.</p>
 
       <!-- Netlify Forms -->
-      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form name="kontakt-foresporgsel"
+            method="POST"
+            data-netlify="true"
+            data-inline-success="true"
+            netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -244,6 +260,12 @@
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
           <button class="submit" type="submit">Send</button>
           <span class="muted">* Planlagt møde med rådgiver: 987 kr. eks. moms pr. time.</span>
+        </div>
+
+        <!-- Inline succes (skjult) -->
+        <div class="form-success" hidden role="status" aria-live="polite">
+          <h4>Tak for din henvendelse!</h4>
+          <p>Vi har modtaget din besked.</p>
         </div>
       </form>
     </div>
@@ -267,6 +289,52 @@
     drawer.setAttribute('aria-hidden',open?'false':'true');
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
+
+  // Inline Netlify success (ingen redirect)
+  (function(){
+    function encodeFormData(fd){
+      const p = new URLSearchParams();
+      for (const [k,v] of fd.entries()) p.append(k, v);
+      return p.toString();
+    }
+    document.addEventListener('submit', async function(e){
+      const form = e.target;
+      if(!(form instanceof HTMLFormElement)) return;
+      if(!form.matches('[data-netlify][data-inline-success]')) return;
+      e.preventDefault();
+
+      const successBox = form.querySelector('.form-success');
+      const submitBtn  = form.querySelector('button[type="submit"]');
+
+      const fd = new FormData(form);
+      if(!fd.get('form-name')){
+        const fn = form.getAttribute('name');
+        if(fn) fd.append('form-name', fn);
+      }
+
+      if(submitBtn) submitBtn.disabled = true;
+      try{
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type':'application/x-www-form-urlencoded'},
+          body: encodeFormData(fd)
+        });
+        if(res.ok){
+          form.reset();
+          if(successBox){
+            successBox.hidden = false;
+            successBox.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }else{
+          alert('Der skete en fejl ved afsendelse. Prøv igen om et øjeblik.');
+        }
+      }catch(err){
+        alert('Kunne ikke sende formularen lige nu. Tjek din forbindelse og prøv igen.');
+      }finally{
+        if(submitBtn) submitBtn.disabled = false;
+      }
+    }, {capture:true});
+  })();
 </script>
 </body>
 </html>
