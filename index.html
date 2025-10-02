@@ -28,18 +28,21 @@
   nav a{margin-left:18px;font-weight:600}
   nav a:hover{color:var(--blue);text-decoration:underline}
 
-  /* HERO */
+  /* HERO (samme billede, justeret udsnit) */
   .hero{
     position:relative;min-height:520px;
     background:
       linear-gradient(rgba(0,0,0,.50),rgba(0,0,0,.45)),
       url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') no-repeat;
-    background-size:108% auto;      /* lidt zoomet ind */
-    background-position:center 12%; /* skub opad så lampen ses */
+    /* lidt mindre zoom + flyt udsnittet ned, så menneskerne ses bedre
+       mens lampen stadig er med som detalje */
+    background-size:105% auto;
+    background-position:center 24%;
     display:flex;align-items:center;justify-content:center;text-align:center;color:#fff
   }
   @media (max-width:900px){
-    .hero{background-size:112% auto;background-position:center 16%;}
+    /* lidt ekstra zoom på mobil, men hold fokusområdet */
+    .hero{background-size:110% auto;background-position:center 28%;}
   }
   .slides{position:relative;z-index:2;max-width:820px;padding:20px}
   .slide{display:none;animation:fade .8s ease}
