@@ -30,23 +30,27 @@
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
-  .desktop-menu{position:relative;display:none}
-  .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
-  .menu-btn:hover{box-shadow:var(--shadow)}
-  .chev{transition:transform .2s ease}
-  .dropdown{position:absolute;right:0;top:48px;width:260px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
-  .dropdown.open{display:block}
-  .drop-links{display:flex;flex-direction:column;gap:8px}
-  .drop-links a{padding:10px 12px;border-radius:8px;font-weight:600}
-  .drop-links a:hover{background:var(--soft);color:var(--blue)}
+  /* Desktop links (vises direkte på desktop) */
+  .desktop-links{
+    display:none;
+    gap:18px;
+    align-items:center;
+    font-weight:700;
+  }
+  .desktop-links a{
+    padding:10px 12px;
+    border-radius:10px;
+  }
+  .desktop-links a:hover{
+    background:var(--soft);
+    color:var(--blue);
+  }
 
+  /* Mobil burger-knap (vises kun på mobil) */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
 
-  @media(min-width:900px){
-    .menu-burger{display:none}
-    .desktop-menu{display:block}
-  }
+  /* Off-canvas mobilmenu + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -106,10 +110,17 @@
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
+  /* Responsivitet */
   @media(max-width:900px){
     .hero h2{font-size:30px}
     .points,.grid-2{grid-template-columns:1fr}
   }
+  @media(min-width:900px){
+    .menu-burger{display:none;}           /* skjul burger på desktop */
+    .desktop-links{display:flex;}         /* vis direkte links på desktop */
+    .mobile-drawer,.backdrop{display:none !important;} /* skjul mobilmenu/backdrop helt */
+  }
+
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -125,31 +136,24 @@
       </div>
     </a>
 
-    <!-- Desktop dropdown (FAQ fjernet) -->
-    <div class="desktop-menu" id="desktopMenu">
-      <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
-        Menu <span class="chev" id="chev">▾</span>
-      </button>
-      <div class="dropdown" id="dropdown">
-        <nav class="drop-links">
-          <a href="/">Forside</a>
-          <a href="/ydelser.html">Ydelser</a>
-          <a href="/om-os.html">Om os</a>
-          <a href="/index.html#start">Kontakt</a>
-        </nav>
-      </div>
-    </div>
+    <!-- Desktop: direkte links -->
+    <nav class="desktop-links" aria-label="Primær navigation">
+      <a href="/">Forside</a>
+      <a href="/ydelser.html">Ydelser</a>
+      <a href="/om-os.html">Om os</a>
+      <a href="/index.html#start">Kontakt</a>
+    </nav>
 
-    <!-- Mobile burger -->
+    <!-- Mobil: burger -->
     <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
 </header>
 
-<!-- Mobile drawer (FAQ fjernet) -->
+<!-- Mobil drawer -->
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobilmenu">
   <div class="drawer-head">
     <span>Menu</span>
     <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
@@ -264,22 +268,7 @@
 </footer>
 
 <script>
-  // Desktop dropdown
-  const menuBtnDesktop=document.getElementById('menuBtnDesktop');
-  const dropdown=document.getElementById('dropdown');
-  const chev=document.getElementById('chev');
-  function toggleDropdown(force){
-    const open=typeof force==='boolean'?force:!dropdown.classList.contains('open');
-    dropdown.classList.toggle('open',open);
-    if(menuBtnDesktop){menuBtnDesktop.setAttribute('aria-expanded',open?'true':'false');}
-    if(chev){chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';}
-  }
-  if(menuBtnDesktop){
-    menuBtnDesktop.addEventListener('click',()=>toggleDropdown());
-    document.addEventListener('click',(e)=>{ if(!dropdown.contains(e.target)&&!menuBtnDesktop.contains(e.target)) toggleDropdown(false); });
-  }
-
-  // Mobile drawer
+  // Mobil drawer
   const drawer=document.getElementById('drawer');
   const backdrop=document.getElementById('backdrop');
   const menuBurger=document.getElementById('menuBurger');
