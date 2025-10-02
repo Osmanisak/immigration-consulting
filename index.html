@@ -30,23 +30,15 @@
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
-  .desktop-menu{position:relative;display:none}
-  .menu-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:700;display:flex;align-items:center;gap:8px;cursor:pointer}
-  .menu-btn:hover{box-shadow:var(--shadow)}
-  .chev{transition:transform .2s ease}
-  .dropdown{position:absolute;right:0;top:48px;width:260px;background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px;display:none}
-  .dropdown.open{display:block}
-  .drop-links{display:flex;flex-direction:column;gap:8px}
-  .drop-links a{padding:10px 12px;border-radius:8px;font-weight:600}
-  .drop-links a:hover{background:var(--soft);color:var(--blue)}
+  /* Skjul desktop-menu HELT */
+  .desktop-menu{display:none !important;}
 
-  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
+  /* Mobil burger – kun på mobil */
+  .menu-burger{display:none;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
+  @media(max-width:900px){ .menu-burger{display:block} }
 
-  @media(min-width:900px){
-    .menu-burger{display:none}
-    .desktop-menu{display:block}
-  }
+  /* Overlay + drawer til mobilmenu */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -60,6 +52,8 @@
     background:
       linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
       url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+    /* lille justering så lampen ses lidt mere nedefra men stadig mennesker */
+    background-position:center 38%;
   }
   .hero-inner{max-width:920px;padding:20px}
   .slides{position:relative;z-index:2;max-width:820px;margin:0 auto}
@@ -94,7 +88,6 @@
   .cta-wrap{text-align:center;margin-top:6px}
   .reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)}
   .reveal-btn .arrow{transition:transform .25s ease}
-
   .reveal{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;max-height:0;transition:max-height .35s ease}
   .reveal.open{max-height:1000px}
   .form{padding:20px;background:#fff}
@@ -109,6 +102,7 @@
   @media(max-width:900px){
     .hero h2{font-size:30px}
     .points,.grid-2{grid-template-columns:1fr}
+    .hero{background-position:center 42%;}
   }
   html{scroll-behavior:smooth}
 </style>
@@ -125,20 +119,7 @@
       </div>
     </a>
 
-    <!-- Desktop dropdown (FAQ fjernet) -->
-    <div class="desktop-menu" id="desktopMenu">
-      <button class="menu-btn" id="menuBtnDesktop" aria-expanded="false" aria-haspopup="true">
-        Menu <span class="chev" id="chev">▾</span>
-      </button>
-      <div class="dropdown" id="dropdown">
-        <nav class="drop-links">
-          <a href="/">Forside</a>
-          <a href="/ydelser.html">Ydelser</a>
-          <a href="/om-os.html">Om os</a>
-          <a href="/index.html#start">Kontakt</a>
-        </nav>
-      </div>
-    </div>
+    <!-- (FJERNET) Desktop-menu -->
 
     <!-- Mobile burger -->
     <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
@@ -147,7 +128,7 @@
   </div>
 </header>
 
-<!-- Mobile drawer (FAQ fjernet) -->
+<!-- Mobile drawer -->
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true">
   <div class="drawer-head">
@@ -264,21 +245,6 @@
 </footer>
 
 <script>
-  // Desktop dropdown
-  const menuBtnDesktop=document.getElementById('menuBtnDesktop');
-  const dropdown=document.getElementById('dropdown');
-  const chev=document.getElementById('chev');
-  function toggleDropdown(force){
-    const open=typeof force==='boolean'?force:!dropdown.classList.contains('open');
-    dropdown.classList.toggle('open',open);
-    if(menuBtnDesktop){menuBtnDesktop.setAttribute('aria-expanded',open?'true':'false');}
-    if(chev){chev.style.transform=open?'rotate(180deg)':'rotate(0deg)';}
-  }
-  if(menuBtnDesktop){
-    menuBtnDesktop.addEventListener('click',()=>toggleDropdown());
-    document.addEventListener('click',(e)=>{ if(!dropdown.contains(e.target)&&!menuBtnDesktop.contains(e.target)) toggleDropdown(false); });
-  }
-
   // Mobile drawer
   const drawer=document.getElementById('drawer');
   const backdrop=document.getElementById('backdrop');
