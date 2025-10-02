@@ -6,12 +6,11 @@
 <title>Ydelser – Immigration Consulting</title>
 <meta name="description" content="Vi håndterer nye ansøgninger og forlængelser for arbejdstilladelser. Få gratis vejledning – vi svarer samme hverdag 8–16.">
 <style>
-  /* Moderne, rolig blå-palet */
   :root{
     --ink:#0f172a;
     --muted:#64748b;
-    --blue:#1f3a8a;          /* mørkere, blød blå */
-    --blue-soft:#dfe6ff;     /* lys baggrundsblå til badges */
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
     --mint:#10b981;
     --line:#e5e7eb;
     --soft:#f6f8fb;
@@ -47,7 +46,7 @@
     color:var(--blue);
   }
 
-  /* Mobil: burger-knap */
+  /* Mobil: burger */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
 
@@ -99,9 +98,9 @@
     .row{grid-template-columns:1fr}
   }
   @media(min-width:900px){
-    .menu-burger{display:none;}                 /* skjul burger på desktop */
-    .desktop-links{display:flex;}               /* vis direkte links på desktop */
-    .mobile-drawer,.backdrop{display:none !important;} /* skjul mobilmenu/backdrop helt */
+    .menu-burger{display:none;}
+    .desktop-links{display:flex;}
+    .mobile-drawer,.backdrop{display:none !important;}
   }
 
   html{scroll-behavior:smooth}
@@ -119,13 +118,12 @@
       </div>
     </a>
 
-    <!-- Desktop: direkte links -->
+    <!-- Desktop: direkte links (samme som forsiden) -->
     <nav class="desktop-links" aria-label="Primær navigation">
       <a href="/">Forside</a>
       <a href="/ydelser.html">Ydelser</a>
-      <a href="/#faq">FAQ</a>
-      <a href="/#om-os">Om os</a>
-      <a href="/#start">Kontakt</a>
+      <a href="/om-os.html">Om os</a>
+      <a href="/index.html#start">Kontakt</a>
     </nav>
 
     <!-- Mobil: burger -->
@@ -144,9 +142,8 @@
   <nav class="drawer-links">
     <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="/#faq" onclick="toggleDrawer(false)">FAQ</a>
-    <a href="/#om-os" onclick="toggleDrawer(false)">Om os</a>
-    <a href="/#start" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
+    <a href="/index.html#start" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
@@ -187,7 +184,7 @@
     </div>
   </section>
 
-  <!-- CTA – Gratis vejledning (scroller til formular på denne side) -->
+  <!-- CTA – Gratis vejledning -->
   <section class="container">
     <div class="cta-wrap">
       <h3>Få gratis vejledning fra en rådgiver</h3>
