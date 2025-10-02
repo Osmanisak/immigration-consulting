@@ -99,6 +99,18 @@
     .mobile-drawer,.backdrop{display:none !important;}
   }
 
+  /* Inline succes-besked */
+  .form-success{
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    background:#fff;
+    padding:16px;
+    margin-top:12px;
+  }
+  .form-success h4{ margin:0 0 6px; color:var(--blue); }
+  .form-success p{ margin:0; color:var(--muted); }
+
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -114,7 +126,7 @@
       </div>
     </a>
 
-    <!-- Desktop: direkte links (samme som de andre sider) -->
+    <!-- Desktop: direkte links -->
     <nav class="desktop-links" aria-label="Primær navigation">
       <a href="/">Forside</a>
       <a href="/ydelser.html">Ydelser</a>
@@ -182,7 +194,11 @@
     <div class="form-bar">
       <h3 style="margin:0 0 10px;color:var(--blue)">Skriv til os</h3>
       <!-- Netlify Forms -->
-      <form name="kontakt-hurtig" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <form name="kontakt-hurtig"
+            method="POST"
+            data-netlify="true"
+            data-inline-success="true"
+            netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="kontakt-hurtig" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
@@ -196,6 +212,12 @@
 
         <div style="margin-top:12px">
           <button class="submit" type="submit">Send</button>
+        </div>
+
+        <!-- Inline succes (skjult) -->
+        <div class="form-success" hidden role="status" aria-live="polite">
+          <h4>Tak for din besked!</h4>
+          <p>Din henvendelse er sendt.</p>
         </div>
       </form>
     </div>
@@ -230,6 +252,52 @@
     drawer.setAttribute('aria-hidden',open?'false':'true');
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
+
+  // Inline Netlify success (ingen redirect)
+  (function(){
+    function encodeFormData(fd){
+      const p = new URLSearchParams();
+      for (const [k,v] of fd.entries()) p.append(k, v);
+      return p.toString();
+    }
+    document.addEventListener('submit', async function(e){
+      const form = e.target;
+      if(!(form instanceof HTMLFormElement)) return;
+      if(!form.matches('[data-netlify][data-inline-success]')) return;
+      e.preventDefault();
+
+      const successBox = form.querySelector('.form-success');
+      const submitBtn  = form.querySelector('button[type="submit"]');
+
+      const fd = new FormData(form);
+      if(!fd.get('form-name')){
+        const fn = form.getAttribute('name');
+        if(fn) fd.append('form-name', fn);
+      }
+
+      if(submitBtn) submitBtn.disabled = true;
+      try{
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type':'application/x-www-form-urlencoded'},
+          body: encodeFormData(fd)
+        });
+        if(res.ok){
+          form.reset();
+          if(successBox){
+            successBox.hidden = false;
+            successBox.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }else{
+          alert('Der skete en fejl ved afsendelse. Prøv igen om et øjeblik.');
+        }
+      }catch(err){
+        alert('Kunne ikke sende formularen lige nu. Tjek din forbindelse og prøv igen.');
+      }finally{
+        if(submitBtn) submitBtn.disabled = false;
+      }
+    }, {capture:true});
+  })();
 </script>
 </body>
 </html>
