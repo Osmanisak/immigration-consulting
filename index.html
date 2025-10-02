@@ -8,21 +8,12 @@
 
 <style>
   :root{
-    --ink:#0f172a;
-    --muted:#64748b;
-    --blue:#1f3a8a;          /* mørk, blød blå */
-    --blue-soft:#dfe6ff;     /* lys badge-blå */
-    --mint:#10b981;
-    --line:#e5e7eb;
-    --soft:#f6f8fb;
-    --shadow:0 8px 24px rgba(2,6,23,.10);
+    --ink:#0f172a; --muted:#64748b; --blue:#1f3a8a; --blue-soft:#dfe6ff;
+    --mint:#10b981; --line:#e5e7eb; --soft:#f6f8fb; --shadow:0 8px 24px rgba(2,6,23,.10);
   }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1060px;margin:0 auto;padding:0 20px}
+  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
+  a{text-decoration:none;color:inherit} .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
-  /* Header / Navigation */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
@@ -30,27 +21,17 @@
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
-  /* Desktop links (vises direkte på desktop) */
-  .desktop-links{
-    display:none;
-    gap:18px;
-    align-items:center;
-    font-weight:700;
-  }
-  .desktop-links a{
-    padding:10px 12px;
-    border-radius:10px;
-  }
-  .desktop-links a:hover{
-    background:var(--soft);
-    color:var(--blue);
-  }
+  /* Desktop links */
+  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
+  .desktop-links a{padding:10px 12px;border-radius:10px}
+  .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Mobil burger-knap (vises kun på mobil) */
+  /* Mobil burger */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
+  @media(min-width:900px){ .menu-burger{display:none} .desktop-links{display:flex} }
 
-  /* Off-canvas mobilmenu + backdrop */
+  /* Mobil drawer + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -58,13 +39,10 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  /* HERO med slides */
-  .hero{
-    position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
-    background:
-      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  }
+  /* HERO */
+  .hero{position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;}
   .hero-inner{max-width:920px;padding:20px}
   .slides{position:relative;z-index:2;max-width:820px;margin:0 auto}
   .slide{display:none;animation:fade .8s ease}
@@ -74,9 +52,7 @@
   .hero p{font-size:18px;margin:0 0 18px}
   .cta-white{display:inline-block;padding:12px 18px;border-radius:10px;background:#ffffff;color:#111;font-weight:800;border:none}
 
-  /* Section wrappers */
-  section{padding:56px 20px}
-  h3{margin:0 0 14px}
+  section{padding:56px 20px} h3{margin:0 0 14px}
 
   /* Hvorfor os */
   .why{text-align:center}
@@ -85,7 +61,7 @@
   .point h4{margin:0 0 8px;color:var(--blue)}
   .point p{color:var(--muted);margin:0}
 
-  /* Proces & ansvar */
+  /* Proces */
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
@@ -94,11 +70,10 @@
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
-  /* CTA + formular */
+  /* CTA + formular (på forsiden) */
   .cta-wrap{text-align:center;margin-top:6px}
   .reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)}
   .reveal-btn .arrow{transition:transform .25s ease}
-
   .reveal{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;max-height:0;transition:max-height .35s ease}
   .reveal.open{max-height:1000px}
   .form{padding:20px;background:#fff}
@@ -110,17 +85,7 @@
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
-  /* Responsivitet */
-  @media(max-width:900px){
-    .hero h2{font-size:30px}
-    .points,.grid-2{grid-template-columns:1fr}
-  }
-  @media(min-width:900px){
-    .menu-burger{display:none;}           /* skjul burger på desktop */
-    .desktop-links{display:flex;}         /* vis direkte links på desktop */
-    .mobile-drawer,.backdrop{display:none !important;} /* skjul mobilmenu/backdrop helt */
-  }
-
+  @media(max-width:900px){ .hero h2{font-size:30px} .points,.grid-2{grid-template-columns:1fr} }
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -130,10 +95,7 @@
   <div class="nav container">
     <a class="brand" href="/" aria-label="Forside">
       <div class="logo">IC</div>
-      <div class="meta">
-        <h1>Immigration Consulting</h1>
-        <div class="tagline">Din genvej til arbejdstilladelse</div>
-      </div>
+      <div class="meta"><h1>Immigration Consulting</h1><div class="tagline">Din genvej til arbejdstilladelse</div></div>
     </a>
 
     <!-- Desktop: direkte links -->
@@ -141,7 +103,7 @@
       <a href="/">Forside</a>
       <a href="/ydelser.html">Ydelser</a>
       <a href="/om-os.html">Om os</a>
-      <a href="/index.html#start">Kontakt</a>
+      <a href="/kontakt.html">Kontakt</a>
     </nav>
 
     <!-- Mobil: burger -->
@@ -154,37 +116,24 @@
 <!-- Mobil drawer -->
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobilmenu">
-  <div class="drawer-head">
-    <span>Menu</span>
-    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
-  </div>
+  <div class="drawer-head"><span>Menu</span><button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button></div>
   <nav class="drawer-links">
     <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
     <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
-    <a href="/index.html#start" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="/kontakt.html" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
 <main>
-  <!-- HERO med slides og kun “Se ydelser” -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="slides" id="slides">
-        <div class="slide active">
-          <h2>Arbejdstilladelser uden bøvl</h2>
-          <p>Vi håndterer nye ansøgninger og forlængelser – så I kan fokusere på driften.</p>
-        </div>
-        <div class="slide">
-          <h2>Hurtigere ansættelser</h2>
-          <p>Proaktiv opfølgning og færre fejl fra jobtilbud til arbejdstilladelse.</p>
-        </div>
-        <div class="slide">
-          <h2>Gennemsigtige processer</h2>
-          <p>Klare leverancer og løbende status – ingen overraskelser.</p>
-        </div>
+        <div class="slide active"><h2>Arbejdstilladelser uden bøvl</h2><p>Vi håndterer nye ansøgninger og forlængelser – så I kan fokusere på driften.</p></div>
+        <div class="slide"><h2>Hurtigere ansættelser</h2><p>Proaktiv opfølgning og færre fejl fra jobtilbud til arbejdstilladelse.</p></div>
+        <div class="slide"><h2>Gennemsigtige processer</h2><p>Klare leverancer og løbende status – ingen overraskelser.</p></div>
       </div>
-
       <a class="cta-white" href="/ydelser.html">Se ydelser</a>
     </div>
   </section>
@@ -193,18 +142,9 @@
   <section class="why container" id="hvorfor-os">
     <h3>Hvorfor os</h3>
     <div class="points">
-      <div class="point">
-        <h4>Korrekt første gang</h4>
-        <p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p>
-      </div>
-      <div class="point">
-        <h4>Minimal indsats for jer</h4>
-        <p>Vi håndterer ansøgning og al kommunikation – jeres tid bruges på forretningen.</p>
-      </div>
-      <div class="point">
-        <h4>Gennemsigtighed</h4>
-        <p>Faste rammer, klare leverancer og fuld status – ingen skjulte gebyrer.</p>
-      </div>
+      <div class="point"><h4>Korrekt første gang</h4><p>Dokumenttjek og myndighedsnær erfaring reducerer fejl og forsinkelser.</p></div>
+      <div class="point"><h4>Minimal indsats for jer</h4><p>Vi håndterer ansøgning og al kommunikation – jeres tid bruges på forretningen.</p></div>
+      <div class="point"><h4>Gennemsigtighed</h4><p>Faste rammer, klare leverancer og fuld status – ingen skjulte gebyrer.</p></div>
     </div>
   </section>
 
@@ -235,25 +175,14 @@
 
   <!-- CTA → fold-ud formular -->
   <section class="container cta-wrap" id="start">
-    <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
-      <span class="arrow" id="arrow">▼</span> Bliv kontaktet
-    </button>
+    <button class="reveal-btn" id="revealBtn" onclick="toggleForm()"><span class="arrow" id="arrow">▼</span> Bliv kontaktet</button>
     <div class="reveal" id="reveal">
-      <!-- Netlify Forms -->
       <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
-
-        <div class="row">
-          <input type="text" name="navn" placeholder="Dit navn" required />
-          <input type="email" name="email" placeholder="Din e-mail" required />
-        </div>
-        <div class="row">
-          <input type="text" name="firma" placeholder="Virksomhed" />
-          <input type="tel" name="telefon" placeholder="Telefon" />
-        </div>
+        <div class="row"><input type="text" name="navn" placeholder="Dit navn" required /><input type="email" name="email" placeholder="Din e-mail" required /></div>
+        <div class="row"><input type="text" name="firma" placeholder="Virksomhed" /><input type="tel" name="telefon" placeholder="Telefon" /></div>
         <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato)"></textarea>
-
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
           <button class="submit" type="submit">Send</button>
           <span class="muted">Vi svarer typisk samme hverdag 8–16. * Planlagt møde: 987 kr. eks. moms pr. time.</span>
@@ -263,39 +192,21 @@
   </section>
 </main>
 
-<footer>
-  © 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering
-</footer>
+<footer>© 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering</footer>
 
 <script>
   // Mobil drawer
-  const drawer=document.getElementById('drawer');
-  const backdrop=document.getElementById('backdrop');
-  const menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){
-    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
-    drawer.classList.toggle('open',open);
-    backdrop.classList.toggle('show',open);
-    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
-    drawer.setAttribute('aria-hidden',open?'false':'true');
-  }
+  const drawer=document.getElementById('drawer'), backdrop=document.getElementById('backdrop'), menuBurger=document.getElementById('menuBurger');
+  function toggleDrawer(state){ const open=typeof state==='boolean'?state:!drawer.classList.contains('open'); drawer.classList.toggle('open',open); backdrop.classList.toggle('show',open); if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');} drawer.setAttribute('aria-hidden',open?'false':'true'); }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 
   // Hero slides
-  const slides=document.querySelectorAll('.slide');
-  let i=0;
-  setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
+  const slides=document.querySelectorAll('.slide'); let i=0; setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); },5000);
 
   // Fold-ud formular
-  const panel = document.getElementById('reveal');
-  const arrow = document.getElementById('arrow');
-  function toggleForm(){
-    const isOpen = panel.classList.toggle('open');
-    arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
-    if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
-  }
-  window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
+  const panel=document.getElementById('reveal'), arrow=document.getElementById('arrow');
+  function toggleForm(){ const isOpen=panel.classList.toggle('open'); arrow.style.transform=isOpen?'rotate(180deg)':'rotate(0deg)'; panel.style.maxHeight=isOpen?panel.scrollHeight+'px':'0px'; if(isOpen){ panel.scrollIntoView({behavior:'smooth',block:'start'}); } }
+  window.addEventListener('resize',()=>{ if(panel.classList.contains('open')) panel.style.maxHeight=panel.scrollHeight+'px'; });
 </script>
 </body>
 </html>
