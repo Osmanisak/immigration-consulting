@@ -3,8 +3,33 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <title>Immigration Consulting – Your shortcut to work permits</title>
 <meta name="description" content="Work permits without hassle. We handle new applications and extensions – from document checks to dialogue with SIRI. Fill the form and we’ll contact you.">
+<meta name="author" content="Immigration Consulting" />
+
+<!-- Canonical + hreflang -->
+<link rel="canonical" href="https://immigration-consulting.dk/en/index.html" />
+<link rel="alternate" href="https://immigration-consulting.dk/index.html" hreflang="da" />
+<link rel="alternate" href="https://immigration-consulting.dk/en/index.html" hreflang="en" />
+<link rel="alternate" href="https://immigration-consulting.dk/" hreflang="x-default" />
+
+<!-- Open Graph -->
+<meta property="og:title" content="Immigration Consulting – Your shortcut to work permits" />
+<meta property="og:description" content="Work permits without hassle. We handle new applications and extensions – from document checks to dialogue with SIRI." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://immigration-consulting.dk/en/index.html" />
+<meta property="og:image" content="https://immigration-consulting.dk/og-image.jpg" />
+<meta property="og:locale" content="en_DK" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Immigration Consulting – Your shortcut to work permits" />
+<meta name="twitter:description" content="Work permits without hassle. We handle new applications and extensions – from document checks to dialogue with SIRI." />
+<meta name="twitter:image" content="https://immigration-consulting.dk/og-image.jpg" />
+
+<!-- Temporary favicon (can swap for your logo later) -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 ry=%2216%22 fill=%22%231f3a8a%22/><text x=%2250%22 y=%2270%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial,sans-serif%22>IC</text></svg>">
 
 <style>
   :root{
@@ -255,6 +280,13 @@
       </form>
     </div>
   </section>
+
+  <!-- Hidden template form so Netlify auto-detects the EN home form -->
+  <form name="contact-request-home-en" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <textarea name="message"></textarea>
+  </form>
 </main>
 
 <footer>
