@@ -3,24 +3,36 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>About – Immigration Consulting</title>
-<meta name="description" content="A small, focused company with specialised advisors and consultants – with years of experience incl. from SIRI.">
+<title>About us – Immigration Consulting</title>
+<meta name="description" content="A small, focused company with specialized advisors and consultants – with years of experience from e.g. SIRI.">
 
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--blue:#1f3a8a;--blue-soft:#dfe6ff;--mint:#10b981;--line:#e5e7eb;--soft:#f6f8fb;--shadow:0 8px 24px rgba(2,6,23,.10)}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit} .container{max-width:1060px;margin:0 auto;padding:0 20px}
+  :root{
+    --ink:#0f172a;
+    --muted:#64748b;
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
+    --mint:#10b981;
+    --line:#e5e7eb;
+    --soft:#f6f8fb;
+    --shadow:0 8px 24px rgba(2,6,23,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1060px;margin:0 auto;padding:0 20px}
+
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
+
   .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
   .desktop-links a{padding:10px 12px;border-radius:10px}
   .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Language globe */
   .lang{position:relative;margin-left:10px}
   .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
   .lang-btn:hover{box-shadow:var(--shadow)}
@@ -31,6 +43,8 @@
 
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
+  @media(min-width:900px){.menu-burger{display:none}.desktop-links{display:flex}}
+
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -39,11 +53,15 @@
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
   .hero{position:relative;min-height:360px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat}
+    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')center/cover no-repeat}
   .hero-inner{max-width:900px;padding:20px}
-  .hero h2{font-size:36px;margin:0 0 10px} .hero p{font-size:18px;margin:0}
+  .hero h2{font-size:36px;margin:0 0 10px}
+  .hero p{font-size:18px;margin:0}
 
-  section{padding:56px 20px} h3{margin:0 0 16px} .lead{font-size:18px;color:var(--muted);margin-top:8px}
+  section{padding:56px 20px}
+  h3{margin:0 0 16px}
+  .lead{font-size:18px;color:var(--muted);margin-top:8px}
+
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
   .pill{display:inline-block;background:var(--blue-soft);color:var(--blue);font-weight:800;border-radius:999px;padding:6px 12px;margin-bottom:10px}
@@ -51,20 +69,21 @@
   .values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .value{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .value h4{margin:0 0 8px;color:var(--blue)}
+
   .guidelines{background:var(--soft)}
   .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
   .rule{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .rule h4{margin:0 0 8px;color:var(--blue)}
   .rule ul{margin:8px 0 0 18px;color:var(--muted)}
+
   .faq{background:#fff}
   details{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:0;margin:10px 0}
-  summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;}
+  summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none}
   details p{padding:0 18px 16px 18px;color:var(--muted);margin:0}
   summary::-webkit-details-marker{display:none}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
   @media(max-width:900px){.values,.grid-2,.rules{grid-template-columns:1fr}.hero h2{font-size:28px}}
-  html{scroll-behavior:smooth}
 </style>
 </head>
 <body>
@@ -75,19 +94,18 @@
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
-        <div class="tagline">Your fast track to work permits</div>
+        <div class="tagline">Your shortcut to work permits</div>
       </div>
     </a>
 
-    <nav class="desktop-links" aria-label="Primary navigation">
+    <nav class="desktop-links" aria-label="Main navigation">
       <a href="/en/index.html">Home</a>
       <a href="/en/services.html">Services</a>
-      <a href="/en/about.html">About</a>
+      <a href="/en/about.html">About us</a>
       <a href="/en/contact.html">Contact</a>
     </nav>
 
-    <!-- Language globe -->
-    <div class="lang" id="langSwitch" aria-label="Language">
+    <div class="lang" id="langSwitch">
       <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
           <circle cx="12" cy="12" r="10" stroke-width="2"/>
@@ -95,8 +113,8 @@
         </svg>
       </button>
       <div class="lang-menu" role="menu">
-        <a href="/om-os.html" role="menuitem">Dansk</a>
-        <a href="/en/about.html" role="menuitem">English</a>
+        <a href="/om-os.html">Dansk</a>
+        <a href="/en/about.html">English</a>
       </div>
     </div>
 
@@ -115,7 +133,7 @@
   <nav class="drawer-links">
     <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
     <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="/en/about.html" onclick="toggleDrawer(false)">About</a>
+    <a href="/en/about.html" onclick="toggleDrawer(false)">About us</a>
     <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
   </nav>
 </aside>
@@ -131,15 +149,24 @@
   <section class="container">
     <span class="pill">Our story</span>
     <h3>Small in size. Big on focus.</h3>
-    <p class="lead">We focus on fewer, well-defined tasks to deliver better, faster and safer processes.</p>
+    <p class="lead">
+      Immigration Consulting was created with one simple idea: By focusing on fewer, well-defined tasks, we can deliver better,
+      faster and safer processes. We are a small, specialized unit – and that is a deliberate choice.
+    </p>
     <div class="grid-2" style="margin-top:16px">
       <div class="card">
         <h4>Why small and targeted?</h4>
-        <p class="muted">Being selective lets us go deep, know the details of your case – and stand by a thoughtful process.</p>
+        <p class="muted">
+          We would rather say no to a case than compromise on quality. By being selective, we can immerse ourselves, know the details
+          of your specific case – and take responsibility for a process that feels thorough from start to finish.
+        </p>
       </div>
       <div class="card">
         <h4>Experience from the other side</h4>
-        <p class="muted">Our advisors have years of authority-side experience, incl. SIRI – we know processes, requirements and pitfalls.</p>
+        <p class="muted">
+          Our advisors and consultants have many years of authority-near experience – e.g. from SIRI. We know the processes,
+          documentation requirements and pitfalls inside out, because we have worked with the cases on the other side.
+        </p>
       </div>
     </div>
   </section>
@@ -148,19 +175,123 @@
     <span class="pill">Our principles</span>
     <h3>What we promise – every time</h3>
     <div class="values">
-      <div class="value"><h4>Correct basis</h4><p class="muted">It starts with document checks and clear assumptions.</p></div>
-      <div class="value"><h4>Calm & clarity</h4><p class="muted">You focus on operations – we handle application, follow-up and dialogue with authorities.</p></div>
-      <div class="value"><h4>Transparency</h4><p class="muted">Clear scope and deliverables. Status along the way. No hidden fees.</p></div>
+      <div class="value">
+        <h4>Correct foundation</h4>
+        <p class="muted">Everything starts with document checks and clear prerequisites. This reduces risk and saves time.</p>
+      </div>
+      <div class="value">
+        <h4>Division of roles & peace of mind</h4>
+        <p class="muted">You focus on operations – we handle the application, follow-up and dialogue with the authorities.</p>
+      </div>
+      <div class="value">
+        <h4>Transparency</h4>
+        <p class="muted">Clear frameworks and deliverables. Status along the way. No hidden fees.</p>
+      </div>
     </div>
   </section>
 
-  <!-- (You can copy the Guidelines + FAQ sections as needed) -->
+  <section class="guidelines">
+    <div class="container">
+      <span class="pill">Guidelines</span>
+      <h3>How we ensure a safe and correct process</h3>
+      <div class="rules">
+        <div class="rule">
+          <h4>1) Scope of advice</h4>
+          <ul>
+            <li>We are advisors/consultants. We do not make decisions and are not an authority.</li>
+            <li>We fill in and submit applications (e.g. AR1/AR6 and AR3/AR7) and coordinate dialogue – biometrics and personal appearance are handled at SIRI.</li>
+            <li>We can submit with power of attorney, where relevant.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>2) Authority requirements & biometrics</h4>
+          <ul>
+            <li>Non-EU/EEA applicants must have biometric data recorded at application/extension; appointments are booked at SIRI.</li>
+            <li>Authority fees are paid directly to SIRI by the applicant/employer.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>3) New applications (AR1/AR6)</h4>
+          <ul>
+            <li>We quality assure contracts, salaries and conditions under the relevant scheme and submit correct material from the start.</li>
+            <li>With power of attorney, the employer/third party can submit on behalf of the applicant.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>4) Extensions (AR3/AR7)</h4>
+          <ul>
+            <li>Conditions must still be met (e.g. same employer/position, correct salary).</li>
+            <li>We recommend starting well before expiry to avoid interruption.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>5) Documentation & duty of truth</h4>
+          <ul>
+            <li>The client is responsible for the accuracy of all information and documents.</li>
+            <li>We will inform you if further documentation/translation is necessary.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>6) Data protection (GDPR)</h4>
+          <ul>
+            <li>We only process necessary information on a legal basis and practice data minimization and access control.</li>
+            <li>Deletion/archiving according to clear deadlines. Agreements with data processors and appropriate security level.</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>7) Prices & responsibility</h4>
+          <ul>
+            <li>Prices are communicated clearly before startup. Authority fees are separate.</li>
+            <li>We cannot guarantee outcomes or processing times (decisions are made by SIRI).</li>
+          </ul>
+        </div>
+        <div class="rule">
+          <h4>8) Ethics & conflicts of interest</h4>
+          <ul>
+            <li>We do not take on cases with obvious conflicts of interest and refer if necessary to independent advice.</li>
+            <li>We work fairly and respectfully towards applicants, companies and authorities.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:14px">
+        Note: Rules and practices are continuously updated. We always advise according to the applicable guidelines at nyidanmark.dk/SIRI.
+      </p>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <span class="pill">FAQ</span>
+      <h3>Frequently Asked Questions</h3>
+
+      <details>
+        <summary>How quickly can we start?</summary>
+        <p>Typically the same business day, once we have your contact details and case data.</p>
+      </details>
+
+      <details>
+        <summary>What do we need to send you?</summary>
+        <p>Job offer/contract, company and employee contact details, and relevant documents (passport, etc.). We will provide a checklist.</p>
+      </details>
+
+      <details>
+        <summary>Do you handle biometrics or authority fees?</summary>
+        <p>No – as advisors we handle the application, documentation and follow-up. Biometrics/fees are handled at SIRI.</p>
+      </details>
+
+      <details>
+        <summary>Can we get a meeting?</summary>
+        <p>Yes. Scheduled advice costs 987 DKK excl. VAT per hour. Many get started well via a free initial clarification through the form.</p>
+      </details>
+    </div>
+  </section>
 </main>
 
-<footer>© 2025 Immigration Consulting – Work permit advisory and international recruitment</footer>
+<footer>
+  © 2025 Immigration Consulting – Work permit consulting and international recruitment
+</footer>
 
 <script>
-  // Language globe
   const langSwitch=document.getElementById('langSwitch');
   if(langSwitch){
     const btn=langSwitch.querySelector('.lang-btn');
@@ -168,9 +299,17 @@
     btn.addEventListener('click',()=>open(!langSwitch.classList.contains('open')));
     document.addEventListener('click',e=>{ if(!langSwitch.contains(e.target)) open(false); });
   }
-  // Drawer
-  const drawer=document.getElementById('drawer'),backdrop=document.getElementById('backdrop'),menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){ const open=typeof state==='boolean'?state:!drawer.classList.contains('open'); drawer.classList.toggle('open',open); backdrop.classList.toggle('show',open); if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false')} drawer.setAttribute('aria-hidden',open?'false':'true') }
+
+  const drawer=document.getElementById('drawer');
+  const backdrop=document.getElementById('backdrop');
+  const menuBurger=document.getElementById('menuBurger');
+  function toggleDrawer(state){
+    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
+    drawer.classList.toggle('open',open);
+    backdrop.classList.toggle('show',open);
+    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
+    drawer.setAttribute('aria-hidden',open?'false':'true');
+  }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 </script>
 </body>
