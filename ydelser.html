@@ -133,18 +133,6 @@
     .mobile-drawer,.backdrop{display:none !important;}
   }
 
-  /* Inline succes-besked */
-  .form-success{
-    border:1px solid var(--line);
-    border-radius:12px;
-    box-shadow:var(--shadow);
-    background:#fff;
-    padding:16px;
-    margin-top:12px;
-  }
-  .form-success h4{ margin:0 0 6px; color:var(--blue); }
-  .form-success p{ margin:0; color:var(--muted); }
-
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -290,48 +278,39 @@
       <h3>Bliv kontaktet</h3>
       <p class="muted">Udfyld felterne – vi vender tilbage samme hverdag 8–16.</p>
 
-      <!-- Netlify Forms -->
-      <form name="kontakt"
+      <!-- Netlify Forms (genbruger det samme formularnavn som DA-forsiden, der allerede virker) -->
+      <form name="contact-request-home-da"
             method="POST"
-            action="/?form=kontakt"
             data-netlify="true"
-            data-inline-success="true"
             netlify-honeypot="bot-field"
-            id="kontaktForm"
-            accept-charset="UTF-8">
-        <!-- NETLIFY KRÆVER at form-name findes både som hidden og i body -->
-        <input type="hidden" name="form-name" value="kontakt" />
-        <!-- honeypot -->
-        <p style="position:absolute;left:-9999px;opacity:0" aria-hidden="true">
-          <label>Don’t fill this out: <input name="bot-field" autocomplete="off" tabindex="-1" /></label>
-        </p>
+            class="form">
+        <input type="hidden" name="form-name" value="contact-request-home-da" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
         <div class="row">
-          <input type="text"  name="Navn"     placeholder="Dit navn" required autocomplete="name" />
-          <input type="email" name="Email"    placeholder="Din e-mail" required autocomplete="email" />
+          <input type="text"  name="navn"     placeholder="Dit navn" required />
+          <input type="email" name="email"    placeholder="Din e-mail" required />
         </div>
         <div class="row">
-          <input type="text"  name="Virksomhed" placeholder="Virksomhed" autocomplete="organization" />
-          <input type="tel"   name="Telefon"    placeholder="Telefon" inputmode="tel" autocomplete="tel" />
+          <input type="text"  name="firma"    placeholder="Virksomhed" />
+          <input type="tel"   name="telefon"  placeholder="Telefon" />
         </div>
-        <textarea name="Besked" placeholder="Kort om sagen (stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato)"></textarea>
-
-        <!-- Valgfrit: aktiver kun hvis reCAPTCHA er slået til i Netlify -->
-        <!-- <div data-netlify-recaptcha="true" style="margin-top:8px"></div> -->
+        <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato)"></textarea>
 
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
-          <button class="submit" type="submit" id="submitBtn">Send</button>
+          <button class="submit" type="submit">Send</button>
           <span class="muted">* Planlagt møde med rådgiver: 987 kr. eks. moms pr. time.</span>
-        </div>
-
-        <!-- Inline succes (skjult) -->
-        <div class="form-success" hidden role="status" aria-live="polite" id="successBox">
-          <h4>Tak for din henvendelse!</h4>
-          <p>Vi har modtaget din besked.</p>
         </div>
       </form>
     </div>
   </section>
+
+  <!-- Skjult template form (sikrer autodetektion ved deploy) -->
+  <form name="contact-request-home-da" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="navn" />
+    <input type="email" name="email" />
+    <textarea name="besked"></textarea>
+  </form>
 </main>
 
 <footer>
@@ -360,58 +339,6 @@
     drawer.setAttribute('aria-hidden',open?'false':'true');
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
-
-  // Netlify inline success + robust fallback
-  (function(){
-    function encodeFormData(fd){
-      const p = new URLSearchParams();
-      for (const [k,v] of fd.entries()) p.append(k, v);
-      return p.toString();
-    }
-    const form = document.getElementById('kontaktForm');
-    if(!form) return;
-
-    const successBox = document.getElementById('successBox');
-    const submitBtn  = document.getElementById('submitBtn');
-
-    form.addEventListener('submit', async function(e){
-      // Kun kør AJAX, hvis siden har data-inline-success (ellers almindelig POST)
-      if(!form.matches('[data-netlify][data-inline-success]')) return;
-      e.preventDefault();
-
-      if(submitBtn) submitBtn.disabled = true;
-      if(successBox) successBox.hidden = true;
-
-      const fd = new FormData(form);
-      // sikre "form-name" i request body
-      if(!fd.get('form-name')) fd.append('form-name', form.getAttribute('name') || 'kontakt');
-
-      try{
-        const res = await fetch('/', {
-          method: 'POST',
-          headers: {'Content-Type':'application/x-www-form-urlencoded'},
-          body: encodeFormData(fd)
-        });
-        if(res.ok){
-          form.reset();
-          if(successBox){
-            successBox.hidden = false;
-            successBox.scrollIntoView({behavior:'smooth', block:'center'});
-          }
-        }else{
-          // fallback til klassisk submit hvis Netlify middleware returnerer noget uventet
-          form.removeAttribute('data-inline-success');
-          form.submit();
-        }
-      }catch(err){
-        // fallback ved netværksfejl
-        form.removeAttribute('data-inline-success');
-        form.submit();
-      }finally{
-        if(submitBtn) submitBtn.disabled = false;
-      }
-    }, {capture:true});
-  })();
 </script>
 
 <!-- JSON-LD: Organization -->
