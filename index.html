@@ -15,24 +15,23 @@
 <meta property="og:description" content="Vi hjælper virksomheder med arbejdstilladelser – nye ansøgninger og forlængelser. Få gratis vejledning og korrekt sagsbehandling.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://immigration-consulting.dk/">
-<!-- Du kan udskifte billedet nedenfor med et rigtigt billede senere -->
 <meta property="og:image" content="https://immigration-consulting.dk/og-image.jpg">
 
-<!-- (valgfrit) Twitter cards – gør ikke skade hvis den ikke bruges -->
+<!-- (valgfrit) Twitter cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Immigration Consulting – Din genvej til arbejdstilladelse">
 <meta name="twitter:description" content="Arbejdstilladelser uden bøvl – nye ansøgninger og forlængelser, dokumenttjek og dialog med SIRI.">
 <meta name="twitter:image" content="https://immigration-consulting.dk/og-image.jpg">
 
-<!-- ========== NEW: Midlertidigt favicon (bliver til dit rigtige logo senere) ========== -->
+<!-- ========== NEW: Midlertidigt favicon ========== -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' ry='20' fill='%231f3a8a'/%3E%3Ctext x='50' y='60' font-size='45' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EIC%3C/text%3E%3C/svg%3E">
 
 <style>
   :root{
     --ink:#0f172a;
     --muted:#64748b;
-    --blue:#1f3a8a; /* mørk, blød blå */
-    --blue-soft:#dfe6ff; /* lys badge-blå */
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
     --mint:#10b981;
     --line:#e5e7eb;
     --soft:#f6f8fb;
@@ -51,6 +50,9 @@
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
+  /* Højregruppe = nav + sprog + burger (holder dem samlet) */
+  .desktop-right{display:flex;align-items:center;gap:12px}
+
   /* Desktop links (vises direkte på desktop) */
   .desktop-links{
     display:none;
@@ -67,7 +69,7 @@
     color:var(--blue);
   }
 
-  /* === Sprog-klode (nyt) === */
+  /* Sprog-klode */
   .lang{position:relative;margin-left:10px}
   .lang-btn{
     display:inline-grid;place-items:center;
@@ -84,13 +86,12 @@
   .lang.open .lang-menu{display:block}
   .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
-  /* ========================= */
 
-  /* Mobil burger-knap (vises kun på mobil) */
+  /* Mobil burger */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
 
-  /* Off-canvas mobilmenu + backdrop */
+  /* Off-canvas + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -114,18 +115,15 @@
   .hero p{font-size:18px;margin:0 0 18px}
   .cta-white{display:inline-block;padding:12px 18px;border-radius:10px;background:#ffffff;color:#111;font-weight:800;border:none}
 
-  /* Section wrappers */
   section{padding:56px 20px}
   h3{margin:0 0 14px}
 
-  /* Hvorfor os */
   .why{text-align:center}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
   .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .point h4{margin:0 0 8px;color:var(--blue)}
   .point p{color:var(--muted);margin:0}
 
-  /* Proces & ansvar */
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
@@ -134,7 +132,6 @@
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
-  /* CTA + formular */
   .cta-wrap{text-align:center;margin-top:6px}
   .reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)}
   .reveal-btn .arrow{transition:transform .25s ease}
@@ -150,15 +147,14 @@
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
-  /* Responsivitet */
   @media(max-width:900px){
     .hero h2{font-size:30px}
     .points,.grid-2{grid-template-columns:1fr}
   }
   @media(min-width:900px){
-    .menu-burger{display:none;} /* skjul burger på desktop */
-    .desktop-links{display:flex;} /* vis direkte links på desktop */
-    .mobile-drawer,.backdrop{display:none !important;} /* skjul mobilmenu/backdrop helt */
+    .menu-burger{display:none;}
+    .desktop-links{display:flex;}
+    .mobile-drawer,.backdrop{display:none !important;}
   }
 
   html{scroll-behavior:smooth}
@@ -176,32 +172,32 @@
       </div>
     </a>
 
-    <!-- Desktop: direkte links -->
-    <nav class="desktop-links" aria-label="Primær navigation">
-      <a href="/">Forside</a>
-      <a href="/ydelser.html">Ydelser</a>
-      <a href="/om-os.html">Om os</a>
-      <a href="/kontakt.html">Kontakt</a>
-    </nav>
+    <!-- HØJREGRUPPE: nav + sprog + burger (holder menuen tæt på kloden) -->
+    <div class="desktop-right">
+      <nav class="desktop-links" aria-label="Primær navigation">
+        <a href="/">Forside</a>
+        <a href="/ydelser.html">Ydelser</a>
+        <a href="/om-os.html">Om os</a>
+        <a href="/kontakt.html">Kontakt</a>
+      </nav>
 
-    <!-- Sprog-klode (Nyt) -->
-    <div class="lang" id="langSwitch" aria-label="Sprog">
-      <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Vælg sprog">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="10" stroke-width="2"/>
-          <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-        </svg>
-      </button>
-      <div class="lang-menu" role="menu">
-        <a href="#" role="menuitem">Dansk</a>
-        <a href="/en/index.html" role="menuitem">English</a>
+      <div class="lang" id="langSwitch" aria-label="Sprog">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Vælg sprog">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
+          </svg>
+        </button>
+        <div class="lang-menu" role="menu">
+          <a href="#" role="menuitem">Dansk</a>
+          <a href="/en/index.html" role="menuitem">English</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Mobil: burger -->
-    <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
+      <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -221,7 +217,7 @@
 </aside>
 
 <main>
-  <!-- HERO med slides og kun “Se ydelser” -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="slides" id="slides">
