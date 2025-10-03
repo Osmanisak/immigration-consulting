@@ -3,27 +3,43 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <title>Immigration Consulting – Din genvej til arbejdstilladelse</title>
 <meta name="description" content="Arbejdstilladelser uden bøvl. Vi håndterer nye ansøgninger og forlængelser – fra dokumenttjek til dialog med SIRI. Udfyld formularen og bliv kontaktet.">
-
-<!-- ========== NEW: SEO basics ========== -->
 <meta name="keywords" content="arbejdstilladelse, SIRI, AR1, AR3, AR6, AR7, opholdstilladelse, immigration, international rekruttering, udenlandsk arbejdskraft, Danmark">
 <meta name="author" content="Immigration Consulting">
 
-<!-- ========== NEW: Open Graph (sharing previews) ========== -->
+<!-- Canonical + hreflang -->
+<link rel="canonical" href="https://immigration-consulting.dk/">
+<link rel="alternate" href="https://immigration-consulting.dk/" hreflang="da">
+<link rel="alternate" href="https://immigration-consulting.dk/en/index.html" hreflang="en">
+<link rel="alternate" href="https://immigration-consulting.dk/" hreflang="x-default">
+
+<!-- Open Graph -->
 <meta property="og:title" content="Immigration Consulting – Din genvej til arbejdstilladelse">
 <meta property="og:description" content="Vi hjælper virksomheder med arbejdstilladelser – nye ansøgninger og forlængelser. Få gratis vejledning og korrekt sagsbehandling.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://immigration-consulting.dk/">
 <meta property="og:image" content="https://immigration-consulting.dk/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="da_DK">
 
-<!-- (valgfrit) Twitter cards -->
+<!-- Twitter cards -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Immigration Consulting – Din genvej til arbejdstilladelse">
 <meta name="twitter:description" content="Arbejdstilladelser uden bøvl – nye ansøgninger og forlængelser, dokumenttjek og dialog med SIRI.">
 <meta name="twitter:image" content="https://immigration-consulting.dk/og-image.jpg">
 
-<!-- ========== NEW: Midlertidigt favicon ========== -->
+<!-- Preload hero image (hurtigere LCP) -->
+<link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+<link rel="preload" as="image"
+      href="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
+      imagesrcset="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80 1200w,
+                   https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80 1600w"
+      imagesizes="100vw">
+
+<!-- Midlertidigt favicon -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' ry='20' fill='%231f3a8a'/%3E%3Ctext x='50' y='60' font-size='45' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EIC%3C/text%3E%3C/svg%3E">
 
 <style>
@@ -53,36 +69,16 @@
   /* Højregruppe = nav + sprog + burger (holder dem samlet) */
   .desktop-right{display:flex;align-items:center;gap:12px}
 
-  /* Desktop links (vises direkte på desktop) */
-  .desktop-links{
-    display:none;
-    gap:18px;
-    align-items:center;
-    font-weight:700;
-  }
-  .desktop-links a{
-    padding:10px 12px;
-    border-radius:10px;
-  }
-  .desktop-links a:hover{
-    background:var(--soft);
-    color:var(--blue);
-  }
+  /* Desktop links */
+  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
+  .desktop-links a{padding:10px 12px;border-radius:10px}
+  .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
   /* Sprog-klode */
   .lang{position:relative;margin-left:10px}
-  .lang-btn{
-    display:inline-grid;place-items:center;
-    width:38px;height:38px;
-    border:1px solid var(--line);
-    background:#fff;border-radius:10px;cursor:pointer
-  }
+  .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
   .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{
-    position:absolute;right:0;top:46px;
-    background:#fff;border:1px solid var(--line);border-radius:10px;
-    box-shadow:var(--shadow);padding:8px;min-width:150px;display:none;z-index:65
-  }
+  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;min-width:150px;display:none;z-index:65}
   .lang.open .lang-menu{display:block}
   .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
@@ -146,6 +142,11 @@
   .muted{color:var(--muted);margin-top:8px}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
+
+  /* Reduce motion: fjern animationer ved systemindstilling */
+  @media (prefers-reduced-motion: reduce){
+    .slide{animation:none}
+  }
 
   @media(max-width:900px){
     .hero h2{font-size:30px}
@@ -340,10 +341,13 @@
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 
-  // Hero slides
+  // Hero slides (respekterer prefers-reduced-motion)
   const slides=document.querySelectorAll('.slide');
   let i=0;
-  setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if(!prefersReducedMotion.matches && slides.length){
+    setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
+  }
 
   // Fold-ud formular
   const panel = document.getElementById('reveal');
@@ -355,6 +359,29 @@
     if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
   window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
+</script>
+
+<!-- JSON-LD: Organization -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Immigration Consulting",
+  "url":"https://immigration-consulting.dk/",
+  "logo":"https://immigration-consulting.dk/og-image.jpg",
+  "sameAs":[]
+}
+</script>
+
+<!-- JSON-LD: WebSite (hjælper Google med at forstå sitet) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"Immigration Consulting",
+  "url":"https://immigration-consulting.dk/",
+  "inLanguage":"da"
+}
 </script>
 </body>
 </html>
