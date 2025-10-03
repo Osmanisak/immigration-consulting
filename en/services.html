@@ -4,45 +4,67 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Services – Immigration Consulting</title>
-<meta name="description" content="We handle new applications and extensions for work permits.">
-
+<meta name="description" content="We handle new applications and extensions for work permits. Get free guidance – we respond the same business day 8–16.">
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--blue:#1f3a8a;--blue-soft:#dfe6ff;--mint:#10b981;--line:#e5e7eb;--soft:#f6f8fb;--shadow:0 8px 24px rgba(2,6,23,.10)}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit} .container{max-width:1060px;margin:0 auto;padding:0 20px}
+  :root{
+    --ink:#0f172a;
+    --muted:#64748b;
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
+    --mint:#10b981;
+    --line:#e5e7eb;
+    --soft:#f6f8fb;
+    --shadow:0 8px 24px rgba(2,6,23,.10);
+  }
+
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1060px;margin:0 auto;padding:0 20px}
+
+  /* Header */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
+  /* Desktop: direct links */
+  .desktop-right{display:flex;align-items:center;gap:14px}
   .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
   .desktop-links a{padding:10px 12px;border-radius:10px}
   .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Language globe */
-  .lang{position:relative;margin-left:10px}
+  /* Language switch */
+  .lang{position:relative}
   .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
   .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;min-width:150px;display:none;z-index:65}
-  .lang.open .lang-menu{display:block}
+  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:150px;z-index:65}
   .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
+  .lang.open .lang-menu{display:block}
 
+  /* Mobile: burger */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
+
+  /* Mobile drawer + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
+  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:320px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
   .mobile-drawer.open{transform:translateX(0)}
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
+  .drawer-lang{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+  .drawer-lang a{display:block;padding:8px 10px;border-radius:8px}
 
+  /* Hero */
   .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
   .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
   .muted{color:var(--muted)}
 
+  /* Sections */
   section{padding:36px 20px}
   .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
@@ -50,6 +72,7 @@
   .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
   .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px;margin-left:8px}
 
+  /* CTA & form */
   .cta-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);text-align:center}
   .cta-btn{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none}
   .cta-sub{font-size:13px;color:var(--muted);margin-top:8px}
@@ -58,8 +81,9 @@
   .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
   input,textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
   textarea{min-height:120px;resize:vertical}
-  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
+  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:#1f3a8a;color:#fff;font-weight:800;border:none;cursor:pointer}
 
+  /* Steps & chips */
   .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .step-title{display:block;margin-bottom:6px;color:var(--blue)}
@@ -69,8 +93,29 @@
   .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-  @media(max-width:900px){.grid,.steps{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
-  @media(min-width:900px){.menu-burger{display:none}.desktop-links{display:flex}.mobile-drawer,.backdrop{display:none !important}}
+
+  @media(max-width:900px){
+    .grid,.steps{grid-template-columns:1fr}
+    .row{grid-template-columns:1fr}
+  }
+  @media(min-width:900px){
+    .menu-burger{display:none;}
+    .desktop-links{display:flex;}
+    .mobile-drawer,.backdrop{display:none !important;}
+  }
+
+  /* Inline success message */
+  .form-success{
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    background:#fff;
+    padding:16px;
+    margin-top:12px;
+  }
+  .form-success h4{ margin:0 0 6px; color:var(--blue); }
+  .form-success p{ margin:0; color:var(--muted); }
+
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -82,39 +127,44 @@
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
-        <div class="tagline">Your fast track to work permits</div>
+        <div class="tagline">Your shortcut to work permits</div>
       </div>
     </a>
 
-    <nav class="desktop-links" aria-label="Primary navigation">
-      <a href="/en/index.html">Home</a>
-      <a href="/en/services.html">Services</a>
-      <a href="/en/about.html">About</a>
-      <a href="/en/contact.html">Contact</a>
-    </nav>
+    <div class="desktop-right">
+      <!-- Desktop: direct links -->
+      <nav class="desktop-links" aria-label="Main navigation">
+        <a href="/en/index.html">Home</a>
+        <a href="/en/services.html">Services</a>
+        <a href="/en/about.html">About us</a>
+        <a href="/en/contact.html">Contact</a>
+      </nav>
 
-    <!-- Language globe -->
-    <div class="lang" id="langSwitch" aria-label="Language">
-      <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="10" stroke-width="2"/>
-          <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-        </svg>
-      </button>
-      <div class="lang-menu" role="menu">
-        <a href="/ydelser.html" role="menuitem">Dansk</a>
-        <a href="/en/services.html" role="menuitem">English</a>
+      <!-- Language switch -->
+      <div class="lang" id="langSwitch">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
+          </svg>
+        </button>
+        <div class="lang-menu" role="menu">
+          <a href="/ydelser.html">Dansk</a>
+          <a href="/en/services.html">English</a>
+        </div>
       </div>
-    </div>
 
-    <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
+      <!-- Mobile: burger -->
+      <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
+<!-- Mobile drawer -->
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
   <div class="drawer-head">
     <span>Menu</span>
     <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Close menu">✕</button>
@@ -122,12 +172,18 @@
   <nav class="drawer-links">
     <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
     <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="/en/about.html" onclick="toggleDrawer(false)">About</a>
+    <a href="/en/about.html" onclick="toggleDrawer(false)">About us</a>
     <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
+    <div class="drawer-lang">
+      <strong>Language</strong>
+      <a href="/ydelser.html" onclick="toggleDrawer(false)">Dansk</a>
+      <a href="/en/services.html" onclick="toggleDrawer(false)">English</a>
+    </div>
   </nav>
 </aside>
 
 <main>
+  <!-- HERO -->
   <section class="page-hero">
     <div class="container">
       <h2>Services</h2>
@@ -135,24 +191,25 @@
     </div>
   </section>
 
+  <!-- Services -->
   <section class="container">
     <div class="grid">
       <div class="card">
         <h3>New applications <span class="pill">AR1/AR6</span></h3>
-        <p class="muted">We set the case up correctly from the start to avoid errors and delays.</p>
+        <p class="muted">We set up the case correctly from the start, so you avoid errors and delays.</p>
         <ul class="list">
-          <li>Contract and salary requirement checks</li>
+          <li>Contract and salary check</li>
           <li>Completion and submission of AR1/AR6</li>
-          <li>Checklists and document collection</li>
+          <li>Checklists and collection of documentation</li>
           <li>Dialogue and follow-up with SIRI</li>
-          <li>Status updates until decision</li>
+          <li>Status updates to the company until decision</li>
         </ul>
       </div>
       <div class="card">
         <h3>Extensions <span class="pill">AR3/AR7</span></h3>
-        <p class="muted">Confident extension of existing residence and work permits.</p>
+        <p class="muted">Safe extension of existing residence and work permits.</p>
         <ul class="list">
-          <li>Review of conditions, changes and deadlines</li>
+          <li>Check of terms, employment changes and deadlines</li>
           <li>Completion and submission of AR3/AR7</li>
           <li>Updated documents and requirements</li>
           <li>Coordination and responses to SIRI</li>
@@ -162,67 +219,154 @@
     </div>
   </section>
 
+  <!-- CTA – Free guidance (scrolls to form on this page) -->
   <section class="container">
     <div class="cta-wrap">
-      <h3>Get free initial guidance</h3>
-      <p class="muted">Send your contact details – we typically reply the same business day.</p>
-      <a class="cta-btn" href="/en/contact.html#start">Get contacted</a>
-      <div class="cta-sub">* If you prefer a scheduled advisor meeting (phone/online) with in-depth guidance, the hourly rate is DKK 987 excl. VAT.</div>
+      <h3>Get free guidance from an advisor</h3>
+      <p class="muted">Send your contact details – we typically reply the same business day 8–16.</p>
+      <a class="cta-btn" href="#start">Get contacted for free</a>
+      <div class="cta-sub">* If you want a scheduled meeting (phone/online) with in-depth advice, the rate is 987 DKK excl. VAT per hour.</div>
     </div>
   </section>
 
+  <!-- Steps -->
   <section class="container">
     <h3>How we work</h3>
     <div class="steps">
-      <div class="step"><span class="step-title">1. Pre-analysis</span><p><span class="tick">✔</span>Contract check, salary, scheme and timeline.</p></div>
-      <div class="step"><span class="step-title">2. Application</span><p><span class="tick">✔</span>Document collection, AR1/AR6 or AR3/AR7 submission.</p></div>
-      <div class="step"><span class="step-title">3. Follow-up</span><p><span class="tick">✔</span>Dialogue with SIRI and ongoing status until decision.</p></div>
+      <div class="step"><span class="step-title">1. Pre-analysis</span><p><span class="tick">✔</span>Contract check, salary requirements, scheme and timeline.</p></div>
+      <div class="step"><span class="step-title">2. Application</span><p><span class="tick">✔</span>Document collection; AR1/AR6 or AR3/AR7 submitted.</p></div>
+      <div class="step"><span class="step-title">3. Follow-up</span><p><span class="tick">✔</span>Dialogue with SIRI and ongoing status updates until decision.</p></div>
     </div>
   </section>
 
+  <!-- Sectors -->
+  <section class="container">
+    <h3>We especially assist</h3>
+    <div class="chips" style="margin-bottom:10px">
+      <div class="chip">Restaurants & hotels</div>
+      <div class="chip">Construction</div>
+      <div class="chip">Manufacturing & logistics</div>
+      <div class="chip">IT & technical professions</div>
+      <div class="chip">Cleaning & facility</div>
+    </div>
+    <p class="muted">
+      Our advice is based on authority-near insight and practical experience with case handling at SIRI.
+      This results in fewer errors, better documentation and a more predictable process for both the company and the employee.
+    </p>
+  </section>
+
+  <!-- Contact form (inline on this page) -->
   <section class="container" id="start">
     <div class="form-wrap">
-      <h3>Contact us</h3>
-      <p class="muted">Fill in the fields and we’ll get back to you.</p>
+      <h3>Get contacted</h3>
+      <p class="muted">Fill in the fields – we respond the same business day 8–16.</p>
 
-      <form name="contact-quick-en" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact-quick-en" />
-        <p style="display:none"><label>Do not fill this out: <input name="bot-field" /></label></p>
+      <!-- Netlify Forms -->
+      <form name="contact-request-en"
+            method="POST"
+            data-netlify="true"
+            data-inline-success="true"
+            netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact-request-en" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
         <div class="row">
-          <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
+          <input type="text"   name="name"     placeholder="Your name" required />
+          <input type="email"  name="email"    placeholder="Your e-mail" required />
         </div>
         <div class="row">
-          <input type="text" name="company" placeholder="Company" />
-          <input type="tel" name="phone" placeholder="Phone" />
+          <input type="text"   name="company"  placeholder="Company" />
+          <input type="tel"    name="phone"    placeholder="Phone" />
         </div>
-        <textarea name="message" placeholder="Short description of your case"></textarea>
+        <textarea name="message" placeholder="Short description (position, nationality, new application/extension, desired start date)"></textarea>
 
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
           <button class="submit" type="submit">Send</button>
-          <span class="muted">We typically reply the same business day.</span>
+          <span class="muted">* Scheduled meeting: 987 DKK excl. VAT per hour.</span>
+        </div>
+
+        <!-- Inline success (hidden by default) -->
+        <div class="form-success" hidden role="status" aria-live="polite">
+          <h4>Thank you for your message!</h4>
+          <p>Your inquiry has been sent.</p>
         </div>
       </form>
     </div>
   </section>
 </main>
 
-<footer>© 2025 Immigration Consulting – Work permit advisory and international recruitment</footer>
+<footer>
+  © 2025 Immigration Consulting – Work permit consulting and international recruitment
+</footer>
 
 <script>
-  // Language globe
-  const langSwitch=document.getElementById('langSwitch');
+  // Language dropdown
+  const langSwitch = document.getElementById('langSwitch');
   if(langSwitch){
-    const btn=langSwitch.querySelector('.lang-btn');
-    const open=(o)=>{ langSwitch.classList.toggle('open',o); btn.setAttribute('aria-expanded', o?'true':'false'); };
-    btn.addEventListener('click',()=>open(!langSwitch.classList.contains('open')));
-    document.addEventListener('click',e=>{ if(!langSwitch.contains(e.target)) open(false); });
+    const btn = langSwitch.querySelector('.lang-btn');
+    function openLang(open){ langSwitch.classList.toggle('open',open); btn.setAttribute('aria-expanded', open?'true':'false'); }
+    btn.addEventListener('click', ()=> openLang(!langSwitch.classList.contains('open')));
+    document.addEventListener('click', (e)=>{ if(!langSwitch.contains(e.target)) openLang(false); });
   }
-  // Drawer
-  const drawer=document.getElementById('drawer'),backdrop=document.getElementById('backdrop'),menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){ const open=typeof state==='boolean'?state:!drawer.classList.contains('open'); drawer.classList.toggle('open',open); backdrop.classList.toggle('show',open); if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false')} drawer.setAttribute('aria-hidden',open?'false':'true') }
+
+  // Mobile drawer
+  const drawer=document.getElementById('drawer');
+  const backdrop=document.getElementById('backdrop');
+  const menuBurger=document.getElementById('menuBurger');
+  function toggleDrawer(state){
+    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
+    drawer.classList.toggle('open',open);
+    backdrop.classList.toggle('show',open);
+    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
+    drawer.setAttribute('aria-hidden',open?'false':'true');
+  }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
+
+  // Inline Netlify success (no redirect)
+  (function(){
+    function encodeFormData(fd){
+      const p = new URLSearchParams();
+      for (const [k,v] of fd.entries()) p.append(k, v);
+      return p.toString();
+    }
+    document.addEventListener('submit', async function(e){
+      const form = e.target;
+      if(!(form instanceof HTMLFormElement)) return;
+      if(!form.matches('[data-netlify][data-inline-success]')) return;
+      e.preventDefault();
+
+      const successBox = form.querySelector('.form-success');
+      const submitBtn  = form.querySelector('button[type="submit"]');
+
+      const fd = new FormData(form);
+      if(!fd.get('form-name')){
+        const fn = form.getAttribute('name');
+        if(fn) fd.append('form-name', fn);
+      }
+
+      if(submitBtn) submitBtn.disabled = true;
+      try{
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type':'application/x-www-form-urlencoded'},
+          body: encodeFormData(fd)
+        });
+        if(res.ok){
+          form.reset();
+          if(successBox){
+            successBox.hidden = false;
+            successBox.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }else{
+          alert('There was an error sending the form. Please try again in a moment.');
+        }
+      }catch(err){
+        alert('Could not send the form right now. Check your connection and try again.');
+      }finally{
+        if(submitBtn) submitBtn.disabled = false;
+      }
+    }, {capture:true});
+  })();
 </script>
 </body>
 </html>
