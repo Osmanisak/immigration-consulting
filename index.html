@@ -30,7 +30,7 @@
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
-  /* Desktop links (vises direkte på desktop) */
+  /* Desktop links */
   .desktop-links{
     display:none;
     gap:18px;
@@ -46,7 +46,7 @@
     color:var(--blue);
   }
 
-  /* === Sprog-klode (nyt) === */
+  /* Sprog-knap */
   .lang{position:relative;margin-left:10px}
   .lang-btn{
     display:inline-grid;place-items:center;
@@ -63,13 +63,12 @@
   .lang.open .lang-menu{display:block}
   .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
-  /* ========================= */
 
-  /* Mobil burger-knap (vises kun på mobil) */
+  /* Mobil burger */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
 
-  /* Off-canvas mobilmenu + backdrop */
+  /* Mobilmenu + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -77,7 +76,7 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  /* HERO med slides */
+  /* HERO */
   .hero{
     position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
     background:
@@ -93,18 +92,16 @@
   .hero p{font-size:18px;margin:0 0 18px}
   .cta-white{display:inline-block;padding:12px 18px;border-radius:10px;background:#ffffff;color:#111;font-weight:800;border:none}
 
-  /* Section wrappers */
+  /* Sections */
   section{padding:56px 20px}
   h3{margin:0 0 14px}
 
-  /* Hvorfor os */
   .why{text-align:center}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
   .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
   .point h4{margin:0 0 8px;color:var(--blue)}
   .point p{color:var(--muted);margin:0}
 
-  /* Proces & ansvar */
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
@@ -113,7 +110,6 @@
   .checklist li{display:flex;gap:10px;align-items:flex-start;margin:10px 0}
   .tick{width:22px;height:22px;border-radius:50%;background:var(--mint);display:grid;place-items:center;color:#fff;font-weight:900;flex:0 0 22px}
 
-  /* CTA + formular */
   .cta-wrap{text-align:center;margin-top:6px}
   .reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)}
   .reveal-btn .arrow{transition:transform .25s ease}
@@ -129,15 +125,14 @@
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
-  /* Responsivitet */
   @media(max-width:900px){
     .hero h2{font-size:30px}
     .points,.grid-2{grid-template-columns:1fr}
   }
   @media(min-width:900px){
-    .menu-burger{display:none;}           /* skjul burger på desktop */
-    .desktop-links{display:flex;}         /* vis direkte links på desktop */
-    .mobile-drawer,.backdrop{display:none !important;} /* skjul mobilmenu/backdrop helt */
+    .menu-burger{display:none;}
+    .desktop-links{display:flex;}
+    .mobile-drawer,.backdrop{display:none !important;}
   }
 
   html{scroll-behavior:smooth}
@@ -160,10 +155,10 @@
       <a href="/">Forside</a>
       <a href="/ydelser.html">Ydelser</a>
       <a href="/om-os.html">Om os</a>
-      <a href="/index.html#start">Kontakt</a>
+      <a href="/kontakt.html">Kontakt</a>
     </nav>
 
-    <!-- Sprog-klode (Nyt) -->
+    <!-- Sprog-klode -->
     <div class="lang" id="langSwitch" aria-label="Sprog">
       <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Vælg sprog">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -177,7 +172,7 @@
       </div>
     </div>
 
-    <!-- Mobil: burger -->
+    <!-- Mobil burger -->
     <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
@@ -195,12 +190,12 @@
     <a href="/" onclick="toggleDrawer(false)">Forside</a>
     <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
     <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
-    <a href="/index.html#start" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="/kontakt.html" onclick="toggleDrawer(false)">Kontakt</a>
   </nav>
 </aside>
 
 <main>
-  <!-- HERO med slides og kun “Se ydelser” -->
+  <!-- HERO -->
   <section class="hero">
     <div class="hero-inner">
       <div class="slides" id="slides">
@@ -217,7 +212,6 @@
           <p>Klare leverancer og løbende status – ingen overraskelser.</p>
         </div>
       </div>
-
       <a class="cta-white" href="/ydelser.html">Se ydelser</a>
     </div>
   </section>
@@ -266,7 +260,7 @@
     </div>
   </section>
 
-  <!-- CTA → fold-ud formular -->
+  <!-- CTA + formular -->
   <section class="container cta-wrap" id="start">
     <button class="reveal-btn" id="revealBtn" onclick="toggleForm()">
       <span class="arrow" id="arrow">▼</span> Bliv kontaktet
@@ -301,7 +295,7 @@
 </footer>
 
 <script>
-  // Sprog-klode (toggle)
+  // Sprog-klode
   const langSwitch=document.getElementById('langSwitch');
   if(langSwitch){
     const btn=langSwitch.querySelector('.lang-btn');
@@ -317,27 +311,4 @@
   function toggleDrawer(state){
     const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
     drawer.classList.toggle('open',open);
-    backdrop.classList.toggle('show',open);
-    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
-    drawer.setAttribute('aria-hidden',open?'false':'true');
-  }
-  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
-
-  // Hero slides
-  const slides=document.querySelectorAll('.slide');
-  let i=0;
-  setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
-
-  // Fold-ud formular
-  const panel = document.getElementById('reveal');
-  const arrow = document.getElementById('arrow');
-  function toggleForm(){
-    const isOpen = panel.classList.toggle('open');
-    arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
-    panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
-    if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
-  }
-  window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
-</script>
-</body>
-</html>
+    backdrop.classList.toggle('show',
