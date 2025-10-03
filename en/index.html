@@ -3,34 +3,47 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Immigration Consulting – Your fast track to work permits</title>
-<meta name="description" content="Work permits without hassle. We handle new applications and extensions – from document checks to dialogue with SIRI.">
+<title>Immigration Consulting – Your shortcut to work permits</title>
+<meta name="description" content="Work permits without hassle. We handle new applications and extensions – from document checks to dialogue with SIRI. Fill the form and we’ll contact you.">
 
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--blue:#1f3a8a;--blue-soft:#dfe6ff;--mint:#10b981;--line:#e5e7eb;--soft:#f6f8fb;--shadow:0 8px 24px rgba(2,6,23,.10)}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit} .container{max-width:1060px;margin:0 auto;padding:0 20px}
+  :root{
+    --ink:#0f172a;
+    --muted:#64748b;
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
+    --mint:#10b981;
+    --line:#e5e7eb;
+    --soft:#f6f8fb;
+    --shadow:0 8px 24px rgba(2,6,23,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1060px;margin:0 auto;padding:0 20px}
+
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
+
   .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
   .desktop-links a{padding:10px 12px;border-radius:10px}
   .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Language globe */
   .lang{position:relative;margin-left:10px}
   .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
   .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;min-width:150px;display:none;z-index:65}
-  .lang.open .lang-menu{display:block}
+  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:150px;z-index:65}
   .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
+  .lang.open .lang-menu{display:block}
 
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
+
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -38,20 +51,30 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  .hero{position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
-    background:linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat}
+  .hero{
+    position:relative;min-height:520px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
+    background:
+      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  }
   .hero-inner{max-width:920px;padding:20px}
   .slides{position:relative;z-index:2;max-width:820px;margin:0 auto}
-  .slide{display:none;animation:fade .8s ease} .slide.active{display:block}
-  @keyframes fade{from{opacity:.4}to{opacity:1}}
-  .hero h2{font-size:38px;margin:0 0 12px} .hero p{font-size:18px;margin:0 0 18px}
-  .cta-white{display:inline-block;padding:12px 18px;border-radius:10px;background:#fff;color:#111;font-weight:800;border:none}
+  .slide{display:none;animation:fade .8s ease}
+  .slide.active{display:block}
+  @keyframes fade{from{opacity:.4} to{opacity:1}}
+  .hero h2{font-size:38px;margin:0 0 12px}
+  .hero p{font-size:18px;margin:0 0 18px}
+  .cta-white{display:inline-block;padding:12px 18px;border-radius:10px;background:#ffffff;color:#111;font-weight:800;border:none}
 
-  section{padding:56px 20px} h3{margin:0 0 14px}
+  section{padding:56px 20px}
+  h3{margin:0 0 14px}
+
   .why{text-align:center}
   .points{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:900px;margin:22px auto 0}
   .point{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .point h4{margin:0 0 8px;color:var(--blue)} .point p{color:var(--muted);margin:0}
+  .point h4{margin:0 0 8px;color:var(--blue)}
+  .point p{color:var(--muted);margin:0}
+
   .process{background:var(--soft)}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
@@ -63,6 +86,7 @@
   .cta-wrap{text-align:center;margin-top:6px}
   .reveal-btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:12px;font-weight:800;background:var(--blue);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow)}
   .reveal-btn .arrow{transition:transform .25s ease}
+
   .reveal{max-width:760px;margin:18px auto 0;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;max-height:0;transition:max-height .35s ease}
   .reveal.open{max-height:1000px}
   .form{padding:20px;background:#fff}
@@ -73,8 +97,17 @@
   .muted{color:var(--muted);margin-top:8px}
 
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-  @media(max-width:900px){.hero h2{font-size:30px}.points,.grid-2{grid-template-columns:1fr}}
-  @media(min-width:900px){.menu-burger{display:none}.desktop-links{display:flex}.mobile-drawer,.backdrop{display:none !important}}
+
+  @media(max-width:900px){
+    .hero h2{font-size:30px}
+    .points,.grid-2{grid-template-columns:1fr}
+  }
+  @media(min-width:900px){
+    .menu-burger{display:none}
+    .desktop-links{display:flex}
+    .mobile-drawer,.backdrop{display:none !important}
+  }
+
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -86,34 +119,35 @@
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
-        <div class="tagline">Your fast track to work permits</div>
+        <div class="tagline">Your shortcut to work permits</div>
       </div>
     </a>
 
-    <nav class="desktop-links" aria-label="Primary navigation">
-      <a href="/en/index.html">Home</a>
-      <a href="/en/services.html">Services</a>
-      <a href="/en/about.html">About</a>
-      <a href="/en/contact.html">Contact</a>
-    </nav>
+    <div style="display:flex;align-items:center;gap:12px">
+      <nav class="desktop-links" aria-label="Main navigation">
+        <a href="/en/index.html">Home</a>
+        <a href="/en/services.html">Services</a>
+        <a href="/en/about.html">About us</a>
+        <a href="/en/contact.html">Contact</a>
+      </nav>
 
-    <!-- Language globe -->
-    <div class="lang" id="langSwitch" aria-label="Language">
-      <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="10" stroke-width="2"/>
-          <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-        </svg>
-      </button>
-      <div class="lang-menu" role="menu">
-        <a href="/" role="menuitem">Dansk</a>
-        <a href="/en/index.html" role="menuitem">English</a>
+      <div class="lang" id="langSwitch">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
+          </svg>
+        </button>
+        <div class="lang-menu" role="menu">
+          <a href="/index.html">Dansk</a>
+          <a href="/en/index.html">English</a>
+        </div>
       </div>
-    </div>
 
-    <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
+      <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -126,7 +160,7 @@
   <nav class="drawer-links">
     <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
     <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="/en/about.html" onclick="toggleDrawer(false)">About</a>
+    <a href="/en/about.html" onclick="toggleDrawer(false)">About us</a>
     <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
   </nav>
 </aside>
@@ -141,10 +175,10 @@
         </div>
         <div class="slide">
           <h2>Faster hires</h2>
-          <p>Proactive follow-up and fewer errors from job offer to work permit.</p>
+          <p>Proactive follow-up and fewer errors from job offer to permit.</p>
         </div>
         <div class="slide">
-          <h2>Transparent process</h2>
+          <h2>Transparent processes</h2>
           <p>Clear deliverables and ongoing status – no surprises.</p>
         </div>
       </div>
@@ -158,11 +192,11 @@
     <div class="points">
       <div class="point">
         <h4>Right the first time</h4>
-        <p>Document checks and authority-side experience reduce errors and delays.</p>
+        <p>Document checks and authority-near experience reduce errors and delays.</p>
       </div>
       <div class="point">
         <h4>Minimal effort for you</h4>
-        <p>We handle the application and communication – your time goes to your business.</p>
+        <p>We handle the application and all communication – your time is spent on the business.</p>
       </div>
       <div class="point">
         <h4>Transparency</h4>
@@ -178,17 +212,17 @@
         <div class="card">
           <h4>Your part</h4>
           <ul class="checklist">
-            <li><span class="tick">✔</span><div>Provide contact details (name, email, company, phone).</div></li>
-            <li><span class="tick">✔</span><div>Attach contract/offer or briefly describe the case.</div></li>
-            <li><span class="tick">✔</span><div>Approve our proposed start.</div></li>
+            <li><span class="tick">✔</span><div>Provide contact details (name, e-mail, company, phone).</div></li>
+            <li><span class="tick">✔</span><div>Attach contract/salary offer or describe the case briefly.</div></li>
+            <li><span class="tick">✔</span><div>Approve our proposal to start.</div></li>
           </ul>
         </div>
         <div class="card">
           <h4>Our part</h4>
           <ul class="checklist">
-            <li><span class="tick">✔</span><div>Check documents & requirements – ensure a correct basis.</div></li>
-            <li><span class="tick">✔</span><div>Complete and submit the application and follow up with SIRI.</div></li>
-            <li><span class="tick">✔</span><div>Provide status updates until decision/work permit.</div></li>
+            <li><span class="tick">✔</span><div>Check documents and requirements – ensure correct basis.</div></li>
+            <li><span class="tick">✔</span><div>Complete and submit the application, and follow up with SIRI.</div></li>
+            <li><span class="tick">✔</span><div>Provide status until decision/work permit.</div></li>
           </ul>
         </div>
       </div>
@@ -200,23 +234,23 @@
       <span class="arrow" id="arrow">▼</span> Get contacted
     </button>
     <div class="reveal" id="reveal">
-      <form name="contact-request-en" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
-        <input type="hidden" name="form-name" value="contact-request-en" />
-        <p style="display:none"><label>Do not fill this out: <input name="bot-field" /></label></p>
+      <form name="contact-request-home-en" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+        <input type="hidden" name="form-name" value="contact-request-home-en" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
         <div class="row">
           <input type="text" name="name" placeholder="Your name" required />
-          <input type="email" name="email" placeholder="Your email" required />
+          <input type="email" name="email" placeholder="Your e-mail" required />
         </div>
         <div class="row">
           <input type="text" name="company" placeholder="Company" />
           <input type="tel" name="phone" placeholder="Phone" />
         </div>
-        <textarea name="message" placeholder="Short description (role, nationality, new application or extension, desired start date)"></textarea>
+        <textarea name="message" placeholder="Short description (position, nationality, new application or extension, desired start date)"></textarea>
 
         <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
           <button class="submit" type="submit">Send</button>
-          <span class="muted">We typically reply the same business day (08–16).</span>
+          <span class="muted">We typically reply the same business day 8–16.</span>
         </div>
       </form>
     </div>
@@ -224,11 +258,11 @@
 </main>
 
 <footer>
-  © 2025 Immigration Consulting – Work permit advisory and international recruitment
+  © 2025 Immigration Consulting – Work permit consulting and international recruitment
 </footer>
 
 <script>
-  // Language globe
+  // Language dropdown
   const langSwitch=document.getElementById('langSwitch');
   if(langSwitch){
     const btn=langSwitch.querySelector('.lang-btn');
@@ -250,19 +284,21 @@
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 
-  // Slides
-  const slides=document.querySelectorAll('.slide'); let i=0;
+  // Hero slides
+  const slides=document.querySelectorAll('.slide');
+  let i=0;
   setInterval(()=>{ i=(i+1)%slides.length; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); }, 5000);
 
   // Reveal form
-  const panel=document.getElementById('reveal'); const arrow=document.getElementById('arrow');
+  const panel = document.getElementById('reveal');
+  const arrow = document.getElementById('arrow');
   function toggleForm(){
-    const isOpen=panel.classList.toggle('open');
-    arrow.style.transform=isOpen?'rotate(180deg)':'rotate(0deg)';
-    panel.style.maxHeight=isOpen?panel.scrollHeight+'px':'0px';
-    if(isOpen){ panel.scrollIntoView({behavior:'smooth',block:'start'}); }
+    const isOpen = panel.classList.toggle('open');
+    arrow.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0deg)';
+    panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : '0px';
+    if(isOpen){ panel.scrollIntoView({behavior:'smooth', block:'start'}); }
   }
-  window.addEventListener('resize',()=>{ if(panel.classList.contains('open')) panel.style.maxHeight=panel.scrollHeight+'px'; });
+  window.addEventListener('resize', ()=>{ if(panel.classList.contains('open')) panel.style.maxHeight = panel.scrollHeight + 'px'; });
 </script>
 </body>
 </html>
