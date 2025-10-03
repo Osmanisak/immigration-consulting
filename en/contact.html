@@ -4,33 +4,60 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact – Immigration Consulting</title>
-<meta name="description" content="Get in touch for work permit advisory.">
+<meta name="description" content="Get in touch for work permit guidance. Call, email or use the form below.">
 
 <style>
-  :root{--ink:#0f172a;--muted:#64748b;--blue:#1f3a8a;--blue-soft:#dfe6ff;--mint:#10b981;--line:#e5e7eb;--soft:#f6f8fb;--shadow:0 8px 24px rgba(2,6,23,.10)}
-  *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit} .container{max-width:1060px;margin:0 auto;padding:0 20px}
+  :root{
+    --ink:#0f172a;
+    --muted:#64748b;
+    --blue:#1f3a8a;
+    --blue-soft:#dfe6ff;
+    --mint:#10b981;
+    --line:#e5e7eb;
+    --soft:#f6f8fb;
+    --shadow:0 8px 24px rgba(2,6,23,.10);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
+  a{text-decoration:none;color:inherit}
+  .container{max-width:1060px;margin:0 auto;padding:0 20px}
+
+  /* Header / Navigation */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
-  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
+
+  /* Desktop links */
+  .desktop-links{
+    display:none;
+    gap:18px;
+    align-items:center;
+    font-weight:700;
+  }
   .desktop-links a{padding:10px 12px;border-radius:10px}
   .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
   /* Language globe */
   .lang{position:relative;margin-left:10px}
-  .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
-  .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;min-width:150px;display:none;z-index:65}
-  .lang.open .lang-menu{display:block}
-  .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
+  .lang-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px;display:grid;place-items:center;cursor:pointer}
+  .lang-menu{position:absolute;right:0;top:40px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:140px;z-index:70}
+  .lang-menu a{display:block;padding:10px 12px;border-radius:8px;font-weight:700}
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
+  .lang.open .lang-menu{display:block}
 
+  /* Mobile burger */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
+
+  @media(min-width:900px){
+    .menu-burger{display:none}
+    .desktop-links{display:flex}
+  }
+
+  /* Off-canvas + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -38,22 +65,43 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
 
-  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
-  .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)} .muted{color:var(--muted)}
-  section{padding:36px 20px}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
+  /* Hero */
+  .hero{
+    position:relative;min-height:320px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
+    background:
+      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  }
+  .hero-inner{max-width:900px;padding:20px}
+  .hero h2{font-size:34px;margin:0 0 10px}
+  .hero p{font-size:18px;margin:0}
 
-  .form-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  input,textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-  textarea{min-height:120px;resize:vertical}
+  section{padding:44px 20px}
+  h3{margin:0 0 12px}
+  .muted{color:var(--muted)}
+
+  /* Contact info cards */
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
+  .item{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
+  .dot{width:10px;height:10px;background:var(--blue);border-radius:50%;margin-top:7px}
+
+  /* Fixed form bar (same as DK) */
+  .form-bar{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
+  .form-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  .form-grid input, .form-grid textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+  .form-grid textarea{grid-column:1 / -2;min-height:48px;resize:vertical}
+  .form-grid .submit{grid-column:-2 / -1}
   .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
 
+  @media(max-width:900px){
+    .grid-2{grid-template-columns:1fr}
+    .form-grid{grid-template-columns:1fr}
+    .form-grid textarea{grid-column:auto}
+    .form-grid .submit{grid-column:auto}
+  }
+
   footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-  @media(max-width:900px){.grid{grid-template-columns:1fr}.row{grid-template-columns:1fr}}
-  @media(min-width:900px){.menu-burger{display:none}.desktop-links{display:flex}.mobile-drawer,.backdrop{display:none !important}}
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -61,7 +109,7 @@
 
 <header>
   <div class="nav container">
-    <a class="brand" href="/en/index.html" aria-label="Home">
+    <a class="brand" href="index.html" aria-label="Home">
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
@@ -69,11 +117,12 @@
       </div>
     </a>
 
+    <!-- Desktop nav (relative links inside /en) -->
     <nav class="desktop-links" aria-label="Primary navigation">
-      <a href="/en/index.html">Home</a>
-      <a href="/en/services.html">Services</a>
-      <a href="/en/about.html">About</a>
-      <a href="/en/contact.html">Contact</a>
+      <a href="index.html">Home</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
     </nav>
 
     <!-- Language globe -->
@@ -85,80 +134,107 @@
         </svg>
       </button>
       <div class="lang-menu" role="menu">
-        <a href="/kontakt.html" role="menuitem">Dansk</a>
-        <a href="/en/contact.html" role="menuitem">English</a>
+        <a href="../kontakt.html" role="menuitem">Dansk</a>
+        <a href="contact.html" role="menuitem">English</a>
       </div>
     </div>
 
+    <!-- Mobile burger -->
     <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
 </header>
 
+<!-- Mobile drawer -->
+<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
+<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
+  <div class="drawer-head">
+    <span>Menu</span>
+    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Close menu">✕</button>
+  </div>
+  <nav class="drawer-links">
+    <a href="index.html" onclick="toggleDrawer(false)">Home</a>
+    <a href="services.html" onclick="toggleDrawer(false)">Services</a>
+    <a href="about.html" onclick="toggleDrawer(false)">About</a>
+    <a href="contact.html" onclick="toggleDrawer(false)">Contact</a>
+  </nav>
+</aside>
+
 <main>
-  <section class="page-hero">
-    <div class="container">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
       <h2>Contact</h2>
-      <p class="muted">You're always welcome to reach out. We’ll get back to you as soon as possible.</p>
+      <p>Welcome to reach out – we’re happy to help.</p>
     </div>
   </section>
 
+  <!-- Contact info -->
   <section class="container">
-    <div class="grid">
+    <div class="grid-2">
       <div class="card">
         <h3>Company details</h3>
-        <p><strong>Email:</strong> <a href="mailto:*"> *</a></p>
-        <p><strong>Phone:</strong> *</p>
-        <p><strong>Address:</strong> *</p>
-        <p><strong>CVR:</strong> *</p>
-        <p><strong>EAN:</strong> *</p>
-        <p><strong>Bank (DK):</strong> Reg. * – Account *</p>
+        <div class="item"><span class="dot"></span><div><strong>Company:</strong> Immigration Consulting *</div></div>
+        <div class="item"><span class="dot"></span><div><strong>CVR:</strong> *</div></div>
+        <div class="item"><span class="dot"></span><div><strong>Address:</strong> *</div></div>
+        <div class="item"><span class="dot"></span><div><strong>Email:</strong> <a href="mailto:*">*</a></div></div>
+        <div class="item"><span class="dot"></span><div><strong>Phone:</strong> <a href="tel:*">*</a></div></div>
+        <div class="item"><span class="dot"></span><div><strong>Billing (EAN):</strong> * &nbsp;|&nbsp; <strong>Reg/Account:</strong> *</div></div>
+        <p class="muted" style="margin-top:8px">Fields marked * will be filled in when ready.</p>
       </div>
 
-      <div class="form-wrap" id="start">
+      <div class="card">
         <h3>Write to us</h3>
-        <p class="muted">Questions or a quick clarification? Send us a message here.</p>
+        <p class="muted">Use the form below for any question or case outline.</p>
 
-        <!-- Netlify form -->
-        <form name="contact-page-en" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-          <input type="hidden" name="form-name" value="contact-page-en" />
-          <p style="display:none"><label>Do not fill this out: <input name="bot-field" /></label></p>
+        <!-- FIXED FORM BAR (Netlify Forms) -->
+        <div class="form-bar" style="margin-top:10px">
+          <form name="contact-request-en" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact-request-en" />
+            <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
-          <div class="row">
-            <input type="text" name="name" placeholder="Your name" required />
-            <input type="tel" name="phone" placeholder="Phone" />
-          </div>
-          <div class="row">
-            <input type="text" name="company" placeholder="Company" />
-            <input type="email" name="email" placeholder="Your email" required />
-          </div>
-          <textarea name="message" placeholder="How can we help?"></textarea>
+            <div class="form-grid">
+              <input type="text"   name="name"     placeholder="Your name" required />
+              <input type="tel"    name="phone"    placeholder="Phone" />
+              <input type="text"   name="company"  placeholder="Company" />
+              <input type="email"  name="email"    placeholder="Email" required />
+              <textarea name="message" placeholder="Message (short description, role, nationality, new application or extension, desired start date)"></textarea>
+              <button class="submit" type="submit">Send</button>
+            </div>
+          </form>
+        </div>
 
-          <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
-            <button class="submit" type="submit">Send</button>
-          </div>
-        </form>
       </div>
     </div>
   </section>
 </main>
 
-<footer>© 2025 Immigration Consulting – Work permit advisory and international recruitment</footer>
+<footer>
+  © 2025 Immigration Consulting – Work permits & international recruitment
+</footer>
 
 <script>
-  // Language globe
-  const langSwitch=document.getElementById('langSwitch');
-  if(langSwitch){
-    const btn=langSwitch.querySelector('.lang-btn');
-    const open=(o)=>{ langSwitch.classList.toggle('open',o); btn.setAttribute('aria-expanded', o?'true':'false'); };
-    btn.addEventListener('click',()=>open(!langSwitch.classList.contains('open')));
-    document.addEventListener('click',e=>{ if(!langSwitch.contains(e.target)) open(false); });
+  // Mobile drawer
+  const drawer=document.getElementById('drawer');
+  const backdrop=document.getElementById('backdrop');
+  const menuBurger=document.getElementById('menuBurger');
+  function toggleDrawer(state){
+    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
+    drawer.classList.toggle('open',open);
+    backdrop.classList.toggle('show',open);
+    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
+    drawer.setAttribute('aria-hidden',open?'false':'true');
   }
-  // Drawer
-  const drawer=document.getElementById('drawer'),backdrop=document.getElementById('backdrop'),menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){ const open=typeof state==='boolean'?state:!drawer.classList.contains('open'); drawer.classList.toggle('open',open); backdrop.classList.toggle('show',open); if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false')} drawer.setAttribute('aria-hidden',open?'false':'true') }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
+
+  // Language globe
+  const lang=document.getElementById('langSwitch');
+  if(lang){
+    const btn=lang.querySelector('.lang-btn');
+    btn.addEventListener('click',()=>lang.classList.toggle('open'));
+    document.addEventListener('click',(e)=>{ if(!lang.contains(e.target)) lang.classList.remove('open'); });
+  }
 </script>
 </body>
 </html>
