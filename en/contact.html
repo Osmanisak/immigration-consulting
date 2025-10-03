@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact – Immigration Consulting</title>
-<meta name="description" content="Contact Immigration Consulting. Find email, phone, address, CVR and billing info.">
+<meta name="description" content="Contact Immigration Consulting. Find e-mail, phone, address, VAT/CVR and payment details. We typically respond the same business day 8–16.">
 <style>
   :root{
     --ink:#0f172a;
@@ -22,7 +22,6 @@
   a{text-decoration:none;color:inherit}
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
-  /* Header */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
   .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
   .brand{display:flex;align-items:center;gap:12px}
@@ -35,7 +34,6 @@
   .desktop-links a{padding:10px 12px;border-radius:10px}
   .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Language switch */
   .lang{position:relative}
   .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
   .lang-btn:hover{box-shadow:var(--shadow)}
@@ -44,11 +42,9 @@
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
   .lang.open .lang-menu{display:block}
 
-  /* Mobile burger */
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
 
-  /* Mobile drawer + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
   .mobile-drawer{position:fixed;inset:0 0 0 auto;width:320px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
@@ -56,26 +52,19 @@
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
   .drawer-lang{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
-  .drawer-lang a{display:block;padding:8px 10px;border-radius:8px}
 
-  /* Hero */
   .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
   .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
   .muted{color:var(--muted)}
 
-  /* Sections */
   section{padding:36px 20px}
   .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
   .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
-  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px}
-
-  /* Key/Value rows */
   .kv{display:grid;grid-template-columns:140px 1fr;gap:10px;margin:10px 0}
   .kv span{color:var(--muted)}
   .mono{font-variant-numeric:tabular-nums}
 
-  /* Form bar */
   .form-bar{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px}
   .form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
   .form-bar input,.form-bar textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
@@ -95,7 +84,6 @@
     .mobile-drawer,.backdrop{display:none !important;}
   }
 
-  /* Inline success message */
   .form-success{
     border:1px solid var(--line);
     border-radius:12px;
@@ -118,20 +106,18 @@
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
-        <div class="tagline">Your fast track to work permits</div>
+        <div class="tagline">Your shortcut to work permits</div>
       </div>
     </a>
 
     <div class="desktop-right">
-      <!-- Desktop links -->
-      <nav class="desktop-links" aria-label="Primary navigation">
+      <nav class="desktop-links" aria-label="Main navigation">
         <a href="/en/index.html">Home</a>
         <a href="/en/services.html">Services</a>
-        <a href="/en/about.html">About</a>
+        <a href="/en/about.html">About us</a>
         <a href="/en/contact.html">Contact</a>
       </nav>
 
-      <!-- Language switch -->
       <div class="lang" id="langSwitch">
         <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -140,12 +126,11 @@
           </svg>
         </button>
         <div class="lang-menu" role="menu">
-          <a href="/kontakt.html" role="menuitem">Dansk</a>
-          <a href="/en/contact.html" role="menuitem">English</a>
+          <a href="/kontakt.html">Dansk</a>
+          <a href="/en/contact.html">English</a>
         </div>
       </div>
 
-      <!-- Mobile burger -->
       <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -162,7 +147,7 @@
   <nav class="drawer-links">
     <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
     <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="/en/about.html" onclick="toggleDrawer(false)">About</a>
+    <a href="/en/about.html" onclick="toggleDrawer(false)">About us</a>
     <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
     <div class="drawer-lang">
       <strong>Language</strong>
@@ -173,29 +158,27 @@
 </aside>
 
 <main>
-  <!-- HERO -->
   <section class="page-hero">
     <div class="container">
       <h2>Contact</h2>
-      <p class="muted">Write or call – we typically respond on business days 08:00–16:00.</p>
+      <p class="muted">Write or call – we typically respond the same business day 8–16.</p>
     </div>
   </section>
 
-  <!-- Company info -->
   <section class="container">
     <div class="grid-2">
       <div class="card">
         <h3>Company details</h3>
         <div class="kv"><span>Company</span><div>Immigration Consulting ApS*</div></div>
-        <div class="kv"><span>CVR</span><div class="mono">*********</div></div>
+        <div class="kv"><span>CVR/VAT</span><div class="mono">*********</div></div>
         <div class="kv"><span>Address</span><div>*********, *********, *********</div></div>
-        <div class="kv"><span>Email</span><div><a href="mailto:kontakt@immigrationconsulting.dk">kontakt@immigrationconsulting.dk*</a></div></div>
+        <div class="kv"><span>E-mail</span><div><a href="mailto:kontakt@immigrationconsulting.dk">kontakt@immigrationconsulting.dk*</a></div></div>
         <div class="kv"><span>Phone</span><div><a href="tel:+45XXXXXXXX">+45 ** ** ** **</a>*</div></div>
         <div class="kv"><span>Hours</span><div>Weekdays 08:00–16:00</div></div>
       </div>
 
       <div class="card">
-        <h3>Billing & payments</h3>
+        <h3>Billing & payment</h3>
         <div class="kv"><span>Invoicing</span><div>Electronic (PDF/PEPPOL/EAN)</div></div>
         <div class="kv"><span>EAN</span><div class="mono">**************</div></div>
         <div class="kv"><span>Reg./Account</span><div class="mono">** ** ** / ****************</div></div>
@@ -206,47 +189,43 @@
     </div>
   </section>
 
-  <!-- Write to us (form bar) -->
   <section class="container" id="write-to-us">
     <div class="form-bar">
       <h3 style="margin:0 0 10px;color:var(--blue)">Write to us</h3>
-      <!-- Netlify Forms -->
-      <form name="contact-quick"
+      <form name="quick-contact-en"
             method="POST"
             data-netlify="true"
             data-inline-success="true"
             netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact-quick" />
+        <input type="hidden" name="form-name" value="quick-contact-en" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
         <div class="form-grid">
           <input type="text"   name="name"     placeholder="Your name" required />
           <input type="tel"    name="phone"    placeholder="Phone" />
           <input type="text"   name="company"  placeholder="Company" />
-          <input type="email"  name="email"    placeholder="Your email" required />
+          <input type="email"  name="email"    placeholder="Your e-mail" required />
         </div>
-        <textarea name="message" placeholder="Your question or a short description (role, nationality, new application/extension, desired start date)"></textarea>
+        <textarea name="message" placeholder="Write your questions or a short description (position, nationality, new application/extension, desired start date)"></textarea>
 
         <div style="margin-top:12px">
           <button class="submit" type="submit">Send</button>
         </div>
 
-        <!-- Inline success (hidden) -->
         <div class="form-success" hidden role="status" aria-live="polite">
-          <h4>Thanks for your message!</h4>
-          <p>Your enquiry has been sent.</p>
+          <h4>Thank you!</h4>
+          <p>Your message has been sent.</p>
         </div>
       </form>
     </div>
   </section>
 
-  <!-- Data protection -->
   <section class="container">
     <div class="card">
       <h3>Data protection (GDPR)</h3>
       <p class="muted">
-        We only process necessary information on a lawful basis and follow the principle of data minimisation.
-        Sensitive documents should only be shared via an agreed, secure channel. Contact us if you are unsure.
+        We only process necessary information on a lawful basis and according to the principle of data minimisation.
+        Sensitive documents should only be shared via an agreed secure channel. Contact us if in doubt.
       </p>
     </div>
   </section>
@@ -257,13 +236,13 @@
 </footer>
 
 <script>
-  // Language switch
-  const langSwitch = document.getElementById('langSwitch');
+  // Language dropdown
+  const langSwitch=document.getElementById('langSwitch');
   if(langSwitch){
-    const btn = langSwitch.querySelector('.lang-btn');
-    function openLang(open){ langSwitch.classList.toggle('open',open); btn.setAttribute('aria-expanded', open?'true':'false'); }
-    btn.addEventListener('click', ()=> openLang(!langSwitch.classList.contains('open')));
-    document.addEventListener('click', (e)=>{ if(!langSwitch.contains(e.target)) openLang(false); });
+    const btn=langSwitch.querySelector('.lang-btn');
+    const open=(o)=>{ langSwitch.classList.toggle('open',o); btn.setAttribute('aria-expanded', o?'true':'false'); };
+    btn.addEventListener('click',()=>open(!langSwitch.classList.contains('open')));
+    document.addEventListener('click',e=>{ if(!langSwitch.contains(e.target)) open(false); });
   }
 
   // Mobile drawer
@@ -279,7 +258,7 @@
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 
-  // Inline Netlify success (no redirect)
+  // Inline Netlify success
   (function(){
     function encodeFormData(fd){
       const p = new URLSearchParams();
@@ -315,10 +294,10 @@
             successBox.scrollIntoView({behavior:'smooth', block:'center'});
           }
         }else{
-          alert('There was an error sending the form. Please try again shortly.');
+          alert('There was an error sending the form. Please try again in a moment.');
         }
       }catch(err){
-        alert('Couldn’t send the form right now. Check your connection and try again.');
+        alert('Could not send the form right now. Check your connection and try again.');
       }finally{
         if(submitBtn) submitBtn.disabled = false;
       }
