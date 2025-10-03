@@ -173,7 +173,7 @@
       </div>
     </a>
 
-    <!-- HØJREGRUPPE: nav + sprog + burger (holder menuen tæt på kloden) -->
+    <!-- HØJREGRUPPE: nav + sprog + burger -->
     <div class="desktop-right">
       <nav class="desktop-links" aria-label="Primær navigation">
         <a href="/">Forside</a>
@@ -290,9 +290,10 @@
       <span class="arrow" id="arrow">▼</span> Bliv kontaktet
     </button>
     <div class="reveal" id="reveal">
-      <!-- Netlify Forms -->
-      <form name="kontakt-foresporgsel" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
-        <input type="hidden" name="form-name" value="kontakt-foresporgsel" />
+      <!-- Netlify Forms (samme mønster som EN) -->
+      <form name="contact-request-home-da" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="form">
+        <!-- VIGTIGT: name og form-name skal matche 1:1 -->
+        <input type="hidden" name="form-name" value="contact-request-home-da" />
         <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
         <div class="row">
@@ -312,6 +313,13 @@
       </form>
     </div>
   </section>
+
+  <!-- Skjult template form (hjælper Netlify med at autodetektere formen) -->
+  <form name="contact-request-home-da" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="navn" />
+    <input type="email" name="email" />
+    <textarea name="besked"></textarea>
+  </form>
 </main>
 
 <footer>
@@ -373,7 +381,7 @@
 }
 </script>
 
-<!-- JSON-LD: WebSite (hjælper Google med at forstå sitet) -->
+<!-- JSON-LD: WebSite -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
