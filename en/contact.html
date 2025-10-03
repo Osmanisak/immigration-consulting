@@ -4,8 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Contact – Immigration Consulting</title>
-<meta name="description" content="Get in touch for work permit guidance. Call, email or use the form below.">
-
+<meta name="description" content="Contact Immigration Consulting. Find email, phone, address, CVR and billing info.">
 <style>
   :root{
     --ink:#0f172a;
@@ -17,34 +16,31 @@
     --soft:#f6f8fb;
     --shadow:0 8px 24px rgba(2,6,23,.10);
   }
+
   *{box-sizing:border-box}
   body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
   a{text-decoration:none;color:inherit}
   .container{max-width:1060px;margin:0 auto;padding:0 20px}
 
-  /* Header / Navigation */
+  /* Header */
   header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
   .brand{display:flex;align-items:center;gap:12px}
   .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
   .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
   .tagline{font-size:13px;font-weight:700;color:var(--mint)}
 
-  /* Desktop links */
-  .desktop-links{
-    display:none;
-    gap:18px;
-    align-items:center;
-    font-weight:700;
-  }
+  .desktop-right{display:flex;align-items:center;gap:14px}
+  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
   .desktop-links a{padding:10px 12px;border-radius:10px}
   .desktop-links a:hover{background:var(--soft);color:var(--blue)}
 
-  /* Language globe */
-  .lang{position:relative;margin-left:10px}
-  .lang-btn{appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px;display:grid;place-items:center;cursor:pointer}
-  .lang-menu{position:absolute;right:0;top:40px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:140px;z-index:70}
-  .lang-menu a{display:block;padding:10px 12px;border-radius:8px;font-weight:700}
+  /* Language switch */
+  .lang{position:relative}
+  .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
+  .lang-btn:hover{box-shadow:var(--shadow)}
+  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:150px;z-index:65}
+  .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
   .lang-menu a:hover{background:var(--soft);color:var(--blue)}
   .lang.open .lang-menu{display:block}
 
@@ -52,56 +48,65 @@
   .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
   .menu-burger svg{width:22px;height:22px}
 
-  @media(min-width:900px){
-    .menu-burger{display:none}
-    .desktop-links{display:flex}
-  }
-
-  /* Off-canvas + backdrop */
+  /* Mobile drawer + backdrop */
   .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
   .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
+  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:320px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
   .mobile-drawer.open{transform:translateX(0)}
   .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
   .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
+  .drawer-lang{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
+  .drawer-lang a{display:block;padding:8px 10px;border-radius:8px}
 
   /* Hero */
-  .hero{
-    position:relative;min-height:320px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
-    background:
-      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-      url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  }
-  .hero-inner{max-width:900px;padding:20px}
-  .hero h2{font-size:34px;margin:0 0 10px}
-  .hero p{font-size:18px;margin:0}
-
-  section{padding:44px 20px}
-  h3{margin:0 0 12px}
+  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
+  .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
   .muted{color:var(--muted)}
 
-  /* Contact info cards */
-  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  /* Sections */
+  section{padding:36px 20px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
   .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .item{display:flex;gap:10px;align-items:flex-start;margin:8px 0}
-  .dot{width:10px;height:10px;background:var(--blue);border-radius:50%;margin-top:7px}
+  .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
+  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px}
 
-  /* Fixed form bar (same as DK) */
-  .form-bar{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:var(--shadow)}
-  .form-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
-  .form-grid input, .form-grid textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-  .form-grid textarea{grid-column:1 / -2;min-height:48px;resize:vertical}
-  .form-grid .submit{grid-column:-2 / -1}
+  /* Key/Value rows */
+  .kv{display:grid;grid-template-columns:140px 1fr;gap:10px;margin:10px 0}
+  .kv span{color:var(--muted)}
+  .mono{font-variant-numeric:tabular-nums}
+
+  /* Form bar */
+  .form-bar{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px}
+  .form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+  .form-bar input,.form-bar textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
+  .form-bar textarea{min-height:100px;resize:vertical}
   .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
+
+  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
 
   @media(max-width:900px){
     .grid-2{grid-template-columns:1fr}
-    .form-grid{grid-template-columns:1fr}
-    .form-grid textarea{grid-column:auto}
-    .form-grid .submit{grid-column:auto}
+    .kv{grid-template-columns:120px 1fr}
+    .form-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(min-width:900px){
+    .menu-burger{display:none;}
+    .desktop-links{display:flex;}
+    .mobile-drawer,.backdrop{display:none !important;}
   }
 
-  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
+  /* Inline success message */
+  .form-success{
+    border:1px solid var(--line);
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    background:#fff;
+    padding:16px;
+    margin-top:12px;
+  }
+  .form-success h4{ margin:0 0 6px; color:var(--blue); }
+  .form-success p{ margin:0; color:var(--muted); }
+
   html{scroll-behavior:smooth}
 </style>
 </head>
@@ -109,7 +114,7 @@
 
 <header>
   <div class="nav container">
-    <a class="brand" href="index.html" aria-label="Home">
+    <a class="brand" href="/en/index.html" aria-label="Home">
       <div class="logo">IC</div>
       <div class="meta">
         <h1>Immigration Consulting</h1>
@@ -117,36 +122,37 @@
       </div>
     </a>
 
-    <!-- Desktop nav (relative links inside /en) -->
-    <nav class="desktop-links" aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="services.html">Services</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <div class="desktop-right">
+      <!-- Desktop links -->
+      <nav class="desktop-links" aria-label="Primary navigation">
+        <a href="/en/index.html">Home</a>
+        <a href="/en/services.html">Services</a>
+        <a href="/en/about.html">About</a>
+        <a href="/en/contact.html">Contact</a>
+      </nav>
 
-    <!-- Language globe -->
-    <div class="lang" id="langSwitch" aria-label="Language">
-      <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-          <circle cx="12" cy="12" r="10" stroke-width="2"/>
-          <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-        </svg>
-      </button>
-      <div class="lang-menu" role="menu">
-        <a href="../kontakt.html" role="menuitem">Dansk</a>
-        <a href="contact.html" role="menuitem">English</a>
+      <!-- Language switch -->
+      <div class="lang" id="langSwitch">
+        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
+          </svg>
+        </button>
+        <div class="lang-menu" role="menu">
+          <a href="/kontakt.html" role="menuitem">Dansk</a>
+          <a href="/en/contact.html" role="menuitem">English</a>
+        </div>
       </div>
-    </div>
 
-    <!-- Mobile burger -->
-    <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
+      <!-- Mobile burger -->
+      <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
-<!-- Mobile drawer -->
 <div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
   <div class="drawer-head">
@@ -154,67 +160,112 @@
     <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Close menu">✕</button>
   </div>
   <nav class="drawer-links">
-    <a href="index.html" onclick="toggleDrawer(false)">Home</a>
-    <a href="services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="about.html" onclick="toggleDrawer(false)">About</a>
-    <a href="contact.html" onclick="toggleDrawer(false)">Contact</a>
+    <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
+    <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
+    <a href="/en/about.html" onclick="toggleDrawer(false)">About</a>
+    <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
+    <div class="drawer-lang">
+      <strong>Language</strong>
+      <a href="/kontakt.html" onclick="toggleDrawer(false)">Dansk</a>
+      <a href="/en/contact.html" onclick="toggleDrawer(false)">English</a>
+    </div>
   </nav>
 </aside>
 
 <main>
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="container">
       <h2>Contact</h2>
-      <p>Welcome to reach out – we’re happy to help.</p>
+      <p class="muted">Write or call – we typically respond on business days 08:00–16:00.</p>
     </div>
   </section>
 
-  <!-- Contact info -->
+  <!-- Company info -->
   <section class="container">
     <div class="grid-2">
       <div class="card">
         <h3>Company details</h3>
-        <div class="item"><span class="dot"></span><div><strong>Company:</strong> Immigration Consulting *</div></div>
-        <div class="item"><span class="dot"></span><div><strong>CVR:</strong> *</div></div>
-        <div class="item"><span class="dot"></span><div><strong>Address:</strong> *</div></div>
-        <div class="item"><span class="dot"></span><div><strong>Email:</strong> <a href="mailto:*">*</a></div></div>
-        <div class="item"><span class="dot"></span><div><strong>Phone:</strong> <a href="tel:*">*</a></div></div>
-        <div class="item"><span class="dot"></span><div><strong>Billing (EAN):</strong> * &nbsp;|&nbsp; <strong>Reg/Account:</strong> *</div></div>
-        <p class="muted" style="margin-top:8px">Fields marked * will be filled in when ready.</p>
+        <div class="kv"><span>Company</span><div>Immigration Consulting ApS*</div></div>
+        <div class="kv"><span>CVR</span><div class="mono">*********</div></div>
+        <div class="kv"><span>Address</span><div>*********, *********, *********</div></div>
+        <div class="kv"><span>Email</span><div><a href="mailto:kontakt@immigrationconsulting.dk">kontakt@immigrationconsulting.dk*</a></div></div>
+        <div class="kv"><span>Phone</span><div><a href="tel:+45XXXXXXXX">+45 ** ** ** **</a>*</div></div>
+        <div class="kv"><span>Hours</span><div>Weekdays 08:00–16:00</div></div>
       </div>
 
       <div class="card">
-        <h3>Write to us</h3>
-        <p class="muted">Use the form below for any question or case outline.</p>
+        <h3>Billing & payments</h3>
+        <div class="kv"><span>Invoicing</span><div>Electronic (PDF/PEPPOL/EAN)</div></div>
+        <div class="kv"><span>EAN</span><div class="mono">**************</div></div>
+        <div class="kv"><span>Reg./Account</span><div class="mono">** ** ** / ****************</div></div>
+        <div class="kv"><span>IBAN</span><div class="mono">DK** ******************</div></div>
+        <div class="kv"><span>BIC/SWIFT</span><div class="mono">********</div></div>
+        <div class="kv"><span>Terms</span><div>Net 8 days* (unless otherwise agreed)</div></div>
+      </div>
+    </div>
+  </section>
 
-        <!-- FIXED FORM BAR (Netlify Forms) -->
-        <div class="form-bar" style="margin-top:10px">
-          <form name="contact-request-en" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-            <input type="hidden" name="form-name" value="contact-request-en" />
-            <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+  <!-- Write to us (form bar) -->
+  <section class="container" id="write-to-us">
+    <div class="form-bar">
+      <h3 style="margin:0 0 10px;color:var(--blue)">Write to us</h3>
+      <!-- Netlify Forms -->
+      <form name="contact-quick"
+            method="POST"
+            data-netlify="true"
+            data-inline-success="true"
+            netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact-quick" />
+        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
 
-            <div class="form-grid">
-              <input type="text"   name="name"     placeholder="Your name" required />
-              <input type="tel"    name="phone"    placeholder="Phone" />
-              <input type="text"   name="company"  placeholder="Company" />
-              <input type="email"  name="email"    placeholder="Email" required />
-              <textarea name="message" placeholder="Message (short description, role, nationality, new application or extension, desired start date)"></textarea>
-              <button class="submit" type="submit">Send</button>
-            </div>
-          </form>
+        <div class="form-grid">
+          <input type="text"   name="name"     placeholder="Your name" required />
+          <input type="tel"    name="phone"    placeholder="Phone" />
+          <input type="text"   name="company"  placeholder="Company" />
+          <input type="email"  name="email"    placeholder="Your email" required />
+        </div>
+        <textarea name="message" placeholder="Your question or a short description (role, nationality, new application/extension, desired start date)"></textarea>
+
+        <div style="margin-top:12px">
+          <button class="submit" type="submit">Send</button>
         </div>
 
-      </div>
+        <!-- Inline success (hidden) -->
+        <div class="form-success" hidden role="status" aria-live="polite">
+          <h4>Thanks for your message!</h4>
+          <p>Your enquiry has been sent.</p>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Data protection -->
+  <section class="container">
+    <div class="card">
+      <h3>Data protection (GDPR)</h3>
+      <p class="muted">
+        We only process necessary information on a lawful basis and follow the principle of data minimisation.
+        Sensitive documents should only be shared via an agreed, secure channel. Contact us if you are unsure.
+      </p>
     </div>
   </section>
 </main>
 
 <footer>
-  © 2025 Immigration Consulting – Work permits & international recruitment
+  © 2025 Immigration Consulting – Work permit consulting and international recruitment
 </footer>
 
 <script>
+  // Language switch
+  const langSwitch = document.getElementById('langSwitch');
+  if(langSwitch){
+    const btn = langSwitch.querySelector('.lang-btn');
+    function openLang(open){ langSwitch.classList.toggle('open',open); btn.setAttribute('aria-expanded', open?'true':'false'); }
+    btn.addEventListener('click', ()=> openLang(!langSwitch.classList.contains('open')));
+    document.addEventListener('click', (e)=>{ if(!langSwitch.contains(e.target)) openLang(false); });
+  }
+
   // Mobile drawer
   const drawer=document.getElementById('drawer');
   const backdrop=document.getElementById('backdrop');
@@ -228,13 +279,51 @@
   }
   if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
 
-  // Language globe
-  const lang=document.getElementById('langSwitch');
-  if(lang){
-    const btn=lang.querySelector('.lang-btn');
-    btn.addEventListener('click',()=>lang.classList.toggle('open'));
-    document.addEventListener('click',(e)=>{ if(!lang.contains(e.target)) lang.classList.remove('open'); });
-  }
+  // Inline Netlify success (no redirect)
+  (function(){
+    function encodeFormData(fd){
+      const p = new URLSearchParams();
+      for (const [k,v] of fd.entries()) p.append(k, v);
+      return p.toString();
+    }
+    document.addEventListener('submit', async function(e){
+      const form = e.target;
+      if(!(form instanceof HTMLFormElement)) return;
+      if(!form.matches('[data-netlify][data-inline-success]')) return;
+      e.preventDefault();
+
+      const successBox = form.querySelector('.form-success');
+      const submitBtn  = form.querySelector('button[type="submit"]');
+
+      const fd = new FormData(form);
+      if(!fd.get('form-name')){
+        const fn = form.getAttribute('name');
+        if(fn) fd.append('form-name', fn);
+      }
+
+      if(submitBtn) submitBtn.disabled = true;
+      try{
+        const res = await fetch('/', {
+          method: 'POST',
+          headers: {'Content-Type':'application/x-www-form-urlencoded'},
+          body: encodeFormData(fd)
+        });
+        if(res.ok){
+          form.reset();
+          if(successBox){
+            successBox.hidden = false;
+            successBox.scrollIntoView({behavior:'smooth', block:'center'});
+          }
+        }else{
+          alert('There was an error sending the form. Please try again shortly.');
+        }
+      }catch(err){
+        alert('Couldn’t send the form right now. Check your connection and try again.');
+      }finally{
+        if(submitBtn) submitBtn.disabled = false;
+      }
+    }, {capture:true});
+  })();
 </script>
 </body>
 </html>
