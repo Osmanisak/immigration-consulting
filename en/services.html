@@ -31,375 +31,269 @@
 <!-- Temporary favicon -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 ry=%2216%22 fill=%22%231f3a8a%22/><text x=%2250%22 y=%2270%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial,sans-serif%22>IC</text></svg>">
 
-<style>
-  :root{
-    --ink:#0f172a;
-    --muted:#64748b;
-    --blue:#1f3a8a;
-    --blue-soft:#dfe6ff;
-    --mint:#10b981;
-    --line:#e5e7eb;
-    --soft:#f6f8fb;
-    --shadow:0 8px 24px rgba(2,6,23,.10);
-  }
-
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1060px;margin:0 auto;padding:0 20px}
-
-  /* Header */
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
-  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
-
-  /* Desktop: direct links */
-  .desktop-right{display:flex;align-items:center;gap:14px}
-  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
-  .desktop-links a{padding:10px 12px;border-radius:10px}
-  .desktop-links a:hover{background:var(--soft);color:var(--blue)}
-
-  /* Language switch */
-  .lang{position:relative}
-  .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
-  .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:150px;z-index:65}
-  .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
-  .lang-menu a:hover{background:var(--soft);color:var(--blue)}
-  .lang.open .lang-menu{display:block}
-
-  /* Mobile: burger */
-  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
-  .menu-burger svg{width:22px;height:22px}
-
-  /* Mobile drawer + backdrop */
-  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
-  .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:320px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
-  .mobile-drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
-  .drawer-lang{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
-  .drawer-lang a{display:block;padding:8px 10px;border-radius:8px}
-
-  /* Hero */
-  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
-  .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
-  .muted{color:var(--muted)}
-
-  /* Sections */
-  section{padding:36px 20px}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
-  .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px;margin-left:8px}
-
-  /* CTA & form */
-  .cta-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);text-align:center}
-  .cta-btn{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none}
-  .cta-sub{font-size:13px;color:var(--muted);margin-top:8px}
-
-  .form-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  input,textarea{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-  textarea{min-height:120px;resize:vertical}
-  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:#1f3a8a;color:#fff;font-weight:800;border:none;cursor:pointer}
-
-  /* Steps & chips */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .step-title{display:block;margin-bottom:6px;color:var(--blue)}
-  .tick{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--mint);color:#fff;font-weight:900;margin-right:8px}
-
-  .chips{display:flex;flex-wrap:wrap;gap:10px}
-  .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
-
-  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-
-  @media(max-width:900px){
-    .grid,.steps{grid-template-columns:1fr}
-    .row{grid-template-columns:1fr}
-  }
-  @media(min-width:900px){
-    .menu-burger{display:none;}
-    .desktop-links{display:flex;}
-    .mobile-drawer,.backdrop{display:none !important;}
-  }
-
-  /* Inline success message */
-  .form-success{
-    border:1px solid var(--line);
-    border-radius:12px;
-    box-shadow:var(--shadow);
-    background:#fff;
-    padding:16px;
-    margin-top:12px;
-  }
-  .form-success h4{ margin:0 0 6px; color:var(--blue); }
-  .form-success p{ margin:0; color:var(--muted); }
-
-  html{scroll-behavior:smooth}
-</style>
+<meta name="theme-color" content="#0d2b24">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 
-<header>
+<a class="skip-link" href="#indhold">Skip to content</a>
+
+<header class="site-header">
   <div class="nav container">
-    <a class="brand" href="/en/index.html" aria-label="Home">
-      <div class="logo">IC</div>
-      <div class="meta">
-        <h1>Immigration Consulting</h1>
-        <div class="tagline">Your shortcut to work permits</div>
-      </div>
+    <a class="brand" href="/en/index.html" aria-label="Immigration Consulting – home">
+      <span class="logo" aria-hidden="true">IC</span>
+      <span class="meta">
+        <span class="brand-name">Immigration Consulting</span>
+        <span class="tagline">Your shortcut to work permits</span>
+      </span>
     </a>
 
-    <div class="desktop-right">
-      <!-- Desktop: direct links -->
+    <div class="nav-right">
       <nav class="desktop-links" aria-label="Main navigation">
         <a href="/en/index.html">Home</a>
-        <a href="/en/services.html">Services</a>
+        <a href="/en/services.html" aria-current="page">Services</a>
         <a href="/en/about.html">About us</a>
         <a href="/en/contact.html">Contact</a>
       </nav>
 
-      <!-- Language switch -->
       <div class="lang" id="langSwitch">
-        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" stroke-width="2"/>
-            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-          </svg>
+        <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20"/></svg>
         </button>
         <div class="lang-menu" role="menu">
-          <a href="/ydelser.html">Dansk</a>
-          <a href="/en/services.html">English</a>
+          <a href="/ydelser.html" role="menuitem" hreflang="da" lang="da">Dansk</a>
+          <a href="/en/services.html" role="menuitem" hreflang="en" lang="en" aria-current="true">English</a>
         </div>
       </div>
 
-      <!-- Mobile: burger -->
-      <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <a class="btn btn-primary btn-sm nav-cta" href="#start">Get contacted</a>
+
+      <button class="menu-burger" id="menuBurger" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
       </button>
     </div>
   </div>
 </header>
 
-<!-- Mobile drawer -->
-<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
+<!-- Mobil drawer -->
+<div class="backdrop" id="backdrop"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
   <div class="drawer-head">
     <span>Menu</span>
-    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Close menu">✕</button>
+    <button class="menu-burger" type="button" data-drawer-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <nav class="drawer-links">
-    <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
-    <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="/en/about.html" onclick="toggleDrawer(false)">About us</a>
-    <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
+    <a href="/en/index.html" data-drawer-close>Home</a>
+    <a href="/en/services.html" data-drawer-close aria-current="page">Services</a>
+    <a href="/en/about.html" data-drawer-close>About us</a>
+    <a href="/en/contact.html" data-drawer-close>Contact</a>
     <div class="drawer-lang">
       <strong>Language</strong>
-      <a href="/ydelser.html" onclick="toggleDrawer(false)">Dansk</a>
-      <a href="/en/services.html" onclick="toggleDrawer(false)">English</a>
+      <a href="/ydelser.html" hreflang="da" lang="da" data-drawer-close>Dansk</a>
+      <a href="/en/services.html" hreflang="en" lang="en" data-drawer-close>English</a>
     </div>
   </nav>
+  <a class="btn btn-primary drawer-cta" href="#start" data-drawer-close>Get contacted <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </aside>
 
-<main>
+<main id="indhold">
   <!-- HERO -->
   <section class="page-hero">
-    <div class="container">
-      <h2>Services</h2>
-      <p class="muted">We handle both new applications and extensions – from document checks to submission and dialogue with SIRI.</p>
+    <div class="container page-hero-split">
+      <div>
+        <span class="eyebrow light reveal">Services</span>
+        <h1 class="reveal" data-delay="1">Services</h1>
+        <p class="reveal" data-delay="2">We handle both new applications and extensions – from document checks to submission and dialogue with SIRI.</p>
+        <div class="hero-actions reveal" data-delay="3"><a class="btn btn-primary" href="#start">Get contacted for free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="page-hero-img">
+        <img src="/assets/img/dokumentgennemgang-1100.webp" srcset="/assets/img/dokumentgennemgang-640.webp 640w, /assets/img/dokumentgennemgang-1100.webp 1100w" sizes="(min-width: 960px) 560px, 92vw" alt="An advisor reviewing application documents with an international client" width="1100" height="738" fetchpriority="high">
+      </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="container">
-    <div class="grid">
-      <div class="card">
-        <h3>New applications <span class="pill">AR1/AR6</span></h3>
-        <p class="muted">We set up the case correctly from the start, so you avoid errors and delays.</p>
-        <ul class="list">
-          <li>Contract and salary check</li>
-          <li>Completion and submission of AR1/AR6</li>
-          <li>Checklists and collection of documentation</li>
-          <li>Dialogue and follow-up with SIRI</li>
-          <li>Status updates to the company until decision</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Extensions <span class="pill">AR3/AR7</span></h3>
-        <p class="muted">Safe extension of existing residence and work permits.</p>
-        <ul class="list">
-          <li>Check of terms, employment changes and deadlines</li>
-          <li>Completion and submission of AR3/AR7</li>
-          <li>Updated documents and requirements</li>
-          <li>Coordination and responses to SIRI</li>
-          <li>Status updates until decision</li>
-        </ul>
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <article class="card card-hover service reveal" data-delay="1">
+          <div class="service-top"><h2 class="display" style="font-size:30px">New applications</h2><span class="pill">AR1/AR6</span></div>
+          <p class="muted">We set up the case correctly from the start, so you avoid errors and delays.</p>
+          <ul class="list">
+            <li>Contract and salary check</li>
+            <li>Completion and submission of AR1/AR6</li>
+            <li>Checklists and collection of documentation</li>
+            <li>Dialogue and follow-up with SIRI</li>
+            <li>Status updates to the company until decision</li>
+          </ul>
+        </article>
+        <article class="card card-hover service reveal" data-delay="2">
+          <div class="service-top"><h2 class="display" style="font-size:30px">Extensions</h2><span class="pill">AR3/AR7</span></div>
+          <p class="muted">Safe extension of existing residence and work permits.</p>
+          <ul class="list">
+            <li>Check of terms, employment changes and deadlines</li>
+            <li>Completion and submission of AR3/AR7</li>
+            <li>Updated documents and requirements</li>
+            <li>Coordination and responses to SIRI</li>
+            <li>Status updates until decision</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- CTA – Free guidance -->
-  <section class="container">
-    <div class="cta-wrap">
-      <h3>Get free guidance from an advisor</h3>
-      <p class="muted">Send your contact details – we typically reply the same business day 8–16.</p>
-      <a class="cta-btn" href="#start">Get contacted for free</a>
-      <div class="cta-sub">* If you want a scheduled meeting (phone/online) with in-depth advice, the rate is 987 DKK excl. VAT per hour.</div>
+  <!-- CTA – Gratis vejledning -->
+  <section class="section-tight" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <span class="eyebrow light">Free guidance</span>
+          <h2>Get free guidance from an advisor</h2>
+          <p>Send your contact details – we typically reply the same business day 8–16.</p>
+          <p class="cta-sub">* If you want a scheduled meeting (phone/online) with in-depth advice, the rate is 987 DKK excl. VAT per hour.</p>
+        </div>
+        <a class="btn btn-primary" href="#start">Get contacted for free <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
     </div>
   </section>
 
   <!-- Steps -->
-  <section class="container">
-    <h3>How we work</h3>
-    <div class="steps">
-      <div class="step"><span class="step-title">1. Pre-analysis</span><p><span class="tick">✔</span>Contract check, salary requirements, scheme and timeline.</p></div>
-      <div class="step"><span class="step-title">2. Application</span><p><span class="tick">✔</span>Document collection; AR1/AR6 or AR3/AR7 submitted.</p></div>
-      <div class="step"><span class="step-title">3. Follow-up</span><p><span class="tick">✔</span>Dialogue with SIRI and ongoing status updates until decision.</p></div>
+  <section class="section bg-sand">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Workflow</span>
+        <h2>How we work</h2>
+      </div>
+      <ol class="mini-steps">
+        <li class="mini-step reveal" data-delay="1"><span class="n">1.</span><h3>Pre-analysis</h3><p>Contract check, salary requirements, scheme and timeline.</p></li>
+        <li class="mini-step reveal" data-delay="2"><span class="n">2.</span><h3>Application</h3><p>Document collection; AR1/AR6 or AR3/AR7 submitted.</p></li>
+        <li class="mini-step reveal" data-delay="3"><span class="n">3.</span><h3>Follow-up</h3><p>Dialogue with SIRI and ongoing status updates until decision.</p></li>
+      </ol>
+      <p style="margin-top:28px" class="reveal"><a class="link-arrow" href="/en/index.html#process">See the full process step by step <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
     </div>
   </section>
 
-  <!-- Sectors -->
-  <section class="container">
-    <h3>We especially assist</h3>
-    <div class="chips" style="margin-bottom:10px">
-      <div class="chip">Restaurants & hotels</div>
-      <div class="chip">Construction</div>
-      <div class="chip">Manufacturing & logistics</div>
-      <div class="chip">IT & technical professions</div>
-      <div class="chip">Cleaning & facility</div>
+  <!-- Sektorer -->
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head reveal" style="margin-bottom:28px">
+        <span class="eyebrow">Industries</span>
+        <h2>We especially assist</h2>
+      </div>
+      <ul class="chips reveal">
+        <li class="chip"><img src="/assets/img/branche-restaurant-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Restaurants & hotels</li>
+        <li class="chip"><img src="/assets/img/branche-construction-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Construction</li>
+        <li class="chip"><img src="/assets/img/branche-production-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Manufacturing & logistics</li>
+        <li class="chip"><img src="/assets/img/branche-it-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">IT & technical professions</li>
+        <li class="chip"><img src="/assets/img/branche-cleaning-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Cleaning & facility</li>
+      </ul>
+      <p class="lead reveal">Our advice is based on authority-near insight and practical experience with case handling at SIRI. This results in fewer errors, better documentation and a more predictable process for both the company and the employee.</p>
     </div>
-    <p class="muted">
-      Our advice is based on authority-near insight and practical experience with case handling at SIRI.
-      This results in fewer errors, better documentation and a more predictable process for both the company and the employee.
-    </p>
   </section>
 
-  <!-- Contact form (inline) -->
-  <section class="container" id="start">
-    <div class="form-wrap">
-      <h3>Get contacted</h3>
-      <p class="muted">Fill in the fields – we respond the same business day 8–16.</p>
-
-      <!-- Netlify Forms -->
-      <form name="contact-request-en"
-            method="POST"
-            data-netlify="true"
-            data-inline-success="true"
-            netlify-honeypot="bot-field">
+  <!-- Kontaktformular -->
+  <section class="section bg-paper divider-top" id="start">
+    <div class="container narrow">
+      <div class="form-card reveal">
+        <span class="eyebrow">Contact</span>
+        <h2>Get contacted</h2>
+        <p class="muted">Fill in the fields – we respond the same business day 8–16.</p>
+        <form name="contact-request-en" method="POST" data-netlify="true" data-inline-success="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="contact-request-en" />
-        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <p class="hp"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
         <div class="row">
-          <input type="text"   name="name"     placeholder="Your name" required />
-          <input type="email"  name="email"    placeholder="Your e-mail" required />
+          <div class="field">
+            <label for="svc-name">Your name</label>
+            <input id="svc-name" type="text" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="svc-email">Your e-mail</label>
+            <input id="svc-email" type="email" name="email" autocomplete="email" required />
+          </div>
         </div>
         <div class="row">
-          <input type="text"   name="company"  placeholder="Company" />
-          <input type="tel"    name="phone"    placeholder="Phone" />
+          <div class="field">
+            <label for="svc-company">Company <span class="opt">(optional)</span></label>
+            <input id="svc-company" type="text" name="company" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="svc-phone">Phone <span class="opt">(optional)</span></label>
+            <input id="svc-phone" type="tel" name="phone" autocomplete="tel" />
+          </div>
         </div>
-        <textarea name="message" placeholder="Short description (position, nationality, new application/extension, desired start date)"></textarea>
-
-        <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
-          <button class="submit" type="submit">Send</button>
-          <span class="muted">* Scheduled meeting: 987 DKK excl. VAT per hour.</span>
+        <div class="field">
+          <label for="svc-message">Short description</label>
+          <textarea id="svc-message" name="message" placeholder="Position, nationality, new application/extension, desired start date"></textarea>
         </div>
 
-        <!-- Inline success (hidden) -->
+        <div class="form-actions">
+          <button class="btn btn-dark" type="submit">Send <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="muted">* Scheduled meeting: 987 DKK excl. VAT per hour.</p>
+        </div>
+
         <div class="form-success" hidden role="status" aria-live="polite">
           <h4>Thank you for your message!</h4>
           <p>Your inquiry has been sent.</p>
         </div>
       </form>
+      </div>
     </div>
   </section>
+
+  <!-- Skjult template form (sikrer autodetektion ved deploy) -->
+  <form name="contact-request-en" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="text" name="email" />
+    <input type="text" name="company" />
+    <input type="text" name="phone" />
+    <textarea name="message"></textarea>
+  </form>
 </main>
 
-<!-- Hidden template form so Netlify auto-detects this form -->
-<form name="contact-request-en" data-netlify="true" netlify-honeypot="bot-field" hidden>
-  <input type="text" name="name" />
-  <input type="email" name="email" />
-  <textarea name="message"></textarea>
-</form>
-
-<footer>
-  © 2025 Immigration Consulting – Work permit consulting and international recruitment
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/en/index.html" aria-label="Immigration Consulting – home">
+      <span class="logo" aria-hidden="true">IC</span>
+      <span class="meta">
+        <span class="brand-name">Immigration Consulting</span>
+        <span class="tagline">Your shortcut to work permits</span>
+      </span>
+    </a>
+        <p>Work permit consulting and international recruitment. We handle new applications and extensions – from document checks to dialogue with SIRI.</p>
+      </div>
+      <nav aria-label="Pages">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="/en/index.html">Home</a></li>
+          <li><a href="/en/services.html">Services</a></li>
+          <li><a href="/en/about.html">About us</a></li>
+          <li><a href="/en/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:info@immigration-consulting.dk">info@immigration-consulting.dk</a></li>
+          <li><a href="tel:+4571341835">+45 71 34 18 35</a></li>
+          <li>Weekdays 08:00–16:00</li>
+          <li><a href="/en/contact.html#write-to-us">Write to us</a></li>
+          <li><a href="/ydelser.html" hreflang="da">Dansk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Immigration Consulting – Work permit consulting and international recruitment · S.A. Group ApS · CVR 46842944</span>
+      <span>Decisions are made by SIRI – we are advisors, not an authority.</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-  // Language dropdown
-  const langSwitch = document.getElementById('langSwitch');
-  if(langSwitch){
-    const btn = langSwitch.querySelector('.lang-btn');
-    function openLang(open){ langSwitch.classList.toggle('open',open); btn.setAttribute('aria-expanded', open?'true':'false'); }
-    btn.addEventListener('click', ()=> openLang(!langSwitch.classList.contains('open')));
-    document.addEventListener('click', (e)=>{ if(!langSwitch.contains(e.target)) openLang(false); });
-  }
-
-  // Mobile drawer
-  const drawer=document.getElementById('drawer');
-  const backdrop=document.getElementById('backdrop');
-  const menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){
-    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
-    drawer.classList.toggle('open',open);
-    backdrop.classList.toggle('show',open);
-    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
-    drawer.setAttribute('aria-hidden',open?'false':'true');
-  }
-  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
-
-  // Inline Netlify success (no redirect)
-  (function(){
-    function encodeFormData(fd){
-      const p = new URLSearchParams();
-      for (const [k,v] of fd.entries()) p.append(k, v);
-      return p.toString();
-    }
-    document.addEventListener('submit', async function(e){
-      const form = e.target;
-      if(!(form instanceof HTMLFormElement)) return;
-      if(!form.matches('[data-netlify][data-inline-success]')) return;
-      e.preventDefault();
-
-      const successBox = form.querySelector('.form-success');
-      const submitBtn  = form.querySelector('button[type="submit"]');
-
-      const fd = new FormData(form);
-      if(!fd.get('form-name')){
-        const fn = form.getAttribute('name');
-        if(fn) fd.append('form-name', fn);
-      }
-
-      if(submitBtn) submitBtn.disabled = true;
-      try{
-        const res = await fetch('/', {
-          method: 'POST',
-          headers: {'Content-Type':'application/x-www-form-urlencoded'},
-          body: encodeFormData(fd)
-        });
-        if(res.ok){
-          form.reset();
-          if(successBox){
-            successBox.hidden = false;
-            successBox.scrollIntoView({behavior:'smooth', block:'center'});
-          }
-        }else{
-          alert('There was an error sending the form. Please try again in a moment.');
-        }
-      }catch(err){
-        alert('Could not send the form right now. Check your connection and try again.');
-      }finally{
-        if(submitBtn) submitBtn.disabled = false;
-      }
-    }, {capture:true});
-  })();
-</script>
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
