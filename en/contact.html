@@ -1,334 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Contact – Immigration Consulting</title>
-<meta name="description" content="Contact Immigration Consulting for work permit guidance. Find e-mail, phone, address, CVR/VAT and payment details. We typically respond the same business day 8–16." />
-<meta name="author" content="Immigration Consulting" />
+<meta name="description" content="Contact Immigration Consulting (S.A. Group ApS) about work permits. E-mail, phone, address and CVR. We typically respond the same business day 8–16.">
+<link rel="canonical" href="https://immigration-consulting.dk/en/contact.html">
+<link rel="alternate" href="https://immigration-consulting.dk/kontakt.html" hreflang="da">
+<link rel="alternate" href="https://immigration-consulting.dk/en/contact.html" hreflang="en">
+<link rel="alternate" href="https://immigration-consulting.dk/" hreflang="x-default">
 
-<!-- Canonical + hreflang -->
-<link rel="canonical" href="https://immigration-consulting.dk/en/contact.html" />
-<link rel="alternate" href="https://immigration-consulting.dk/kontakt.html" hreflang="da" />
-<link rel="alternate" href="https://immigration-consulting.dk/en/contact.html" hreflang="en" />
-<link rel="alternate" href="https://immigration-consulting.dk/" hreflang="x-default" />
+<meta property="og:title" content="Contact – Immigration Consulting">
+<meta property="og:description" content="Contact Immigration Consulting (S.A. Group ApS) about work permits. E-mail, phone, address and CVR. We typically respond the same business day 8–16.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://immigration-consulting.dk/en/contact.html">
+<meta property="og:site_name" content="Immigration Consulting">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary">
 
-<!-- Open Graph -->
-<meta property="og:title" content="Contact – Immigration Consulting" />
-<meta property="og:description" content="Write or call us about work permits. Company details, billing info and a quick contact form. We respond 8–16 the same business day." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://immigration-consulting.dk/en/contact.html" />
-<meta property="og:image" content="https://immigration-consulting.dk/og-image.jpg" />
-<meta property="og:locale" content="en_DK" />
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Contact – Immigration Consulting" />
-<meta name="twitter:description" content="Get in touch about work permits. Company details, billing info and a quick contact form." />
-<meta name="twitter:image" content="https://immigration-consulting.dk/og-image.jpg" />
-
-<!-- Temporary favicon (blue IC) -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 ry=%2216%22 fill=%22%231f3a8a%22/><text x=%2250%22 y=%2270%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial,sans-serif%22>IC</text></svg>">
-
-<style>
-  :root{
-    --ink:#0f172a;
-    --muted:#64748b;
-    --blue:#1f3a8a;
-    --blue-soft:#dfe6ff;
-    --mint:#10b981;
-    --line:#e5e7eb;
-    --soft:#f6f8fb;
-    --shadow:0 8px 24px rgba(2,6,23,.10);
-  }
-
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1060px;margin:0 auto;padding:0 20px}
-
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
-  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
-
-  .desktop-right{display:flex;align-items:center;gap:14px}
-  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
-  .desktop-links a{padding:10px 12px;border-radius:10px}
-  .desktop-links a:hover{background:var(--soft);color:var(--blue)}
-
-  .lang{position:relative}
-  .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
-  .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:150px;z-index:65}
-  .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
-  .lang-menu a:hover{background:var(--soft);color:var(--blue)}
-  .lang.open .lang-menu{display:block}
-
-  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
-  .menu-burger svg{width:22px;height:22px}
-
-  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
-  .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:320px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
-  .mobile-drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
-  .drawer-lang{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
-
-  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
-  .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
-  .muted{color:var(--muted)}
-
-  section{padding:36px 20px}
-  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
-  .kv{display:grid;grid-template-columns:140px 1fr;gap:10px;margin:10px 0}
-  .kv span{color:var(--muted)}
-  .mono{font-variant-numeric:tabular-nums}
-
-  .form-bar{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px}
-  .form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
-  .form-bar input,.form-bar textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-  .form-bar textarea{min-height:100px;resize:vertical}
-  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
-
-  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-
-  @media(max-width:900px){
-    .grid-2{grid-template-columns:1fr}
-    .kv{grid-template-columns:120px 1fr}
-    .form-grid{grid-template-columns:1fr 1fr}
-  }
-  @media(min-width:900px){
-    .menu-burger{display:none;}
-    .desktop-links{display:flex;}
-    .mobile-drawer,.backdrop{display:none !important;}
-  }
-
-  .form-success{
-    border:1px solid var(--line);
-    border-radius:12px;
-    box-shadow:var(--shadow);
-    background:#fff;
-    padding:16px;
-    margin-top:12px;
-  }
-  .form-success h4{ margin:0 0 6px; color:var(--blue); }
-  .form-success p{ margin:0; color:var(--muted); }
-
-  html{scroll-behavior:smooth}
-</style>
+<meta name="theme-color" content="#12233F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' ry='20' fill='%2312233F'/%3E%3Ctext x='50' y='64' font-size='42' font-weight='700' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EIC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/js/site.js" defer></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Immigration Consulting",
+  "legalName": "S.A. Group ApS",
+  "vatID": "DK46842944",
+  "url": "https://immigration-consulting.dk/",
+  "email": "info@immigration-consulting.dk",
+  "telephone": "+45 71 34 18 35",
+  "openingHours": "Mo-Fr 08:00-16:00",
+  "areaServed": "DK",
+  "inLanguage": "en"
+}
+</script>
 </head>
 <body>
 
-<header>
-  <div class="nav container">
-    <a class="brand" href="/en/index.html" aria-label="Home">
-      <div class="logo">IC</div>
-      <div class="meta">
-        <h1>Immigration Consulting</h1>
-        <div class="tagline">Your shortcut to work permits</div>
-      </div>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/en/index.html" aria-label="Immigration Consulting – Home">
+      <span class="brand__mark" aria-hidden="true">IC</span>
+      <span class="brand__text">
+        <span class="brand__name">Immigration Consulting</span>
+        <span class="brand__tagline">Your shortcut to work permits</span>
+      </span>
     </a>
 
-    <div class="desktop-right">
-      <nav class="desktop-links" aria-label="Main navigation">
-        <a href="/en/index.html">Home</a>
-        <a href="/en/services.html">Services</a>
-        <a href="/en/about.html">About us</a>
-        <a href="/en/contact.html">Contact</a>
-      </nav>
-
-      <div class="lang" id="langSwitch">
-        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" stroke-width="2"/>
-            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-          </svg>
-        </button>
-        <div class="lang-menu" role="menu">
-          <a href="/kontakt.html">Dansk</a>
-          <a href="/en/contact.html">English</a>
-        </div>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Choose language">
+        <a href="/kontakt.html" hreflang="da" lang="da"><span aria-hidden="true">DA</span><span class="sr-only">Dansk</span></a>
+        <span class="lang-switch__sep" aria-hidden="true"></span>
+        <a href="/en/contact.html" hreflang="en" lang="en" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a>
       </div>
-
-      <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false"
+              aria-label="Open menu" data-label-open="Open menu" data-label-close="Close menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
+
+    <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="/en/index.html">Home</a></li>
+        <li><a class="site-nav__link" href="/en/services.html">Services</a></li>
+        <li><a class="site-nav__link" href="/en/about.html">About us</a></li>
+        <li class="site-nav__item--cta"><a class="btn btn--primary btn--sm" href="/en/contact.html" aria-current="page">Contact</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
-  <div class="drawer-head">
-    <span>Menu</span>
-    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Close menu">✕</button>
-  </div>
-  <nav class="drawer-links">
-    <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
-    <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="/en/about.html" onclick="toggleDrawer(false)">About us</a>
-    <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
-    <div class="drawer-lang">
-      <strong>Language</strong>
-      <a href="/kontakt.html" onclick="toggleDrawer(false)">Dansk</a>
-      <a href="/en/contact.html" onclick="toggleDrawer(false)">English</a>
-    </div>
-  </nav>
-</aside>
-
-<main>
+<main id="main" tabindex="-1">
   <section class="page-hero">
     <div class="container">
-      <h2>Contact</h2>
-      <p class="muted">Write or call – we typically respond the same business day 8–16.</p>
+      <h1>Contact</h1>
+      <p class="lead">Write or call – we typically respond the same business day 8–16.</p>
+      <ul class="contact-lines">
+          <li><a href="mailto:info@immigration-consulting.dk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>info@immigration-consulting.dk</a></li>
+          <li><a href="tel:+4571341835"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>71 34 18 35</a></li>
+          <li><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v5h4"/></svg>Weekdays 08:00–16:00</span></li>
+        </ul>
     </div>
   </section>
 
-  <section class="container">
-    <div class="grid-2">
-      <div class="card">
-        <h3>Company details</h3>
-        <div class="kv"><span>Company</span><div>Immigration Consulting ApS*</div></div>
-        <div class="kv"><span>CVR/VAT</span><div class="mono">*********</div></div>
-        <div class="kv"><span>Address</span><div>*********, *********, *********</div></div>
-        <div class="kv"><span>E-mail</span><div><a href="mailto:kontakt@immigrationconsulting.dk">kontakt@immigrationconsulting.dk*</a></div></div>
-        <div class="kv"><span>Phone</span><div><a href="tel:+45XXXXXXXX">+45 ** ** ** **</a>*</div></div>
-        <div class="kv"><span>Hours</span><div>Weekdays 08:00–16:00</div></div>
-      </div>
-
-      <div class="card">
-        <h3>Billing & payment</h3>
-        <div class="kv"><span>Invoicing</span><div>Electronic (PDF/PEPPOL/EAN)</div></div>
-        <div class="kv"><span>EAN</span><div class="mono">**************</div></div>
-        <div class="kv"><span>Reg./Account</span><div class="mono">** ** ** / ****************</div></div>
-        <div class="kv"><span>IBAN</span><div class="mono">DK** ******************</div></div>
-        <div class="kv"><span>BIC/SWIFT</span><div class="mono">********</div></div>
-        <div class="kv"><span>Terms</span><div>Net 8 days* (unless otherwise agreed)</div></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="container" id="write-to-us">
-    <div class="form-bar">
-      <h3 style="margin:0 0 10px;color:var(--blue)">Write to us</h3>
-      <form name="quick-contact-en"
-            method="POST"
-            data-netlify="true"
-            data-inline-success="true"
-            netlify-honeypot="bot-field">
+  <section class="section">
+    <div class="container contact-layout">
+      <div class="form-card" id="write-to-us">
+        <h2>Write to us</h2>
+        <p>Briefly describe your situation, and we will get back to you on how we can help.</p>
+        <form name="quick-contact-en"
+        method="POST"
+        data-netlify="true"
+        data-inline-success="true"
+        netlify-honeypot="bot-field"
+        class="form">
         <input type="hidden" name="form-name" value="quick-contact-en" />
-        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <p class="honeypot" hidden><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
-        <div class="form-grid">
-          <input type="text"   name="name"     placeholder="Your name" required />
-          <input type="tel"    name="phone"    placeholder="Phone" />
-          <input type="text"   name="company"  placeholder="Company" />
-          <input type="email"  name="email"    placeholder="Your e-mail" required />
+        <div class="form__row">
+          <div class="field">
+            <label for="contact-name">Your name <span class="field__req">(required)</span></label>
+            <input class="input" id="contact-name" type="text" name="name" autocomplete="name" maxlength="120" required />
+          </div>
+          <div class="field">
+            <label for="contact-email">Your e-mail <span class="field__req">(required)</span></label>
+            <input class="input" id="contact-email" type="email" name="email" autocomplete="email" maxlength="120" required />
+          </div>
         </div>
-        <textarea name="message" placeholder="Write your questions or a short description (position, nationality, new application/extension, desired start date)"></textarea>
-
-        <div style="margin-top:12px">
-          <button class="submit" type="submit">Send</button>
+        <div class="form__row">
+          <div class="field">
+            <label for="contact-company">Company</label>
+            <input class="input" id="contact-company" type="text" name="company" autocomplete="organization" maxlength="120" />
+          </div>
+          <div class="field">
+            <label for="contact-phone">Phone</label>
+            <input class="input" id="contact-phone" type="tel" name="phone" autocomplete="tel" maxlength="30" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="contact-message">About the case</label>
+          <p class="field__hint" id="contact-message-hint">Your questions or a short description: position, nationality, new application/extension, desired start date.</p>
+          <textarea class="input" id="contact-message" name="message" rows="5" maxlength="3000" aria-describedby="contact-message-hint"></textarea>
         </div>
 
-        <div class="form-success" hidden role="status" aria-live="polite">
-          <h4>Thank you!</h4>
-          <p>Your message has been sent.</p>
+        <p class="form__legend">Please do not send passports, CPR numbers or other sensitive documents through the form – we will agree on a secure channel if they are needed. Read how we handle your information in our <a href="/en/privacy.html">privacy policy</a>.</p>
+
+        <div class="form__actions">
+          <button class="btn btn--primary" type="submit">Send</button>
+        </div>
+
+        <div class="form-status form-success" hidden role="status" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg>
+          <div>
+            <h3>Thank you for your message!</h3>
+            <p>Your inquiry has been sent. We will get back to you as soon as possible – typically the same business day 8–16.</p>
+          </div>
+        </div>
+        <div class="form-status form-error" hidden role="alert" tabindex="-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5h.01"/></svg>
+          <p data-error-text></p>
         </div>
       </form>
-    </div>
-  </section>
+      </div>
 
-  <section class="container">
-    <div class="card">
-      <h3>Data protection (GDPR)</h3>
-      <p class="muted">
-        We only process necessary information on a lawful basis and according to the principle of data minimisation.
-        Sensitive documents should only be shared via an agreed secure channel. Contact us if in doubt.
-      </p>
+      <aside class="contact-aside" aria-label="Contact details">
+        <div class="info-card">
+          <h2>Company details</h2>
+          <p class="mb-4">Immigration Consulting is operated by S.A. Group ApS.</p>
+          <dl class="kv"><div><dt>Company</dt><dd>S.A. Group ApS</dd></div><div><dt>CVR/VAT</dt><dd><span class="mono">46842944</span></dd></div><div><dt>E-mail</dt><dd><a href="mailto:info@immigration-consulting.dk">info@immigration-consulting.dk</a></dd></div><div><dt>Phone</dt><dd><a href="tel:+4571341835">71 34 18 35</a></dd></div><div><dt>Hours</dt><dd>Weekdays 08:00–16:00</dd></div></dl>
+        </div>
+        <div class="info-card info-card--quiet">
+          <h2>Billing &amp; payment</h2>
+          <dl class="kv"><div><dt>Invoicing</dt><dd>Electronic (PDF/PEPPOL/EAN)</dd></div><div><dt>Terms</dt><dd>Net 8 days (unless otherwise agreed)</dd></div></dl>
+        </div>
+        <div class="info-card info-card--quiet">
+          <h2>Data protection (GDPR)</h2>
+          <p>We only process necessary information on a lawful basis and according to the principle of data minimisation. Sensitive documents should only be shared via an agreed secure channel. Contact us if in doubt.</p>
+          <p class="mt-3"><a href="/en/privacy.html">Read the privacy policy</a></p>
+        </div>
+      </aside>
     </div>
   </section>
 </main>
 
-<footer>
-  © 2025 Immigration Consulting – Work permit consulting and international recruitment
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/en/index.html" aria-label="Immigration Consulting – Home">
+      <span class="brand__mark" aria-hidden="true">IC</span>
+      <span class="brand__text">
+        <span class="brand__name">Immigration Consulting</span>
+        <span class="brand__tagline">Your shortcut to work permits</span>
+      </span>
+    </a>
+        <p class="footer-desc">Work permit consulting and international recruitment</p>
+      </div>
+      <nav aria-label="Footer pages">
+        <h2 class="footer-title">Pages</h2>
+        <ul class="footer-list">
+          <li><a href="/en/index.html">Home</a></li>
+          <li><a href="/en/services.html">Services</a></li>
+          <li><a href="/en/about.html">About us</a></li>
+          <li><a href="/en/contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="footer-title">Contact</h2>
+        <ul class="footer-list">
+          <li><a href="mailto:info@immigration-consulting.dk">info@immigration-consulting.dk</a></li>
+          <li><a href="tel:+4571341835">71 34 18 35</a></li>
+          <li><span>Weekdays 08:00–16:00</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Language</h2>
+        <div class="lang-switch" role="group" aria-label="Choose language">
+        <a href="/kontakt.html" hreflang="da" lang="da"><span aria-hidden="true">DA</span><span class="sr-only">Dansk</span></a>
+        <span class="lang-switch__sep" aria-hidden="true"></span>
+        <a href="/en/contact.html" hreflang="en" lang="en" aria-current="true"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a>
+      </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> S.A. Group ApS · CVR 46842944</p>
+      <ul class="footer-legal">
+        <li><a href="/en/privacy.html">Privacy policy</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
-<script>
-  // Language dropdown
-  const langSwitch=document.getElementById('langSwitch');
-  if(langSwitch){
-    const btn=langSwitch.querySelector('.lang-btn');
-    const open=(o)=>{ langSwitch.classList.toggle('open',o); btn.setAttribute('aria-expanded', o?'true':'false'); };
-    btn.addEventListener('click',()=>open(!langSwitch.classList.contains('open')));
-    document.addEventListener('click',e=>{ if(!langSwitch.contains(e.target)) open(false); });
-  }
-
-  // Mobile drawer
-  const drawer=document.getElementById('drawer');
-  const backdrop=document.getElementById('backdrop');
-  const menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){
-    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
-    drawer.classList.toggle('open',open);
-    backdrop.classList.toggle('show',open);
-    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
-    drawer.setAttribute('aria-hidden',open?'false':'true');
-  }
-  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
-
-  // Inline Netlify success
-  (function(){
-    function encodeFormData(fd){
-      const p = new URLSearchParams();
-      for (const [k,v] of fd.entries()) p.append(k, v);
-      return p.toString();
-    }
-    document.addEventListener('submit', async function(e){
-      const form = e.target;
-      if(!(form instanceof HTMLFormElement)) return;
-      if(!form.matches('[data-netlify][data-inline-success]')) return;
-      e.preventDefault();
-
-      const successBox = form.querySelector('.form-success');
-      const submitBtn  = form.querySelector('button[type="submit"]');
-
-      const fd = new FormData(form);
-      if(!fd.get('form-name')){
-        const fn = form.getAttribute('name');
-        if(fn) fd.append('form-name', fn);
-      }
-
-      if(submitBtn) submitBtn.disabled = true;
-      try{
-        const res = await fetch('/', {
-          method: 'POST',
-          headers: {'Content-Type':'application/x-www-form-urlencoded'},
-          body: encodeFormData(fd)
-        });
-        if(res.ok){
-          form.reset();
-          if(successBox){
-            successBox.hidden = false;
-            successBox.scrollIntoView({behavior:'smooth', block:'center'});
-          }
-        }else{
-          alert('There was an error sending the form. Please try again in a moment.');
-        }
-      }catch(err){
-        alert('Could not send the form right now. Check your connection and try again.');
-      }finally{
-        if(submitBtn) submitBtn.disabled = false;
-      }
-    }, {capture:true});
-  })();
-</script>
 </body>
 </html>
