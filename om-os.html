@@ -1,387 +1,239 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="da">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Om os – Immigration Consulting</title>
-
-<!-- SEO: unik beskrivelse for Om os -->
 <meta name="description" content="Målrettet rådgivning om arbejdstilladelser. Lille, specialiseret virksomhed med myndighedsnær erfaring – bl.a. fra SIRI. Tryg proces og klare leverancer.">
+<link rel="canonical" href="https://immigration-consulting.dk/om-os.html">
+<link rel="alternate" href="https://immigration-consulting.dk/om-os.html" hreflang="da">
+<link rel="alternate" href="https://immigration-consulting.dk/en/about.html" hreflang="en">
+<link rel="alternate" href="https://immigration-consulting.dk/" hreflang="x-default">
 
-<!-- Open Graph til deling på sociale medier -->
-<meta property="og:title" content="Om os – Immigration Consulting" />
-<meta property="og:description" content="Lille, specialiseret virksomhed med erfaring fra SIRI. Vi leverer korrekt opsatte sager og en tryg, gennemsigtig proces." />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://immigration-consulting.dk/om-os.html" />
-<meta property="og:image" content="https://immigration-consulting.dk/og-image.jpg" />
+<meta property="og:title" content="Om os – Immigration Consulting">
+<meta property="og:description" content="Målrettet rådgivning om arbejdstilladelser. Lille, specialiseret virksomhed med myndighedsnær erfaring – bl.a. fra SIRI. Tryg proces og klare leverancer.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://immigration-consulting.dk/om-os.html">
+<meta property="og:site_name" content="Immigration Consulting">
+<meta property="og:locale" content="da_DK">
+<meta name="twitter:card" content="summary">
 
-<!-- Midlertidigt favicon (skiftes ud når logo er klar) -->
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 ry=%2216%22 fill=%22%231f3a8a%22/><text x=%2250%22 y=%2270%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial,sans-serif%22>IC</text></svg>">
-
-<style>
-  :root{
-    --ink:#0f172a;
-    --muted:#64748b;
-    --blue:#1f3a8a;        /* rolig, mørk blå (samme som forsiden) */
-    --blue-soft:#dfe6ff;
-    --mint:#10b981;
-    --line:#e5e7eb;
-    --soft:#f6f8fb;
-    --shadow:0 8px 24px rgba(2,6,23,.10);
-  }
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1060px;margin:0 auto;padding:0 20px}
-
-  /* Header / Navigation */
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0}
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
-  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
-
-  /* Højregruppe holder nav + sprog + burger samlet */
-  .desktop-right{display:flex;align-items:center;gap:12px}
-
-  /* Desktop: direkte links */
-  .desktop-links{
-    display:none;
-    gap:18px;
-    align-items:center;
-    font-weight:700;
-  }
-  .desktop-links a{
-    padding:10px 12px;
-    border-radius:10px;
-  }
-  .desktop-links a:hover{
-    background:var(--soft);
-    color:var(--blue);
-  }
-
-  /* ===== Sprog-klode ===== */
-  .lang{position:relative;margin-left:10px}
-  .lang-btn{
-    display:inline-grid;place-items:center;
-    width:38px;height:38px;
-    border:1px solid var(--line);
-    background:#fff;border-radius:10px;cursor:pointer;
-  }
-  .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{
-    position:absolute;right:0;top:46px;
-    background:#fff;border:1px solid var(--line);border-radius:10px;
-    box-shadow:var(--shadow);padding:8px;min-width:150px;display:none;z-index:65
-  }
-  .lang.open .lang-menu{display:block}
-  .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
-  .lang-menu a:hover{background:var(--soft);color:var(--blue)}
-
-  /* Mobil burger */
-  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
-  .menu-burger svg{width:22px;height:22px}
-
-  @media(min-width:900px){
-    .menu-burger{display:none}
-    .desktop-links{display:flex}
-  }
-
-  /* Off-canvas + backdrop */
-  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
-  .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:280px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
-  .mobile-drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
-
-  /* Hero */
-  .hero{
-    position:relative;min-height:360px;color:#fff;text-align:center;display:flex;align-items:center;justify-content:center;
-    background:
-      linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
-      url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')
-      center/cover no-repeat;
-  }
-  .hero-inner{max-width:900px;padding:20px}
-  .hero h2{font-size:36px;margin:0 0 10px}
-  .hero p{font-size:18px;margin:0}
-
-  /* Sections */
-  section{padding:56px 20px}
-  h3{margin:0 0 16px}
-  .lead{font-size:18px;color:var(--muted);margin-top:8px}
-
-  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:22px;box-shadow:var(--shadow)}
-  .pill{display:inline-block;background:var(--blue-soft);color:var(--blue);font-weight:800;border-radius:999px;padding:6px 12px;margin-bottom:10px}
-  .muted{color:var(--muted)}
-  .values{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .value{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .value h4{margin:0 0 8px;color:var(--blue)}
-
-  /* Retningslinjer */
-  .guidelines{background:var(--soft)}
-  .rules{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .rule{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .rule h4{margin:0 0 8px;color:var(--blue)}
-  .rule ul{margin:8px 0 0 18px;color:var(--muted)}
-
-  /* FAQ */
-  .faq{background:#fff}
-  details{background:#fff;border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:0;margin:10px 0}
-  summary{cursor:pointer;padding:16px 18px;font-weight:700;list-style:none;}
-  details p{padding:0 18px 16px 18px;color:var(--muted);margin:0}
-  summary::-webkit-details-marker{display:none}
-
-  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-
-  @media(max-width:900px){
-    .values,.grid-2,.rules{grid-template-columns:1fr}
-    .hero h2{font-size:28px}
-  }
-  html{scroll-behavior:smooth}
-</style>
+<meta name="theme-color" content="#12233F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' ry='20' fill='%2312233F'/%3E%3Ctext x='50' y='64' font-size='42' font-weight='700' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EIC%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="/assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+<script src="/assets/js/site.js" defer></script>
 </head>
 <body>
 
-<header>
-  <div class="nav container">
-    <a class="brand" href="/" aria-label="Forside">
-      <div class="logo">IC</div>
-      <div class="meta">
-        <h1>Immigration Consulting</h1>
-        <div class="tagline">Din genvej til arbejdstilladelse</div>
-      </div>
+<a class="skip-link" href="#main">Spring til indhold</a>
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="/" aria-label="Immigration Consulting – Forside">
+      <span class="brand__mark" aria-hidden="true">IC</span>
+      <span class="brand__text">
+        <span class="brand__name">Immigration Consulting</span>
+        <span class="brand__tagline">Din genvej til arbejdstilladelser</span>
+      </span>
     </a>
 
-    <!-- HØJREGRUPPE: nav + sprog + burger (holder menuen tæt på kloden) -->
-    <div class="desktop-right">
-      <!-- Desktop: direkte links (FAQ ikke med) -->
-      <nav class="desktop-links" aria-label="Primær navigation">
-        <a href="/">Forside</a>
-        <a href="/ydelser.html">Ydelser</a>
-        <a href="/om-os.html">Om os</a>
-        <a href="/kontakt.html">Kontakt</a>
-      </nav>
-
-      <!-- Sprog-klode -->
-      <div class="lang" id="langSwitch" aria-label="Sprog">
-        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Vælg sprog">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" stroke-width="2"/>
-            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-          </svg>
-        </button>
-        <div class="lang-menu" role="menu">
-          <a href="#" role="menuitem">Dansk</a>
-          <a href="/en/about.html" role="menuitem">English</a>
-        </div>
+    <div class="header-actions">
+      <div class="lang-switch" role="group" aria-label="Vælg sprog">
+        <a href="/om-os.html" hreflang="da" lang="da" aria-current="true"><span aria-hidden="true">DA</span><span class="sr-only">Dansk</span></a>
+        <span class="lang-switch__sep" aria-hidden="true"></span>
+        <a href="/en/about.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a>
       </div>
-
-      <!-- Mobilmenu (FAQ ikke med) -->
-      <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-nav" aria-expanded="false"
+              aria-label="Åbn menu" data-label-open="Åbn menu" data-label-close="Luk menu">
+        <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 6l12 12M18 6L6 18"/></svg>
       </button>
     </div>
+
+    <nav class="site-nav" id="site-nav" aria-label="Primær navigation">
+      <ul class="site-nav__list">
+        <li><a class="site-nav__link" href="/">Forside</a></li>
+        <li><a class="site-nav__link" href="/ydelser.html">Ydelser</a></li>
+        <li><a class="site-nav__link" href="/om-os.html" aria-current="page">Om os</a></li>
+        <li class="site-nav__item--cta"><a class="btn btn--primary btn--sm" href="/kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
-<aside class="mobile-drawer" id="drawer" aria-hidden="true">
-  <div class="drawer-head">
-    <span>Menu</span>
-    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
-  </div>
-  <nav class="drawer-links">
-    <a href="/" onclick="toggleDrawer(false)">Forside</a>
-    <a href="/ydelser.html" onclick="toggleDrawer(false)">Ydelser</a>
-    <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
-    <a href="/kontakt.html" onclick="toggleDrawer(false)">Kontakt</a>
-  </nav>
-</aside>
-
-<main>
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-inner">
-      <h2>Om os</h2>
-      <p>En lille, målrettet virksomhed – med stor erfaring fra den anden side af skranken.</p>
-    </div>
-  </section>
-
-  <!-- Vores historie -->
-  <section class="container">
-    <span class="pill">Vores historie</span>
-    <h3>Små på størrelse. Store på fokus.</h3>
-    <p class="lead">
-      Immigration Consulting er skabt med én enkel idé: Når vi fokuserer på færre, veldefinerede opgaver, kan vi levere bedre,
-      hurtigere og mere trygge forløb. Vi er en lille, specialiseret enhed – og det er et bevidst valg.
-    </p>
-    <div class="grid-2" style="margin-top:16px">
-      <div class="card">
-        <h4>Hvorfor lille og målrettet?</h4>
-        <p class="muted">
-          Vi siger hellere nej til en opgave, end at slække på kvaliteten. Ved at være selektive kan vi fordybe os, kende detaljerne
-          i netop jeres sag – og stå på mål for et forløb, der føles gennemtænkt fra start til slut.
-        </p>
-      </div>
-      <div class="card">
-        <h4>Erfaring fra den anden side</h4>
-        <p class="muted">
-          Vores rådgivere og konsulenter har mange års myndighedsnær erfaring – bl.a. fra SIRI. Vi kender processerne,
-          dokumentkravene og faldgruberne til punkt og prikke, fordi vi har siddet med sagerne på den anden side.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Værdier -->
-  <section class="container">
-    <span class="pill">Vores principper</span>
-    <h3>Det vi lover – hver gang</h3>
-    <div class="values">
-      <div class="value">
-        <h4>Korrekt grundlag</h4>
-        <p class="muted">Alt starter med dokumenttjek og klare forudsætninger. Det reducerer risiko og sparer tid.</p>
-      </div>
-      <div class="value">
-        <h4>Rollefordeling & ro</h4>
-        <p class="muted">I bruger tiden på driften – vi tager ansøgning, opfølgning og dialogen med myndighederne.</p>
-      </div>
-      <div class="value">
-        <h4>Gennemsigtighed</h4>
-        <p class="muted">Faste rammer og tydelige leverancer. Status undervejs. Ingen skjulte gebyrer.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Retningslinjer (før FAQ) -->
-  <section class="guidelines">
+<main id="main" tabindex="-1">
+  <section class="page-hero">
     <div class="container">
-      <span class="pill">Retningslinjer</span>
-      <h3>Sådan sikrer vi en tryg og korrekt proces</h3>
-      <div class="rules">
-        <div class="rule">
-          <h4>1) Rådgivningens omfang</h4>
-          <ul>
-            <li>Vi er rådgivere/konsulenter. Vi træffer ikke afgørelser og er ikke en myndighed.</li>
-            <li>Vi udfylder og indsender ansøgninger (fx AR1/AR6 og AR3/AR7) og koordinerer dialogen – biometri og personligt fremmøde håndteres hos SIRI.</li>
-            <li>Vi kan indsende på fuldmagt, hvor det er relevant.</li>
-          </ul>
-        </div>
-        <div class="rule">
-          <h4>2) Myndighedskrav & biometrik</h4>
-          <ul>
-            <li>Ikke-EU/EØS-ansøgere skal have optaget biometriske data ved ansøgning/forlængelse; tid bestilles hos SIRI.</li>
-            <li>Myndighedsgebyrer betales direkte til SIRI af ansøger/arbejdsgiver.</li>
-          </ul>
-        </div>
-        <div class="rule">
-          <h4>3) Nye ansøgninger (AR1/AR6)</h4>
-          <ul>
-            <li>Vi kvalitetssikrer kontrakt, løn og vilkår op mod den relevante ordning og indsender korrekt materiale fra start.</li>
-            <li>Ved fuldmagt kan arbejdsgiver/tredjepart indsende på vegne af ansøger.</li>
-          </ul>
-        </div>
-        <div class="rule">
-          <h4>4) Forlængelser (AR3/AR7)</h4>
-          <ul>
-            <li>Betingelserne skal fortsat være opfyldt (fx samme arbejdsgiver/stilling, korrekt løn).</li>
-            <li>Vi anbefaler at starte i god tid før udløb for at undgå afbrydelse.</li>
-          </ul>
-        </div>
-        <div class="rule">
-          <h4>5) Dokumentation & sandhedspligt</h4>
-          <ul>
-            <li>Kunden indestår for rigtigheden af alle oplysninger og bilag.</li>
-            <li>Vi oplyser, hvis yderligere dokumentation/oversættelse er nødvendig.</li>
-          </ul>
-        </div>
-        <div class="rule">
-          <h4>6) Databeskyttelse (GDPR)</h4>
-          <ul>
-            <li>Vi behandler kun nødvendige oplysninger med lovligt grundlag og praktiserer dataminimering og adgangsstyring.</li>
-            <li>Sletning/arkivering efter klare frister. Aftaler med databehandlere og passende sikkerhedsniveau.</li>
-          </ul>
-        </div>
-        <div class="rule">
-          <h4>7) Priser & ansvar</h4>
-          <ul>
-            <li>Priser kommunikeres klart før opstart. Myndighedsgebyrer er separate.</li>
-            <li>Vi kan ikke garantere udfald eller sagsbehandlingstider (afgørelser træffes af SIRI).</li>
-          </ul>
-        </div>
-        <div class="rule">
-          <h4>8) Etik & interessekonflikter</h4>
-          <ul>
-            <li>Vi påtager os ikke sager med åbenbare interessekonflikter og henviser ved behov til uafhængig rådgivning.</li>
-            <li>Vi arbejder fair og respektfuldt over for ansøgere, virksomheder og myndigheder.</li>
-          </ul>
-        </div>
-      </div>
-      <p class="muted" style="margin-top:14px">
-        Bemærk: Regler og praksis opdateres løbende. Vi rådgiver altid efter de til enhver tid gældende retningslinjer hos nyidanmark.dk/SIRI.
-      </p>
+      <h1>Om os</h1>
+      <p class="lead">En lille, målrettet virksomhed – med stor erfaring fra den anden side af skranken.</p>
     </div>
   </section>
 
-  <!-- FAQ (ligger stadig nederst, men ikke i menuen) -->
-  <section class="faq" id="faq">
+  <section class="section section--surface" aria-labelledby="story-title">
+    <div class="container story">
+      <div class="section-head">
+        <span class="eyebrow">Vores historie</span>
+        <h2 id="story-title">Små på størrelse. Store på fokus.</h2>
+        <p>Immigration Consulting er skabt med én enkel idé: Når vi fokuserer på færre, veldefinerede opgaver, kan vi levere bedre, hurtigere og mere trygge forløb. Vi er en lille, specialiseret enhed – og det er et bevidst valg.</p>
+      </div>
+      <div class="story__columns">
+        <div>
+          <h3>Hvorfor lille og målrettet?</h3>
+          <p>Vi siger hellere nej til en opgave, end at slække på kvaliteten. Ved at være selektive kan vi fordybe os, kende detaljerne i netop jeres sag – og stå på mål for et forløb, der føles gennemtænkt fra start til slut.</p>
+        </div>
+        <div>
+          <h3>Erfaring fra den anden side</h3>
+          <p>Vores rådgivere og konsulenter har mange års myndighedsnær erfaring – bl.a. fra SIRI. Vi kender processerne, dokumentkravene og faldgruberne til punkt og prikke, fordi vi har siddet med sagerne på den anden side.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="principles-title">
     <div class="container">
-      <span class="pill">FAQ</span>
-      <h3>Ofte stillede spørgsmål</h3>
+      <div class="section-head">
+        <span class="eyebrow">Vores principper</span>
+        <h2 id="principles-title">Det vi lover – hver gang</h2>
+      </div>
+      <ul class="principles">
+        <li><h3>Korrekt grundlag</h3><p>Alt starter med dokumenttjek og klare forudsætninger. Det reducerer risiko og sparer tid.</p></li><li><h3>Rollefordeling &amp; ro</h3><p>I bruger tiden på driften – vi tager ansøgning, opfølgning og dialogen med myndighederne.</p></li><li><h3>Gennemsigtighed</h3><p>Faste rammer og tydelige leverancer. Status undervejs. Ingen skjulte gebyrer.</p></li>
+      </ul>
+    </div>
+  </section>
 
-      <details>
-        <summary>Hvor hurtigt kan vi starte?</summary>
-        <p>Typisk samme hverdag, når vi har jeres kontaktoplysninger og grunddata på sagen.</p>
-      </details>
+  <section class="section section--surface" id="retningslinjer" aria-labelledby="rules-title">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <span class="eyebrow">Retningslinjer</span>
+        <h2 id="rules-title">Sådan sikrer vi en tryg og korrekt proces</h2>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">01</span><span class="accordion__title">Rådgivningens omfang</span></summary>
+          <div class="accordion__body"><ul><li>Vi er rådgivere/konsulenter. Vi træffer ikke afgørelser og er ikke en myndighed.</li><li>Vi udfylder og indsender ansøgninger (fx AR1/AR6 og AR3/AR7) og koordinerer dialogen – biometri og personligt fremmøde håndteres hos SIRI.</li><li>Vi kan indsende på fuldmagt, hvor det er relevant.</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">02</span><span class="accordion__title">Myndighedskrav &amp; biometrik</span></summary>
+          <div class="accordion__body"><ul><li>Ikke-EU/EØS-ansøgere skal have optaget biometriske data ved ansøgning/forlængelse; tid bestilles hos SIRI.</li><li>Myndighedsgebyrer betales direkte til SIRI af ansøger/arbejdsgiver.</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">03</span><span class="accordion__title">Nye ansøgninger (AR1/AR6)</span></summary>
+          <div class="accordion__body"><ul><li>Vi kvalitetssikrer kontrakt, løn og vilkår op mod den relevante ordning og indsender korrekt materiale fra start.</li><li>Ved fuldmagt kan arbejdsgiver/tredjepart indsende på vegne af ansøger.</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">04</span><span class="accordion__title">Forlængelser (AR3/AR7)</span></summary>
+          <div class="accordion__body"><ul><li>Betingelserne skal fortsat være opfyldt (fx samme arbejdsgiver/stilling, korrekt løn).</li><li>Vi anbefaler at starte i god tid før udløb for at undgå afbrydelse.</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">05</span><span class="accordion__title">Dokumentation &amp; sandhedspligt</span></summary>
+          <div class="accordion__body"><ul><li>Kunden indestår for rigtigheden af alle oplysninger og bilag.</li><li>Vi oplyser, hvis yderligere dokumentation/oversættelse er nødvendig.</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">06</span><span class="accordion__title">Databeskyttelse (GDPR)</span></summary>
+          <div class="accordion__body"><ul><li>Vi behandler kun nødvendige oplysninger med lovligt grundlag og praktiserer dataminimering og adgangsstyring.</li><li>Sletning/arkivering efter klare frister. Aftaler med databehandlere og passende sikkerhedsniveau.</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">07</span><span class="accordion__title">Priser &amp; ansvar</span></summary>
+          <div class="accordion__body"><ul><li>Priser kommunikeres klart før opstart. Myndighedsgebyrer er separate.</li><li>Vi kan ikke garantere udfald eller sagsbehandlingstider (afgørelser træffes af SIRI).</li></ul></div>
+        </details>
+        <details>
+          <summary><span class="accordion__num" aria-hidden="true">08</span><span class="accordion__title">Etik &amp; interessekonflikter</span></summary>
+          <div class="accordion__body"><ul><li>Vi påtager os ikke sager med åbenbare interessekonflikter og henviser ved behov til uafhængig rådgivning.</li><li>Vi arbejder fair og respektfuldt over for ansøgere, virksomheder og myndigheder.</li></ul></div>
+        </details>
+      </div>
+      <p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg><span>Bemærk: Regler og praksis opdateres løbende. Vi rådgiver altid efter de til enhver tid gældende retningslinjer hos <a href="https://www.nyidanmark.dk/da/" rel="noopener">nyidanmark.dk</a>/SIRI.</span></p>
+    </div>
+  </section>
 
-      <details>
-        <summary>Hvad skal vi sende til jer?</summary>
-        <p>Jobtilbud/kontrakt, kontaktdata på virksomhed og medarbejder samt relevante dokumenter (pas m.m.). Vi sender tjekliste.</p>
-      </details>
+  <section class="section" id="faq" aria-labelledby="faq-title">
+    <div class="container container--narrow">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2 id="faq-title">Ofte stillede spørgsmål</h2>
+      </div>
+      <div class="accordion">
+        <details>
+          <summary><span class="accordion__title">Hvor hurtigt kan vi starte?</span></summary>
+          <div class="accordion__body"><p>Typisk samme hverdag, når vi har jeres kontaktoplysninger og grunddata på sagen.</p></div>
+        </details>
+        <details>
+          <summary><span class="accordion__title">Hvad skal vi sende til jer?</span></summary>
+          <div class="accordion__body"><p>Jobtilbud/kontrakt, kontaktdata på virksomhed og medarbejder samt relevante dokumenter (pas m.m.). Vi sender tjekliste.</p></div>
+        </details>
+        <details>
+          <summary><span class="accordion__title">Håndterer I biometri eller myndighedsgebyrer?</span></summary>
+          <div class="accordion__body"><p>Nej – som rådgivere håndterer vi ansøgning, dokumentation og opfølgning. Biometri/afgifter håndteres hos SIRI.</p></div>
+        </details>
+        <details>
+          <summary><span class="accordion__title">Kan vi få et møde?</span></summary>
+          <div class="accordion__body"><p>Ja. Planlagt rådgivning koster 987 kr. eks. moms pr. time. Mange kommer godt i gang via en gratis indledende afklaring pr. formular.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
 
-      <details>
-        <summary>Håndterer I biometri eller myndighedsgebyrer?</summary>
-        <p>Nej – som rådgivere håndterer vi ansøgning, dokumentation og opfølgning. Biometri/afgifter håndteres hos SIRI.</p>
-      </details>
-
-      <details>
-        <summary>Kan vi få et møde?</summary>
-        <p>Ja. Planlagt rådgivning koster 987 kr. eks. moms pr. time. Mange kommer godt i gang via en gratis indledende afklaring pr. formular.</p>
-      </details>
+  <section class="section section--tight">
+    <div class="container">
+      <div class="cta-panel">
+        <div>
+          <h2>Har I en konkret sag?</h2>
+          <p>Skriv eller ring – vi svarer typisk samme hverdag kl. 8–16.</p>
+        </div>
+        <a class="btn btn--primary" href="/kontakt.html">Kontakt os</a>
+      </div>
     </div>
   </section>
 </main>
 
-<footer>
-  © 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/" aria-label="Immigration Consulting – Forside">
+      <span class="brand__mark" aria-hidden="true">IC</span>
+      <span class="brand__text">
+        <span class="brand__name">Immigration Consulting</span>
+        <span class="brand__tagline">Din genvej til arbejdstilladelser</span>
+      </span>
+    </a>
+        <p class="footer-desc">Rådgivning om arbejdstilladelser og international rekruttering</p>
+      </div>
+      <nav aria-label="Sider i footer">
+        <h2 class="footer-title">Sider</h2>
+        <ul class="footer-list">
+          <li><a href="/">Forside</a></li>
+          <li><a href="/ydelser.html">Ydelser</a></li>
+          <li><a href="/om-os.html" aria-current="page">Om os</a></li>
+          <li><a href="/kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2 class="footer-title">Kontakt</h2>
+        <ul class="footer-list">
+          <li><a href="mailto:info@immigration-consulting.dk">info@immigration-consulting.dk</a></li>
+          <li><a href="tel:+4571341835">71 34 18 35</a></li>
+          <li><span>Hverdage 08:00–16:00</span></li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="footer-title">Sprog</h2>
+        <div class="lang-switch" role="group" aria-label="Vælg sprog">
+        <a href="/om-os.html" hreflang="da" lang="da" aria-current="true"><span aria-hidden="true">DA</span><span class="sr-only">Dansk</span></a>
+        <span class="lang-switch__sep" aria-hidden="true"></span>
+        <a href="/en/about.html" hreflang="en" lang="en"><span aria-hidden="true">EN</span><span class="sr-only">English</span></a>
+      </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span data-year>2026</span> S.A. Group ApS · CVR 46842944</p>
+      <ul class="footer-legal">
+        <li><a href="/privatlivspolitik.html">Privatlivspolitik</a></li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
-<script>
-  // Sprog-klode (toggle)
-  const langSwitch=document.getElementById('langSwitch');
-  if(langSwitch){
-    const btn=langSwitch.querySelector('.lang-btn');
-    const open=(o)=>{ langSwitch.classList.toggle('open',o); btn.setAttribute('aria-expanded', o?'true':'false'); };
-    btn.addEventListener('click',()=>open(!langSwitch.classList.contains('open')));
-    document.addEventListener('click',e=>{ if(!langSwitch.contains(e.target)) open(false); });
-  }
-
-  // Mobil drawer
-  const drawer=document.getElementById('drawer');
-  const backdrop=document.getElementById('backdrop');
-  const menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){
-    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
-    drawer.classList.toggle('open',open);
-    backdrop.classList.toggle('show',open);
-    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
-    drawer.setAttribute('aria-hidden',open?'false':'true');
-  }
-  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
-</script>
 </body>
 </html>
