@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google-site-verification" content="Nn6uQ1e_KspNJguZtL-yAKy2TcGXb15PsgEThNwapkY" />
 
 <title>Ydelser – Immigration Consulting</title>
 <meta name="description" content="Vi hjælper med arbejdstilladelser – nye ansøgninger og forlængelser. Korrekt opsat sag, færre fejl og en tryg proces hele vejen.">
@@ -31,125 +32,27 @@
 <meta name="twitter:description" content="Vi hjælper med arbejdstilladelser – nye ansøgninger og forlængelser." />
 <meta name="twitter:image" content="https://immigration-consulting.dk/og-image.jpg" />
 
-<!-- Midlertidigt favicon -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' ry='20' fill='%231f3a8a'/%3E%3Ctext x='50' y='60' font-size='45' text-anchor='middle' fill='white' font-family='Arial, Helvetica, sans-serif'%3EIC%3C/text%3E%3C/svg%3E">
-
-<style>
-  :root{
-    --ink:#0f172a;
-    --muted:#64748b;
-    --blue:#1f3a8a;
-    --blue-soft:#dfe6ff;
-    --mint:#10b981;
-    --line:#e5e7eb;
-    --soft:#f6f8fb;
-    --shadow:0 8px 24px rgba(2,6,23,.10);
-  }
-
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1060px;margin:0 auto;padding:0 20px}
-
-  /* Header */
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
-  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
-
-  /* Højregruppe */
-  .desktop-right{display:flex;align-items:center;gap:14px}
-
-  /* Desktop: direkte links */
-  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700;}
-  .desktop-links a{padding:10px 12px;border-radius:10px;}
-  .desktop-links a:hover{background:var(--soft);color:var(--blue);}
-
-  /* Sprogskifter */
-  .lang{position:relative}
-  .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
-  .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:150px;z-index:65}
-  .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
-  .lang-menu a:hover{background:var(--soft);color:var(--blue)}
-  .lang.open .lang-menu{display:block}
-
-  /* Mobil: burger & drawer */
-  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
-  .menu-burger svg{width:22px;height:22px}
-  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
-  .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:320px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
-  .mobile-drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
-  .drawer-lang{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
-  .drawer-lang a{display:block;padding:8px 10px;border-radius:8px}
-
-  /* Hero */
-  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
-  .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
-  .muted{color:var(--muted)}
-
-  /* Sektioner */
-  section{padding:36px 20px}
-  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
-  .list{margin:10px 0 0;padding-left:18px;color:var(--muted)}
-  .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:var(--blue-soft);color:var(--blue);font-weight:700;font-size:12px;margin-left:8px}
-
-  /* CTA & formular */
-  .cta-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow);text-align:center}
-  .cta-btn{display:inline-block;margin-top:10px;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none}
-  .cta-sub{font-size:13px;color:var(--muted);margin-top:8px}
-
-  .form-wrap{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:var(--shadow)}
-  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  input,textarea,select{width:100%;padding:14px 12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-  textarea{min-height:120px;resize:vertical}
-  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:#1f3a8a;color:#fff;font-weight:800;border:none;cursor:pointer}
-
-  /* Steps & chips */
-  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-  .step{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px;box-shadow:var(--shadow)}
-  .step-title{display:block;margin-bottom:6px;color:var(--blue)}
-  .tick{display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--mint);color:#fff;font-weight:900;margin-right:8px}
-
-  .chips{display:flex;flex-wrap:wrap;gap:10px}
-  .chip{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink)}
-
-  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-
-  @media(max-width:900px){
-    .grid,.steps{grid-template-columns:1fr}
-    .row{grid-template-columns:1fr}
-  }
-  @media(min-width:900px){
-    .menu-burger{display:none;}
-    .desktop-links{display:flex;}
-    .mobile-drawer,.backdrop{display:none !important;}
-  }
-
-  html{scroll-behavior:smooth}
-</style>
+<meta name="theme-color" content="#0d2b24">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 
-<header>
+<a class="skip-link" href="#indhold">Spring til indhold</a>
+
+<header class="site-header">
   <div class="nav container">
-    <a class="brand" href="/" aria-label="Forside">
-      <div class="logo">IC</div>
-      <div class="meta">
-        <h1>Immigration Consulting</h1>
-        <div class="tagline">Din genvej til arbejdstilladelse</div>
-      </div>
+    <a class="brand" href="/" aria-label="Immigration Consulting – forside">
+      <span class="logo" aria-hidden="true">IC</span>
+      <span class="meta">
+        <span class="brand-name">Immigration Consulting</span>
+        <span class="tagline">Din genvej til arbejdstilladelse</span>
+      </span>
     </a>
 
-    <div class="desktop-right">
-      <!-- Desktop: direkte links -->
+    <div class="nav-right">
       <nav class="desktop-links" aria-label="Primær navigation">
         <a href="/">Forside</a>
         <a href="/ydelser.html" aria-current="page">Ydelser</a>
@@ -157,189 +60,242 @@
         <a href="/kontakt.html">Kontakt</a>
       </nav>
 
-      <!-- Sprogskifter -->
-      <div class="lang" id="langSwitch" aria-label="Sprog">
-        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Vælg sprog">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" stroke-width="2"/>
-            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-          </svg>
+      <div class="lang" id="langSwitch">
+        <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Vælg sprog">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20"/></svg>
         </button>
         <div class="lang-menu" role="menu">
-          <a href="#" role="menuitem">Dansk</a>
-          <a href="/en/services.html" role="menuitem">English</a>
+          <a href="/ydelser.html" role="menuitem" hreflang="da" lang="da" aria-current="true">Dansk</a>
+          <a href="/en/services.html" role="menuitem" hreflang="en" lang="en">English</a>
         </div>
       </div>
 
-      <!-- Mobil: burger -->
-      <button class="menu-burger" id="menuBurger" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <a class="btn btn-primary btn-sm nav-cta" href="#start">Bliv kontaktet</a>
+
+      <button class="menu-burger" id="menuBurger" type="button" aria-label="Åbn menu" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
       </button>
     </div>
   </div>
 </header>
 
 <!-- Mobil drawer -->
-<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
+<div class="backdrop" id="backdrop"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobilmenu">
   <div class="drawer-head">
     <span>Menu</span>
-    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Luk menu">✕</button>
+    <button class="menu-burger" type="button" data-drawer-close aria-label="Luk menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <nav class="drawer-links">
-    <a href="/" onclick="toggleDrawer(false)">Forside</a>
-    <a href="/ydelser.html" onclick="toggleDrawer(false)" aria-current="page">Ydelser</a>
-    <a href="/om-os.html" onclick="toggleDrawer(false)">Om os</a>
-    <a href="/kontakt.html" onclick="toggleDrawer(false)">Kontakt</a>
+    <a href="/" data-drawer-close>Forside</a>
+    <a href="/ydelser.html" data-drawer-close aria-current="page">Ydelser</a>
+    <a href="/om-os.html" data-drawer-close>Om os</a>
+    <a href="/kontakt.html" data-drawer-close>Kontakt</a>
     <div class="drawer-lang">
       <strong>Sprog</strong>
-      <a href="#" onclick="toggleDrawer(false);return false;">Dansk</a>
-      <a href="/en/services.html" onclick="toggleDrawer(false)">English</a>
+      <a href="/ydelser.html" hreflang="da" lang="da" data-drawer-close>Dansk</a>
+      <a href="/en/services.html" hreflang="en" lang="en" data-drawer-close>English</a>
     </div>
   </nav>
+  <a class="btn btn-primary drawer-cta" href="#start" data-drawer-close>Bliv kontaktet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </aside>
 
-<main>
+<main id="indhold">
   <!-- HERO -->
   <section class="page-hero">
-    <div class="container">
-      <h2>Ydelser</h2>
-      <p class="muted">Vi håndterer både nye ansøgninger og forlængelser – fra dokumenttjek til indsendelse og dialog med SIRI.</p>
+    <div class="container page-hero-split">
+      <div>
+        <span class="eyebrow light reveal">Ydelser</span>
+        <h1 class="reveal" data-delay="1">Ydelser</h1>
+        <p class="reveal" data-delay="2">Vi håndterer både nye ansøgninger og forlængelser – fra dokumenttjek til indsendelse og dialog med SIRI.</p>
+        <div class="hero-actions reveal" data-delay="3"><a class="btn btn-primary" href="#start">Bliv kontaktet gratis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      </div>
+      <div class="page-hero-img">
+        <img src="/assets/img/dokumentgennemgang-1100.webp" srcset="/assets/img/dokumentgennemgang-640.webp 640w, /assets/img/dokumentgennemgang-1100.webp 1100w" sizes="(min-width: 960px) 560px, 92vw" alt="Rådgiver gennemgår ansøgningsdokumenter sammen med en international kunde" width="1100" height="738" fetchpriority="high">
+      </div>
     </div>
   </section>
 
   <!-- Services -->
-  <section class="container">
-    <div class="grid">
-      <div class="card">
-        <h3>Nye ansøgninger <span class="pill">AR1/AR6</span></h3>
-        <p class="muted">Vi sætter sagen korrekt op fra start, så I undgår fejl og forsinkelser.</p>
-        <ul class="list">
-          <li>Kontrakt- og lønkravstjek</li>
-          <li>Udfyldelse og indsendelse af AR1/AR6</li>
-          <li>Tjeklister og indsamling af dokumentation</li>
-          <li>Dialog og opfølgning med SIRI</li>
-          <li>Status til virksomheden frem til afgørelse</li>
-        </ul>
-      </div>
-      <div class="card">
-        <h3>Forlængelser <span class="pill">AR3/AR7</span></h3>
-        <p class="muted">Tryg forlængelse af eksisterende opholds- og arbejdstilladelser.</p>
-        <ul class="list">
-          <li>Tjek af vilkår, ansættelsesændringer og frister</li>
-          <li>Udfyldelse og indsendelse af AR3/AR7</li>
-          <li>Opdaterede dokumenter og krav</li>
-          <li>Koordination og svar til SIRI</li>
-          <li>Status til virksomheden frem til afgørelse</li>
-        </ul>
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <article class="card card-hover service reveal" data-delay="1">
+          <div class="service-top"><h2 class="display" style="font-size:30px">Nye ansøgninger</h2><span class="pill">AR1/AR6</span></div>
+          <p class="muted">Vi sætter sagen korrekt op fra start, så I undgår fejl og forsinkelser.</p>
+          <ul class="list">
+            <li>Kontrakt- og lønkravstjek</li>
+            <li>Udfyldelse og indsendelse af AR1/AR6</li>
+            <li>Tjeklister og indsamling af dokumentation</li>
+            <li>Dialog og opfølgning med SIRI</li>
+            <li>Status til virksomheden frem til afgørelse</li>
+          </ul>
+        </article>
+        <article class="card card-hover service reveal" data-delay="2">
+          <div class="service-top"><h2 class="display" style="font-size:30px">Forlængelser</h2><span class="pill">AR3/AR7</span></div>
+          <p class="muted">Tryg forlængelse af eksisterende opholds- og arbejdstilladelser.</p>
+          <ul class="list">
+            <li>Tjek af vilkår, ansættelsesændringer og frister</li>
+            <li>Udfyldelse og indsendelse af AR3/AR7</li>
+            <li>Opdaterede dokumenter og krav</li>
+            <li>Koordination og svar til SIRI</li>
+            <li>Status til virksomheden frem til afgørelse</li>
+          </ul>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- CTA – Gratis vejledning -->
-  <section class="container">
-    <div class="cta-wrap">
-      <h3>Få gratis vejledning fra en rådgiver</h3>
-      <p class="muted">Send jeres kontaktoplysninger – vi svarer typisk samme hverdag 8–16.</p>
-      <a class="cta-btn" href="#start">Bliv kontaktet gratis</a>
-      <div class="cta-sub">* Ønsker I et planlagt møde (telefon/online) med dybdegående rådgivning, er taksten 987 kr. eks. moms pr. time.</div>
+  <section class="section-tight" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <div>
+          <span class="eyebrow light">Gratis vejledning</span>
+          <h2>Få gratis vejledning fra en rådgiver</h2>
+          <p>Send jeres kontaktoplysninger – vi svarer typisk samme hverdag 8–16.</p>
+          <p class="cta-sub">* Ønsker I et planlagt møde (telefon/online) med dybdegående rådgivning, er taksten 987 kr. eks. moms pr. time.</p>
+        </div>
+        <a class="btn btn-primary" href="#start">Bliv kontaktet gratis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
     </div>
   </section>
 
   <!-- Steps -->
-  <section class="container">
-    <h3>Sådan arbejder vi</h3>
-    <div class="steps">
-      <div class="step"><span class="step-title">1. Foranalyse</span><p><span class="tick">✔</span>Kontrakttjek, lønkrav, ordning og tidslinje.</p></div>
-      <div class="step"><span class="step-title">2. Ansøgning</span><p><span class="tick">✔</span>Indsamling af dokumenter, AR1/AR6 eller AR3/AR7 indsendes.</p></div>
-      <div class="step"><span class="step-title">3. Opfølgning</span><p><span class="tick">✔</span>Dialog med SIRI og løbende status til jer til afgørelse.</p></div>
+  <section class="section bg-sand">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Arbejdsgang</span>
+        <h2>Sådan arbejder vi</h2>
+      </div>
+      <ol class="mini-steps">
+        <li class="mini-step reveal" data-delay="1"><span class="n">1.</span><h3>Foranalyse</h3><p>Kontrakttjek, lønkrav, ordning og tidslinje.</p></li>
+        <li class="mini-step reveal" data-delay="2"><span class="n">2.</span><h3>Ansøgning</h3><p>Indsamling af dokumenter, AR1/AR6 eller AR3/AR7 indsendes.</p></li>
+        <li class="mini-step reveal" data-delay="3"><span class="n">3.</span><h3>Opfølgning</h3><p>Dialog med SIRI og løbende status til jer til afgørelse.</p></li>
+      </ol>
+      <p style="margin-top:28px" class="reveal"><a class="link-arrow" href="/#proces">Se hele processen trin for trin <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
     </div>
   </section>
 
   <!-- Sektorer -->
-  <section class="container">
-    <h3>Vi hjælper især</h3>
-    <div class="chips" style="margin-bottom:10px">
-      <div class="chip">Restauranter & hoteller</div>
-      <div class="chip">Bygge & anlæg</div>
-      <div class="chip">Produktion & logistik</div>
-      <div class="chip">IT & tekniske fag</div>
-      <div class="chip">Rengøring & facility</div>
+  <section class="section">
+    <div class="container narrow">
+      <div class="section-head reveal" style="margin-bottom:28px">
+        <span class="eyebrow">Brancher</span>
+        <h2>Vi hjælper især</h2>
+      </div>
+      <ul class="chips reveal">
+        <li class="chip"><img src="/assets/img/branche-restaurant-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Restauranter & hoteller</li>
+        <li class="chip"><img src="/assets/img/branche-construction-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Bygge & anlæg</li>
+        <li class="chip"><img src="/assets/img/branche-production-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Produktion & logistik</li>
+        <li class="chip"><img src="/assets/img/branche-it-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">IT & tekniske fag</li>
+        <li class="chip"><img src="/assets/img/branche-cleaning-420.webp" alt="" width="36" height="36" loading="lazy" decoding="async">Rengøring & facility</li>
+      </ul>
+      <p class="lead reveal">Vores rådgivning bygger på myndighedsnær indsigt og praktisk erfaring med sagsforløb hos SIRI. Det giver færre fejl, bedre dokumentation og en mere forudsigelig proces for både virksomheden og medarbejderen.</p>
     </div>
-    <p class="muted">
-      Vores rådgivning bygger på myndighedsnær indsigt og praktisk erfaring med sagsforløb hos SIRI.
-      Det giver færre fejl, bedre dokumentation og en mere forudsigelig proces for både virksomheden og medarbejderen.
-    </p>
   </section>
 
   <!-- Kontaktformular -->
-  <section class="container" id="start">
-    <div class="form-wrap">
-      <h3>Bliv kontaktet</h3>
-      <p class="muted">Udfyld felterne – vi vender tilbage samme hverdag 8–16.</p>
-
-      <!-- Netlify Forms (genbruger det samme formularnavn som DA-forsiden, der allerede virker) -->
-      <form name="contact-request-home-da"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            class="form">
+  <section class="section bg-paper divider-top" id="start">
+    <div class="container narrow">
+      <div class="form-card reveal">
+        <span class="eyebrow">Kontakt</span>
+        <h2>Bliv kontaktet</h2>
+        <p class="muted">Udfyld felterne – vi vender tilbage samme hverdag 8–16.</p>
+        <form name="contact-request-home-da" method="POST" data-netlify="true" data-inline-success="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="contact-request-home-da" />
-        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <p class="hp"><label>Udfyld ikke dette felt: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
         <div class="row">
-          <input type="text"  name="navn"     placeholder="Dit navn" required />
-          <input type="email" name="email"    placeholder="Din e-mail" required />
+          <div class="field">
+            <label for="svc-navn">Dit navn</label>
+            <input id="svc-navn" type="text" name="navn" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="svc-email">Din e-mail</label>
+            <input id="svc-email" type="email" name="email" autocomplete="email" required />
+          </div>
         </div>
         <div class="row">
-          <input type="text"  name="firma"    placeholder="Virksomhed" />
-          <input type="tel"   name="telefon"  placeholder="Telefon" />
+          <div class="field">
+            <label for="svc-firma">Virksomhed <span class="opt">(valgfri)</span></label>
+            <input id="svc-firma" type="text" name="firma" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="svc-telefon">Telefon <span class="opt">(valgfri)</span></label>
+            <input id="svc-telefon" type="tel" name="telefon" autocomplete="tel" />
+          </div>
         </div>
-        <textarea name="besked" placeholder="Kort om sagen (stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato)"></textarea>
+        <div class="field">
+          <label for="svc-besked">Kort om sagen</label>
+          <textarea id="svc-besked" name="besked" placeholder="Stilling, nationalitet, ny ansøgning eller forlængelse, ønsket startdato"></textarea>
+        </div>
 
-        <div style="margin-top:12px;display:flex;gap:12px;align-items:center;justify-content:flex-start">
-          <button class="submit" type="submit">Send</button>
-          <span class="muted">* Planlagt møde med rådgiver: 987 kr. eks. moms pr. time.</span>
+        <div class="form-actions">
+          <button class="btn btn-dark" type="submit">Send <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="muted">* Planlagt møde med rådgiver: 987 kr. eks. moms pr. time.</p>
+        </div>
+
+        <div class="form-success" hidden role="status" aria-live="polite">
+          <h4>Tak for din besked!</h4>
+          <p>Din henvendelse er sendt.</p>
         </div>
       </form>
+      </div>
     </div>
   </section>
 
   <!-- Skjult template form (sikrer autodetektion ved deploy) -->
   <form name="contact-request-home-da" data-netlify="true" netlify-honeypot="bot-field" hidden>
     <input type="text" name="navn" />
-    <input type="email" name="email" />
+    <input type="text" name="email" />
+    <input type="text" name="firma" />
+    <input type="text" name="telefon" />
     <textarea name="besked"></textarea>
   </form>
 </main>
 
-<footer>
-  © 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/" aria-label="Immigration Consulting – forside">
+      <span class="logo" aria-hidden="true">IC</span>
+      <span class="meta">
+        <span class="brand-name">Immigration Consulting</span>
+        <span class="tagline">Din genvej til arbejdstilladelse</span>
+      </span>
+    </a>
+        <p>Rådgivning om arbejdstilladelser og international rekruttering. Vi håndterer nye ansøgninger og forlængelser – fra dokumenttjek til dialog med SIRI.</p>
+      </div>
+      <nav aria-label="Sider">
+        <h2>Sider</h2>
+        <ul>
+          <li><a href="/">Forside</a></li>
+          <li><a href="/ydelser.html">Ydelser</a></li>
+          <li><a href="/om-os.html">Om os</a></li>
+          <li><a href="/kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Kontakt</h2>
+        <ul>
+          <li><a href="mailto:info@immigration-consulting.dk">info@immigration-consulting.dk</a></li>
+          <li><a href="tel:+4571341835">+45 71 34 18 35</a></li>
+          <li>Hverdage 08:00–16:00</li>
+          <li><a href="/kontakt.html#skriv-til-os">Skriv til os</a></li>
+          <li><a href="/en/services.html" hreflang="en">English</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Immigration Consulting – Rådgivning om arbejdstilladelser og international rekruttering · S.A. Group ApS · CVR 46842944</span>
+      <span>Afgørelser træffes af SIRI – vi er rådgivere, ikke en myndighed.</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-  // Sprogskifter
-  const langSwitch = document.getElementById('langSwitch');
-  if(langSwitch){
-    const btn = langSwitch.querySelector('.lang-btn');
-    function openLang(open){ langSwitch.classList.toggle('open',open); btn.setAttribute('aria-expanded', open?'true':'false'); }
-    btn.addEventListener('click', ()=> openLang(!langSwitch.classList.contains('open')));
-    document.addEventListener('click', (e)=>{ if(!langSwitch.contains(e.target)) openLang(false); });
-  }
-
-  // Mobil drawer
-  const drawer=document.getElementById('drawer');
-  const backdrop=document.getElementById('backdrop');
-  const menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){
-    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
-    drawer.classList.toggle('open',open);
-    backdrop.classList.toggle('show',open);
-    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
-    drawer.setAttribute('aria-hidden',open?'false':'true');
-  }
-  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
-</script>
+<script src="/assets/js/site.js" defer></script>
 
 <!-- JSON-LD: Organization -->
 <script type="application/ld+json">
@@ -347,8 +303,20 @@
   "@context":"https://schema.org",
   "@type":"Organization",
   "name":"Immigration Consulting",
+  "legalName":"S.A. Group ApS",
   "url":"https://immigration-consulting.dk/",
   "logo":"https://immigration-consulting.dk/og-image.jpg",
+  "email":"info@immigration-consulting.dk",
+  "telephone":"+45 71 34 18 35",
+  "identifier":{"@type":"PropertyValue","propertyID":"CVR","value":"46842944"},
+  "contactPoint":{
+    "@type":"ContactPoint",
+    "contactType":"customer service",
+    "email":"info@immigration-consulting.dk",
+    "telephone":"+45 71 34 18 35",
+    "availableLanguage":["da","en"],
+    "hoursAvailable":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"08:00","closes":"16:00"}
+  },
   "sameAs":[]
 }
 </script>
