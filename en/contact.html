@@ -3,9 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="google-site-verification" content="Nn6uQ1e_KspNJguZtL-yAKy2TcGXb15PsgEThNwapkY" />
 
 <title>Contact – Immigration Consulting</title>
-<meta name="description" content="Contact Immigration Consulting for work permit guidance. Find e-mail, phone, address, CVR/VAT and payment details. We typically respond the same business day 8–16." />
+<meta name="description" content="Contact Immigration Consulting for work permit guidance. Find e-mail, phone, CVR and invoicing details. We typically respond the same business day 8–16." />
 <meta name="author" content="Immigration Consulting" />
 
 <!-- Canonical + hreflang -->
@@ -31,211 +32,148 @@
 <!-- Temporary favicon (blue IC) -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2216%22 ry=%2216%22 fill=%22%231f3a8a%22/><text x=%2250%22 y=%2270%22 font-size=%2250%22 text-anchor=%22middle%22 fill=%22white%22 font-family=%22Arial,sans-serif%22>IC</text></svg>">
 
-<style>
-  :root{
-    --ink:#0f172a;
-    --muted:#64748b;
-    --blue:#1f3a8a;
-    --blue-soft:#dfe6ff;
-    --mint:#10b981;
-    --line:#e5e7eb;
-    --soft:#f6f8fb;
-    --shadow:0 8px 24px rgba(2,6,23,.10);
-  }
-
-  *{box-sizing:border-box}
-  body{margin:0;font-family:Inter,system-ui,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff}
-  a{text-decoration:none;color:inherit}
-  .container{max-width:1060px;margin:0 auto;padding:0 20px}
-
-  header{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);z-index:60}
-  .nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0;gap:12px}
-  .brand{display:flex;align-items:center;gap:12px}
-  .logo{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#eaf3ff,#eef8f5);display:grid;place-items:center;box-shadow:var(--shadow);font-weight:900;color:var(--blue)}
-  .meta h1{font-size:18px;margin:0;line-height:1;font-weight:800}
-  .tagline{font-size:13px;font-weight:700;color:var(--mint)}
-
-  .desktop-right{display:flex;align-items:center;gap:14px}
-  .desktop-links{display:none;gap:18px;align-items:center;font-weight:700}
-  .desktop-links a{padding:10px 12px;border-radius:10px}
-  .desktop-links a:hover{background:var(--soft);color:var(--blue)}
-
-  .lang{position:relative}
-  .lang-btn{display:inline-grid;place-items:center;width:38px;height:38px;border:1px solid var(--line);background:#fff;border-radius:10px;cursor:pointer}
-  .lang-btn:hover{box-shadow:var(--shadow)}
-  .lang-menu{position:absolute;right:0;top:46px;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:var(--shadow);padding:8px;display:none;min-width:150px;z-index:65}
-  .lang-menu a{display:block;padding:8px 10px;border-radius:8px;font-weight:700}
-  .lang-menu a:hover{background:var(--soft);color:var(--blue)}
-  .lang.open .lang-menu{display:block}
-
-  .menu-burger{display:block;appearance:none;border:1px solid var(--line);background:#fff;border-radius:10px;padding:8px 10px}
-  .menu-burger svg{width:22px;height:22px}
-
-  .backdrop{position:fixed;inset:0;background:rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:opacity .25s ease;z-index:55}
-  .backdrop.show{opacity:1;pointer-events:auto}
-  .mobile-drawer{position:fixed;inset:0 0 0 auto;width:320px;background:#fff;border-left:1px solid var(--line);transform:translateX(100%);transition:transform .25s ease;z-index:60;box-shadow:var(--shadow);padding:16px}
-  .mobile-drawer.open{transform:translateX(0)}
-  .drawer-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-  .drawer-links{display:flex;flex-direction:column;gap:12px;font-weight:700}
-  .drawer-lang{margin-top:14px;border-top:1px solid var(--line);padding-top:12px}
-
-  .page-hero{padding:56px 20px;background:linear-gradient(180deg,#f7faff,#ffffff)}
-  .page-hero h2{margin:0 0 8px;font-size:34px;color:var(--ink)}
-  .muted{color:var(--muted)}
-
-  section{padding:36px 20px}
-  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
-  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:var(--shadow)}
-  .card h3{margin:0 0 8px;color:var(--blue);font-weight:700}
-  .kv{display:grid;grid-template-columns:140px 1fr;gap:10px;margin:10px 0}
-  .kv span{color:var(--muted)}
-  .mono{font-variant-numeric:tabular-nums}
-
-  .form-bar{background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px}
-  .form-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
-  .form-bar input,.form-bar textarea{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;font:inherit}
-  .form-bar textarea{min-height:100px;resize:vertical}
-  .submit{display:inline-block;padding:12px 18px;border-radius:10px;background:var(--blue);color:#fff;font-weight:800;border:none;cursor:pointer}
-
-  footer{border-top:1px solid var(--line);padding:18px 20px;text-align:center;color:#64748b;font-size:14px}
-
-  @media(max-width:900px){
-    .grid-2{grid-template-columns:1fr}
-    .kv{grid-template-columns:120px 1fr}
-    .form-grid{grid-template-columns:1fr 1fr}
-  }
-  @media(min-width:900px){
-    .menu-burger{display:none;}
-    .desktop-links{display:flex;}
-    .mobile-drawer,.backdrop{display:none !important;}
-  }
-
-  .form-success{
-    border:1px solid var(--line);
-    border-radius:12px;
-    box-shadow:var(--shadow);
-    background:#fff;
-    padding:16px;
-    margin-top:12px;
-  }
-  .form-success h4{ margin:0 0 6px; color:var(--blue); }
-  .form-success p{ margin:0; color:var(--muted); }
-
-  html{scroll-behavior:smooth}
-</style>
+<meta name="theme-color" content="#0d2b24">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
 </head>
 <body>
 
-<header>
+<a class="skip-link" href="#indhold">Skip to content</a>
+
+<header class="site-header">
   <div class="nav container">
-    <a class="brand" href="/en/index.html" aria-label="Home">
-      <div class="logo">IC</div>
-      <div class="meta">
-        <h1>Immigration Consulting</h1>
-        <div class="tagline">Your shortcut to work permits</div>
-      </div>
+    <a class="brand" href="/en/index.html" aria-label="Immigration Consulting – home">
+      <span class="logo" aria-hidden="true">IC</span>
+      <span class="meta">
+        <span class="brand-name">Immigration Consulting</span>
+        <span class="tagline">Your shortcut to work permits</span>
+      </span>
     </a>
 
-    <div class="desktop-right">
+    <div class="nav-right">
       <nav class="desktop-links" aria-label="Main navigation">
         <a href="/en/index.html">Home</a>
         <a href="/en/services.html">Services</a>
         <a href="/en/about.html">About us</a>
-        <a href="/en/contact.html">Contact</a>
+        <a href="/en/contact.html" aria-current="page">Contact</a>
       </nav>
 
       <div class="lang" id="langSwitch">
-        <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-            <circle cx="12" cy="12" r="10" stroke-width="2"/>
-            <path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20" stroke-width="2"/>
-          </svg>
+        <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Choose language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2c3 4 3 16 0 20M12 2c-3 4-3 16 0 20"/></svg>
         </button>
         <div class="lang-menu" role="menu">
-          <a href="/kontakt.html">Dansk</a>
-          <a href="/en/contact.html">English</a>
+          <a href="/kontakt.html" role="menuitem" hreflang="da" lang="da">Dansk</a>
+          <a href="/en/contact.html" role="menuitem" hreflang="en" lang="en" aria-current="true">English</a>
         </div>
       </div>
 
-      <button class="menu-burger" id="menuBurger" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <a class="btn btn-primary btn-sm nav-cta" href="#write-to-us">Get contacted</a>
+
+      <button class="menu-burger" id="menuBurger" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
       </button>
     </div>
   </div>
 </header>
 
-<div class="backdrop" id="backdrop" onclick="toggleDrawer(false)"></div>
+<!-- Mobil drawer -->
+<div class="backdrop" id="backdrop"></div>
 <aside class="mobile-drawer" id="drawer" aria-hidden="true" aria-label="Mobile menu">
   <div class="drawer-head">
     <span>Menu</span>
-    <button class="menu-burger" onclick="toggleDrawer(false)" aria-label="Close menu">✕</button>
+    <button class="menu-burger" type="button" data-drawer-close aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
   </div>
   <nav class="drawer-links">
-    <a href="/en/index.html" onclick="toggleDrawer(false)">Home</a>
-    <a href="/en/services.html" onclick="toggleDrawer(false)">Services</a>
-    <a href="/en/about.html" onclick="toggleDrawer(false)">About us</a>
-    <a href="/en/contact.html" onclick="toggleDrawer(false)">Contact</a>
+    <a href="/en/index.html" data-drawer-close>Home</a>
+    <a href="/en/services.html" data-drawer-close>Services</a>
+    <a href="/en/about.html" data-drawer-close>About us</a>
+    <a href="/en/contact.html" data-drawer-close aria-current="page">Contact</a>
     <div class="drawer-lang">
       <strong>Language</strong>
-      <a href="/kontakt.html" onclick="toggleDrawer(false)">Dansk</a>
-      <a href="/en/contact.html" onclick="toggleDrawer(false)">English</a>
+      <a href="/kontakt.html" hreflang="da" lang="da" data-drawer-close>Dansk</a>
+      <a href="/en/contact.html" hreflang="en" lang="en" data-drawer-close>English</a>
     </div>
   </nav>
+  <a class="btn btn-primary drawer-cta" href="#write-to-us" data-drawer-close>Get contacted <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
 </aside>
 
-<main>
+<main id="indhold">
+  <!-- HERO -->
   <section class="page-hero">
     <div class="container">
-      <h2>Contact</h2>
-      <p class="muted">Write or call – we typically respond the same business day 8–16.</p>
+      <span class="eyebrow light reveal">Contact</span>
+      <h1 class="reveal" data-delay="1">Contact</h1>
+      <p class="reveal" data-delay="2">Write or call – we typically respond the same business day 8–16.</p>
+      <div class="hero-actions reveal" data-delay="3"><a class="btn btn-primary" href="#write-to-us">Write to us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
   </section>
 
-  <section class="container">
-    <div class="grid-2">
-      <div class="card">
-        <h3>Company details</h3>
-        <div class="kv"><span>Company</span><div>Immigration Consulting ApS*</div></div>
-        <div class="kv"><span>CVR/VAT</span><div class="mono">*********</div></div>
-        <div class="kv"><span>Address</span><div>*********, *********, *********</div></div>
-        <div class="kv"><span>E-mail</span><div><a href="mailto:kontakt@immigrationconsulting.dk">kontakt@immigrationconsulting.dk*</a></div></div>
-        <div class="kv"><span>Phone</span><div><a href="tel:+45XXXXXXXX">+45 ** ** ** **</a>*</div></div>
-        <div class="kv"><span>Hours</span><div>Weekdays 08:00–16:00</div></div>
-      </div>
-
-      <div class="card">
-        <h3>Billing & payment</h3>
-        <div class="kv"><span>Invoicing</span><div>Electronic (PDF/PEPPOL/EAN)</div></div>
-        <div class="kv"><span>EAN</span><div class="mono">**************</div></div>
-        <div class="kv"><span>Reg./Account</span><div class="mono">** ** ** / ****************</div></div>
-        <div class="kv"><span>IBAN</span><div class="mono">DK** ******************</div></div>
-        <div class="kv"><span>BIC/SWIFT</span><div class="mono">********</div></div>
-        <div class="kv"><span>Terms</span><div>Net 8 days* (unless otherwise agreed)</div></div>
+  <!-- Kontaktinformationer -->
+  <section class="section">
+    <div class="container">
+      <div class="grid-2">
+        <article class="card reveal" data-delay="1">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18M5 21V5l7-2v18M19 21V9l-7-2"/><path d="M8.5 8h.01M8.5 12h.01M8.5 16h.01M15.5 12h.01M15.5 16h.01"/></svg></div>
+          <h2 style="font-family:var(--sans);font-size:22px;font-weight:700;margin-bottom:12px">Company details</h2>
+          <div class="kv"><span>Brand name</span><div>Immigration Consulting</div></div>
+          <div class="kv"><span>Legal name</span><div>S.A. Group ApS</div></div>
+          <div class="kv"><span>CVR</span><div><span class="mono">46842944</span></div></div>
+          <div class="kv"><span>E-mail</span><div><a href="mailto:info@immigration-consulting.dk">info@immigration-consulting.dk</a></div></div>
+          <div class="kv"><span>Phone</span><div><a href="tel:+4571341835">+45 71 34 18 35</a></div></div>
+          <div class="kv"><span>Hours</span><div>Weekdays 08:00–16:00</div></div>
+        </article>
+        <article class="card reveal" data-delay="2">
+          <div class="card-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg></div>
+          <h2 style="font-family:var(--sans);font-size:22px;font-weight:700;margin-bottom:12px">Billing & payment</h2>
+          <div class="kv"><span>Invoicing</span><div>Electronic invoicing (PDF/PEPPOL/EAN)</div></div>
+          <div class="kv"><span>Terms</span><div>Net 8 days, unless otherwise agreed</div></div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="container" id="write-to-us">
-    <div class="form-bar">
-      <h3 style="margin:0 0 10px;color:var(--blue)">Write to us</h3>
-      <form name="quick-contact-en"
-            method="POST"
-            data-netlify="true"
-            data-inline-success="true"
-            netlify-honeypot="bot-field">
+  <!-- Skriv til os -->
+  <section class="section bg-paper divider-top" id="write-to-us">
+    <div class="container narrow">
+      <div class="form-card reveal">
+        <span class="eyebrow">Inquiry</span>
+        <h2>Write to us</h2>
+        <p class="muted">Write your questions or a short description – we typically reply the same business day 8–16.</p>
+        <form name="quick-contact-en" method="POST" data-netlify="true" data-inline-success="true" netlify-honeypot="bot-field" class="form">
         <input type="hidden" name="form-name" value="quick-contact-en" />
-        <p style="display:none"><label>Don’t fill this out: <input name="bot-field" /></label></p>
+        <p class="hp"><label>Don’t fill this out: <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
 
-        <div class="form-grid">
-          <input type="text"   name="name"     placeholder="Your name" required />
-          <input type="tel"    name="phone"    placeholder="Phone" />
-          <input type="text"   name="company"  placeholder="Company" />
-          <input type="email"  name="email"    placeholder="Your e-mail" required />
+        <div class="row">
+          <div class="field">
+            <label for="kontakt-name">Your name</label>
+            <input id="kontakt-name" type="text" name="name" autocomplete="name" required />
+          </div>
+          <div class="field">
+            <label for="kontakt-email">Your e-mail</label>
+            <input id="kontakt-email" type="email" name="email" autocomplete="email" required />
+          </div>
         </div>
-        <textarea name="message" placeholder="Write your questions or a short description (position, nationality, new application/extension, desired start date)"></textarea>
+        <div class="row">
+          <div class="field">
+            <label for="kontakt-company">Company <span class="opt">(optional)</span></label>
+            <input id="kontakt-company" type="text" name="company" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="kontakt-phone">Phone <span class="opt">(optional)</span></label>
+            <input id="kontakt-phone" type="tel" name="phone" autocomplete="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="kontakt-message">Your message</label>
+          <textarea id="kontakt-message" name="message" placeholder="Write your questions or a short description (position, nationality, new application/extension, desired start date)"></textarea>
+        </div>
 
-        <div style="margin-top:12px">
-          <button class="submit" type="submit">Send</button>
+        <div class="form-actions">
+          <button class="btn btn-dark" type="submit">Send <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          
         </div>
 
         <div class="form-success" hidden role="status" aria-live="polite">
@@ -243,92 +181,73 @@
           <p>Your message has been sent.</p>
         </div>
       </form>
+      </div>
     </div>
   </section>
 
-  <section class="container">
-    <div class="card">
-      <h3>Data protection (GDPR)</h3>
-      <p class="muted">
-        We only process necessary information on a lawful basis and according to the principle of data minimisation.
-        Sensitive documents should only be shared via an agreed secure channel. Contact us if in doubt.
-      </p>
+  <!-- Databeskyttelse -->
+  <section class="section-tight">
+    <div class="container narrow">
+      <div class="card reveal" style="display:flex;gap:20px;align-items:flex-start">
+        <div class="card-icon" style="flex:0 0 48px;margin:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg></div>
+        <div>
+          <h2 style="font-family:var(--sans);font-size:20px;font-weight:700;margin-bottom:8px">Data protection (GDPR)</h2>
+          <p class="muted">We only process necessary information on a lawful basis and according to the principle of data minimisation. Sensitive documents should only be shared via an agreed secure channel. Contact us if in doubt.</p>
+        </div>
+      </div>
     </div>
   </section>
+
+  <!-- Skjult “template form” til Netlify auto-detektion -->
+  <form name="quick-contact-en" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="text" name="email" />
+    <input type="text" name="company" />
+    <input type="text" name="phone" />
+    <textarea name="message"></textarea>
+  </form>
 </main>
 
-<footer>
-  © 2025 Immigration Consulting – Work permit consulting and international recruitment
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="/en/index.html" aria-label="Immigration Consulting – home">
+      <span class="logo" aria-hidden="true">IC</span>
+      <span class="meta">
+        <span class="brand-name">Immigration Consulting</span>
+        <span class="tagline">Your shortcut to work permits</span>
+      </span>
+    </a>
+        <p>Work permit consulting and international recruitment. We handle new applications and extensions – from document checks to dialogue with SIRI.</p>
+      </div>
+      <nav aria-label="Pages">
+        <h2>Pages</h2>
+        <ul>
+          <li><a href="/en/index.html">Home</a></li>
+          <li><a href="/en/services.html">Services</a></li>
+          <li><a href="/en/about.html">About us</a></li>
+          <li><a href="/en/contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <div>
+        <h2>Contact</h2>
+        <ul>
+          <li><a href="mailto:info@immigration-consulting.dk">info@immigration-consulting.dk</a></li>
+          <li><a href="tel:+4571341835">+45 71 34 18 35</a></li>
+          <li>Weekdays 08:00–16:00</li>
+          <li><a href="/en/contact.html#write-to-us">Write to us</a></li>
+          <li><a href="/kontakt.html" hreflang="da">Dansk</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Immigration Consulting – Work permit consulting and international recruitment · S.A. Group ApS · CVR 46842944</span>
+      <span>Decisions are made by SIRI – we are advisors, not an authority.</span>
+    </div>
+  </div>
 </footer>
 
-<script>
-  // Language dropdown
-  const langSwitch=document.getElementById('langSwitch');
-  if(langSwitch){
-    const btn=langSwitch.querySelector('.lang-btn');
-    const open=(o)=>{ langSwitch.classList.toggle('open',o); btn.setAttribute('aria-expanded', o?'true':'false'); };
-    btn.addEventListener('click',()=>open(!langSwitch.classList.contains('open')));
-    document.addEventListener('click',e=>{ if(!langSwitch.contains(e.target)) open(false); });
-  }
-
-  // Mobile drawer
-  const drawer=document.getElementById('drawer');
-  const backdrop=document.getElementById('backdrop');
-  const menuBurger=document.getElementById('menuBurger');
-  function toggleDrawer(state){
-    const open=typeof state==='boolean'?state:!drawer.classList.contains('open');
-    drawer.classList.toggle('open',open);
-    backdrop.classList.toggle('show',open);
-    if(menuBurger){menuBurger.setAttribute('aria-expanded',open?'true':'false');}
-    drawer.setAttribute('aria-hidden',open?'false':'true');
-  }
-  if(menuBurger){menuBurger.addEventListener('click',()=>toggleDrawer());}
-
-  // Inline Netlify success
-  (function(){
-    function encodeFormData(fd){
-      const p = new URLSearchParams();
-      for (const [k,v] of fd.entries()) p.append(k, v);
-      return p.toString();
-    }
-    document.addEventListener('submit', async function(e){
-      const form = e.target;
-      if(!(form instanceof HTMLFormElement)) return;
-      if(!form.matches('[data-netlify][data-inline-success]')) return;
-      e.preventDefault();
-
-      const successBox = form.querySelector('.form-success');
-      const submitBtn  = form.querySelector('button[type="submit"]');
-
-      const fd = new FormData(form);
-      if(!fd.get('form-name')){
-        const fn = form.getAttribute('name');
-        if(fn) fd.append('form-name', fn);
-      }
-
-      if(submitBtn) submitBtn.disabled = true;
-      try{
-        const res = await fetch('/', {
-          method: 'POST',
-          headers: {'Content-Type':'application/x-www-form-urlencoded'},
-          body: encodeFormData(fd)
-        });
-        if(res.ok){
-          form.reset();
-          if(successBox){
-            successBox.hidden = false;
-            successBox.scrollIntoView({behavior:'smooth', block:'center'});
-          }
-        }else{
-          alert('There was an error sending the form. Please try again in a moment.');
-        }
-      }catch(err){
-        alert('Could not send the form right now. Check your connection and try again.');
-      }finally{
-        if(submitBtn) submitBtn.disabled = false;
-      }
-    }, {capture:true});
-  })();
-</script>
+<script src="/assets/js/site.js" defer></script>
 </body>
 </html>
